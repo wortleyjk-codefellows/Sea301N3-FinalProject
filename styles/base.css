@@ -9,7 +9,7 @@ section{
 
 input,select{
   border-style: none;
-  color: white;
+  /*color: white;*/
 }
 button {
   display: inline-block;

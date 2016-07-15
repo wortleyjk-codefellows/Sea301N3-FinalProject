@@ -51,9 +51,9 @@
     <section id="stage-1">
       <div id='stage-1-wrapper'>
         <h1>I would like to adopt a...</h1>
-        <button id='dog-btn'>DOG</button>
-        <button id='cat-btn'>CAT</button>
-        <button id='other-btn'>OTHER</button>
+        <button class="petButton" value='dog' id='dog-btn'>DOG</button>
+        <button class="petButton" value='cat' id='cat-btn'>CAT</button>
+        <button class="petButton" value='other' id='other-btn'>OTHER</button>
         <button id='search-pet-btn'>SEARCH</button>
       </div>
     </section>
@@ -63,7 +63,7 @@
         <form class="" action="index.html" method="post">
           <input type="text" name="miles" placeholder="miles">
           <p>from...</p>
-          <input type="text" name="zip" placeholder="zipcode">
+          <input id="zipFind" type="text" name="zip" placeholder="zipcode">
         </form>
         <button id='find-new-pet-btn'>Find me a new friend!</button>
       </div>

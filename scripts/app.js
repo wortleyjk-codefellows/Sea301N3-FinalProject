@@ -6,32 +6,36 @@
 
   pets.all = [];
 
-  pets.animal_wanted_click = function() {
-    $('#stage-1-wrapper').on('click', '.petButton', function(e) {
-      var $petWanted = $(this).val();
-      console.log($petWanted);
-    });
-  };
 
-  pets.requestPets = function(next) {
-    $.getJSON('http://api.petfinder.com/pet.find?format=json&key=8dc33d8c70fd213dc0874e9deaa0a2fd&location=' + $zipSearch + '&callback=?')
+  pets.requestPets = function(zip, animal) {
+    $.getJSON('http://api.petfinder.com/pet.find?format=json&key=8dc33d8c70fd213dc0874e9deaa0a2fd&location=' + zip + '&animal=' + animal + '&callback=?')
   .done(function(petApiData) {
     pets.all = [];
-    pets.all = petApiData;
-    //console.log(pets.all);
+    pets.all = petApiData.petfinder.pets.pet;
     console.log(petApiData.petfinder);
   }).fail(function(err)
   { alert('Error retrieving data!');
 });
 };
 
-  pets.searchClick = function() {
-    $('#findFriend').on('click', function() {
-      var $zipSearch = $('#zipFind').val();
-      console.log($zipSearch);
-      pets.requestPets();
-    })
-  };
+pets.animal_wanted_click = function() {
+  $('#stage-1-wrapper').on('click', '.petButton', function(e) {
+    var $petWanted = $(this).val();
+    pets.searchClick($petWanted);
+    // console.log($petWanted);
+  });
+};
+
+pets.searchClick = function(wanted) {
+  $('#find-new-pet-btn').on('click', function() {
+    var $zipSearch = $('#zipFind').val();
+    console.log($zipSearch);
+    // console.log($petWanted);
+    pets.requestPets($zipSearch, $petWanted);
+  })
+};
+
+
 
 
   // pets.with = function(attr) {

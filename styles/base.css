@@ -19,7 +19,7 @@ body {
   background-color: #82595D;
 }
 
-input,select,button {
+input,select,button, #filterResultsWrapper {
   border-style: none;
   color: white;
 }

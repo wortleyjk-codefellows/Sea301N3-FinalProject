@@ -50,10 +50,10 @@
     <section id="stage-1">
       <div id='stage-1-wrapper'>
         <h1>I would like to adopt a...</h1>
-        <input type='button' value='DOG'/>
-        <input type='button' value='CAT'/>
-        <input type='button' value='OTHER'/>
-        <input type='button' value='SEARCH'/>
+        <input class="petButton" type='button' value='DOG'/>
+        <input class="petButton" type='button' value='CAT'/>
+        <input class="petButton" type='button' value='OTHER'/>
+        <!-- <input id="startSearch"  type='button' value='SEARCH'/> -->
       </div>
     </section>
     <section id="searchSection">
@@ -61,9 +61,9 @@
       <form class="" action="index.html" method="post">
         <input type="text" name="miles" value="miles">
         <p>from...</p>
-        <input type="text" name="zip" value="zipcode">
+        <input id="zipField" type="text" name="zip" value="zipcode">
       </form>
-      <input type="button" name="findAFriend" value="Find me a new friend!">
+      <input id="findFriend" type="button" name="findAFriend" value="Find me a new friend!">
     </section>
     <section id="totalMatches">
       <div>
@@ -98,5 +98,8 @@
     </section>
   </main>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.amd.js"></script>
+  <script src="scripts/app.js">
+
+  </script>
   </body>
 </html>

@@ -1,3 +1,41 @@
+/*Base styles include setting heading sizes, default link styles, default font styles, and body backgrounds. There should be no need to use !important in a Base style.
+
+I highly recommended that you specify a body background. Some users may define their own background as something other than white. If you work off the expectation that the background will be white, your design may look broken. Worse, your font colour choice may clash with the user’s setting and make your site unusable.
+*/
 body {
-  background-color: gray;
+  background-color: #603838;
+  text-align: center;
 }
+
+h1 {
+
+}
+
+h2 {
+
+}
+
+p {
+
+}
+
+input,select,button {
+  background-color: #AE9181;
+  border-style: none;
+  color: white;
+}
+
+select {
+
+}
+
+a {
+  text-decoration: none;
+  color: #603838;
+}
+
+/*#E6C3AF mid peach
+#E9BDA4 light peach
+#AE9181 dark peach
+#603838 dark red
+#82595D light red*/

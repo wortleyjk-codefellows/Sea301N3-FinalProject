@@ -1,10 +1,13 @@
 body {
   background-color: #603838;
   text-align: center;
+  font-family: 'Telex', serif;
 }
 
 section{
   background-color: #AE9181;
+  height:100%;
+  width:100%;
 }
 
 input,select{
@@ -33,6 +36,7 @@ a {
 
 h1, h2, p {
   color: white;
+  font-family: 'Patua One' , serif;
 }
 
 /*#E6C3AF mid peach

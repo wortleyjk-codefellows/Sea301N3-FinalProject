@@ -5,14 +5,20 @@ body {
 
 section{
   background-color: #AE9181;
+  margin: 10px;
 }
 
 input,select{
   border-style: none;
+<<<<<<< HEAD
+=======
   /*color: white;*/
+>>>>>>> 8cb7bdbf84c1f77bb0b5f53b4d30296ccff59897
 }
+
 button {
   display: inline-block;
+  width: 200px;
   margin: 0 auto;
   padding: 5px 15px;
   font-size: 20px;
@@ -33,6 +39,11 @@ a {
 
 h1, h2, p {
   color: white;
+}
+
+.choice-container {
+  width: 100%;
+  margin: 10px;
 }
 
 /*#E6C3AF mid peach

@@ -3,26 +3,29 @@ body {
   text-align: center;
 }
 
-#stage-1-wrapper {
-  background-color: #E9BDA4;
-}
-
-#searchSectionWrapper {
-  background-color: #E6C3AF;
-}
-
-#newFriends {
+section{
   background-color: #AE9181;
 }
 
-#filterResultsWrapper {
-  background-color: #82595D;
-}
-
-input,select,button, #filterResultsWrapper {
+input,select{
   border-style: none;
   color: white;
 }
+button {
+  display: inline-block;
+  margin: 0 auto;
+  padding: 5px 15px;
+  font-size: 20px;
+  line-height: 1.8;
+  appearance: none;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+button:focus {
+  outline: none
+}
+
 a {
   text-decoration: none;
   color: white;

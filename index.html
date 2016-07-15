@@ -57,42 +57,48 @@
       </div>
     </section>
     <section id="searchSection">
-      <h1>and I am willing to travel...</h1>
-      <form class="" action="index.html" method="post">
-        <input type="text" name="miles" placeholder="miles">
-        <p>from...</p>
-        <input type="text" name="zip" placeholder="zipcode">
-      </form>
-      <input type="button" name="findAFriend" value="Find me a new friend!">
+      <div id="searchSectionWrapper">
+        <h1>and I am willing to travel...</h1>
+        <form class="" action="index.html" method="post">
+          <input type="text" name="miles" placeholder="miles">
+          <p>from...</p>
+          <input type="text" name="zip" placeholder="zipcode">
+        </form>
+        <input type="button" name="findAFriend" value="Find me a new friend!">
+      </div>
     </section>
     <section id="totalMatches">
-      <div>
+      <div id="newFriends">
         <h1>We found</h1>
         <h1 id="numMatches"></h1>
         <h1>potential new friends for you!</h1>
         <h1>We will need more information now to find you that special pet that you would love!</h1>
-      </div id="newFriends">
+      </div>
       <input type="button" name="ok" value="OK">
     </section>
     <section id="filterResults">
-      <p>I would like a new pet who is...</p>
-      <input type="checkbox" name="pet" value="Senior">Senior
-      <input type="checkbox" name="pet" value="Special_Needs">Special Needs
-      <select class="" name="">
-        <option value="Size of Pet">Size Of Pet</option>
-        <option value="Small">Small</option>
-        <option value="Medium">Medium</option>
-        <option value="Large">Large</option>
-      </select>
-      <form>
-        <input type="radio" name="gender" value="male">Male
-        <input type="radio" name="gender" value="female">Female
-      </form>
-      <button type="button" name="showMe">Show Me My New Friends!</button>
+      <div id="filterResultsWrapper">
+        <p>I would like a new pet who is...</p>
+        <input type="checkbox" name="pet" value="Senior">Senior
+        <input type="checkbox" name="pet" value="Special_Needs">Special Needs
+        <select class="" name="">
+          <option value="Size of Pet">Size Of Pet</option>
+          <option value="Small">Small</option>
+          <option value="Medium">Medium</option>
+          <option value="Large">Large</option>
+        </select>
+        <form>
+          <input type="radio" name="gender" value="male">Male
+          <input type="radio" name="gender" value="female">Female
+        </form>
+        <button type="button" name="showMe">Show Me My New Friends!</button>
+      </div>
     <section id="Animal_Detail">
-      <input type="button" name="Save" value="Save">
-      <input type="button" name="Adopted! Share!" value="Adopted! Share!">
-      <input type="button" name="Back to Results" value="Back to Results">
+      <div id="Animal_Detail_Wrapper">
+        <input type="button" name="Save" value="Save">
+        <input type="button" name="Adopted! Share!" value="Adopted! Share!">
+        <input type="button" name="Back to Results" value="Back to Results">
+      </div>
     </section>
     <section id="6">
     </section>

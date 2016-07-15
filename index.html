@@ -5,6 +5,7 @@
     <title>My Funny Friend and Me</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Patua+One|Telex|Russo+One' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="vendors/normalize.css">
     <link rel="stylesheet" href="styles/ionicons.css">
     <link rel="stylesheet" href="styles/base.css">
@@ -50,49 +51,55 @@
     <section id="stage-1">
       <div id='stage-1-wrapper'>
         <h1>I would like to adopt a...</h1>
-        <input class="petButton" type='button' value='DOG'/>
-        <input class="petButton" type='button' value='CAT'/>
-        <input class="petButton" type='button' value='OTHER'/>
-        <!-- <input id="startSearch"  type='button' value='SEARCH'/> -->
+        <button id='dog-btn'>DOG</button>
+        <button id='cat-btn'>CAT</button>
+        <button id='other-btn'>OTHER</button>
+        <button id='search-pet-btn'>SEARCH</button>
       </div>
     </section>
     <section id="searchSection">
-      <h1>and I am willing to travel...</h1>
-      <form class="" action="index.html" method="post">
-        <input type="text" name="miles" value="miles">
-        <p>from...</p>
-        <input id="zipField" type="text" name="zip" value="zipcode">
-      </form>
-      <input id="findFriend" type="button" name="findAFriend" value="Find me a new friend!">
+      <div id="searchSectionWrapper">
+        <h1>and I am willing to travel...</h1>
+        <form class="" action="index.html" method="post">
+          <input type="text" name="miles" placeholder="miles">
+          <p>from...</p>
+          <input type="text" name="zip" placeholder="zipcode">
+        </form>
+        <button id='find-new-pet-btn'>Find me a new friend!</button>
+      </div>
     </section>
     <section id="totalMatches">
-      <div>
+      <div id="newFriends">
         <h1>We found</h1>
         <h1 id="numMatches"></h1>
         <h1>potential new friends for you!</h1>
         <h1>We will need more information now to find you that special pet that you would love!</h1>
-      </div id="newFriends">
-      <input type="button" name="ok" value="OK">
+        <button id='search-btn-transition'>OK</button>
+      </div>
     </section>
     <section id="filterResults">
-      <p>I would like a new pet who is...</p>
-      <input type="checkbox" name="pet" value="Senior">Senior
-      <input type="checkbox" name="pet" value="Special_Needs">Special Needs
-      <select class="" name="">
-        <option value="Size of Pet">Size Of Pet</option>
-        <option value="Small">Small</option>
-        <option value="Medium">Medium</option>
-        <option value="Large">Large</option>
-      </select>
-      <form>
-        <input type="radio" name="gender" value="male">Male
-        <input type="radio" name="gender" value="female">Female
-      </form>
-      <button type="button" name="showMe">Show Me My New Friends!</button>
+      <div id="filterResultsWrapper">
+        <p>I would like a new pet who is...</p>
+        <input type="checkbox" id='input-snr-cb'><span class='page-text'>Senior</span></input>
+        <input type="checkbox" id='input-spl-cb'><span class='page-text'>Special Needs</span></input>
+        <select class="" name="">
+          <option value="Size of Pet">Size Of Pet</option>
+          <option value="Small">Small</option>
+          <option value="Medium">Medium</option>
+          <option value="Large">Large</option>
+        </select>
+        <form>
+          <input type="radio" name="gender" value="male"><span class='page-text'>Male</span>
+          <input type="radio" name="gender" value="female"><span class='page-text'>Female</span>
+        </form>
+        <button type="button" name="showMe">Show Me My New Friends!</button>
+      </div>
     <section id="Animal_Detail">
-      <input type="button" name="Save" value="Save">
-      <input type="button" name="Adopted! Share!" value="Adopted! Share!">
-      <input type="button" name="Back to Results" value="Back to Results">
+      <div id="Animal_Detail_Wrapper">
+        <button id='save-pet-btn'>Save For Later</button>
+        <button id='adopt-pet-btn'>Adopted! Share!</button>
+        <button id='back-search-btn'>Back to Results</button>
+      </div>
     </section>
     <section id="6">
     </section>

@@ -1,3 +1,48 @@
 body {
-  background-color: gray;
+  background-color: #603838;
+  text-align: center;
 }
+
+section{
+  background-color: #AE9181;
+}
+
+input,select{
+  border-style: none;
+  color: white;
+}
+button {
+  display: inline-block;
+  margin: 0 auto;
+  padding: 5px 15px;
+  font-size: 20px;
+  line-height: 1.8;
+  appearance: none;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+button:focus {
+  outline: none
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+h1, h2, p {
+  color: white;
+}
+
+/*#E6C3AF mid peach
+#E9BDA4 light peach
+#AE9181 dark peach
+#603838 dark red
+#82595D light red*/
+
+/*font-family: 'Patua One', cursive;
+
+font-family: 'Telex', sans-serif;
+
+font-family: 'Russo One', sans-serif;*/

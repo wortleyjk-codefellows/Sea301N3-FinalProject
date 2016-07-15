@@ -1,44 +1,35 @@
-/*Base styles include setting heading sizes, default link styles, default font styles, and body backgrounds. There should be no need to use !important in a Base style.
-
-I highly recommended that you specify a body background. Some users may define their own background as something other than white. If you work off the expectation that the background will be white, your design may look broken. Worse, your font colour choice may clash with the user’s setting and make your site unusable.
-*/
 body {
   background-color: #603838;
   text-align: center;
 }
-<div class="ion-navicon-round"></div>
-<div id='stage-1-wrapper'>
-<div id="searchSectionWrapper">
-<div id="newFriends">
-<div id="filterResultsWrapper">
-<div id="Animal_Detail_Wrapper">
 
-
-h1 {
-
+#stage-1-wrapper {
+  background-color: #E9BDA4;
 }
 
-h2 {
-
+#searchSectionWrapper {
+  background-color: #E6C3AF;
 }
 
-p {
+#newFriends {
+  background-color: #AE9181;
+}
 
+#filterResultsWrapper {
+  background-color: #82595D;
 }
 
 input,select,button {
-  background-color: #AE9181;
   border-style: none;
   color: white;
 }
-
-select {
-
-}
-
 a {
   text-decoration: none;
-  color: #603838;
+  color: white;
+}
+
+h1, h2, p {
+  color: white;
 }
 
 /*#E6C3AF mid peach

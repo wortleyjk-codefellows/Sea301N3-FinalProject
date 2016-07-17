@@ -52,26 +52,24 @@
       <div id='stage-1-wrapper'>
         <h1>I would like to adopt a...</h1>
       <div class="choice-container">
-        <button id='dog-btn'>DOG</button>
-      </div>
-      <div class="choice-container">
-        <button id='cat-btn'>CAT</button>
-      </div>
-      <div class="choice-container">
-        <button id='other-btn'>OTHER</button>
-      </div>
         <button class="petButton" value='dog' id='dog-btn'>DOG</button>
+      </div>
+      <div class="choice-container">
+        <button class="petButton" value='cat' id='cat-btn'>CAT</button>
+      </div>
+      <div class="choice-container">
+        <button class="petButton" value='other' id='other-btn'>OTHER</button>
+      </div>
+        <!-- <button class="petButton" value='dog' id='dog-btn'>DOG</button>
         <button class="petButton" value='cat' id='cat-btn'>CAT</button>
         <button class="petButton" value='other' id='other-btn'>OTHER</button>
-        <button id='search-pet-btn'>SEARCH</button>
+        <button id='search-pet-btn'>SEARCH</button> -->
       </div>
     </section>
     <section id="searchSection">
       <div id="searchSectionWrapper">
-        <h1>and I am willing to travel...</h1>
+        <h1>and I live in...</h1>
         <form class="" action="index.html" method="post">
-          <input type="text" name="miles" placeholder="miles">
-          <p>from...</p>
           <input id="zipFind" type="text" name="zip" placeholder="zipcode">
         </form>
         <button id='find-new-pet-btn'>Find me a new friend!</button>
@@ -88,7 +86,7 @@
     </section>
     <section id="filterResults">
       <div id="filterResultsWrapper">
-        <p>I would like a new pet who is...</p>
+        <h1>I would like a new pet who is...</h1>
       <div class="choice-container">
         <input type="checkbox" id='input-snr-cb'><span class='page-text'>Senior</span></input>
       </div>
@@ -107,7 +105,7 @@
           <input type="radio" name="gender" value="female"><span class='page-text'>Female</span>
       </div>
         </form>
-        <button type="button" name="showMe">Show Me My New Friends!</button>
+        <button type="button" id='show-me-btn' name="showMe">Show Me My New Friends!</button>
       </div>
     </section>
     <section id="Animal_Detail">

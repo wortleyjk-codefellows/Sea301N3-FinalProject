@@ -10,15 +10,11 @@ section{
 
 input,select{
   border-style: none;
-<<<<<<< HEAD
-=======
-  /*color: white;*/
->>>>>>> 8cb7bdbf84c1f77bb0b5f53b4d30296ccff59897
 }
 
 button {
   display: inline-block;
-  width: 200px;
+  width: 180px;
   margin: 0 auto;
   padding: 5px 15px;
   font-size: 20px;
@@ -46,6 +42,9 @@ h1, h2, p {
   margin: 10px;
 }
 
+#find-new-pet-btn, #show-me-btn {
+  width: 300px;
+}
 /*#E6C3AF mid peach
 #E9BDA4 light peach
 #AE9181 dark peach

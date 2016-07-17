@@ -45,6 +45,11 @@ h2 {
   font-size: 40px;
 }
 
+h2 {
+  font-family: 'Cedarville Cursive', cursive;
+  font-size: 40px;
+}
+
 .choice-container {
   width: 100%;
   margin: 10px;

@@ -1,9 +1,8 @@
 // this is the Ajax call to the petfinder api
 
 (function(module) {
-  console.log('running app.js');
   var pets = {};
-
+  var $petWanted;
   pets.all = [];
 
 
@@ -12,7 +11,6 @@
   .done(function(petApiData) {
     pets.all = [];
     pets.all = petApiData.petfinder.pets.pet;
-    console.log(petApiData.petfinder);
   }).fail(function(err)
   { alert('Error retrieving data!');
 });
@@ -20,17 +18,14 @@
 
 pets.animal_wanted_click = function() {
   $('#stage-1-wrapper').on('click', '.petButton', function(e) {
-    var $petWanted = $(this).val();
+    $petWanted = $(this).val();
     pets.searchClick($petWanted);
-    // console.log($petWanted);
   });
 };
 
 pets.searchClick = function(wanted) {
   $('#find-new-pet-btn').on('click', function() {
     var $zipSearch = $('#zipFind').val();
-    console.log($zipSearch);
-    // console.log($petWanted);
     pets.requestPets($zipSearch, $petWanted);
   })
 };

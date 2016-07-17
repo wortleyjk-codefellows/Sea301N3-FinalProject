@@ -4,7 +4,7 @@
   vets.initMap = function() {
     vets.map = new google.maps.Map(document.getElementById('map'), {
       center: {lat: 47.608013, lng: 122.335167}, // Use zipcode from input field                                   two variables plug in here/ or just seattle
-      zoom: 10 // zoom level 10 is city
+      zoom: 13 // zoom level 10 is city
     });
   };
 
@@ -14,7 +14,6 @@
   vets.request = null;
 
   vets.findLocalVets = function() {
-    infoWindow = new google.maps.InfoWindow;
     vets.map.setCenter(vets.center);
     vets.request = {
       location: vets.center,
@@ -26,6 +25,13 @@
   };
 
   vets.placeMarkers = function(results, status) {
+    results.forEach(function(result) {
+      var placeLoc = result.geometry.location;
+      var marker = new google.maps.Marker({
+        map: vets.map,
+        position: result.geometry.location
+      });
+    });
     console.log('this is results');
     console.log(results);
     console.log('this is status');
@@ -34,26 +40,6 @@
 
   module.vets = vets;
 })(window);
-// var map;
-//       var infowindow;
-//
-//       function initMap() {
-//         var pyrmont = {lat: -33.867, lng: 151.195};
-//
-//         map = new google.maps.Map(document.getElementById('map'), {
-//           center: pyrmont,
-//           zoom: 15
-//         });
-//
-//         infowindow = new google.maps.InfoWindow();
-//         var service = new google.maps.places.PlacesService(map);
-//         service.nearbySearch({
-//           location: pyrmont,
-//           radius: 500,
-//           type: ['store']
-//         }, callback);
-//       }
-//
 //       function callback(results, status) {
 //         if (status === google.maps.places.PlacesServiceStatus.OK) {
 //           for (var i = 0; i < results.length; i++) {

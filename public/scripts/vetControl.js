@@ -1,56 +1,77 @@
 (function(module) {
   var vets = {};
-
+  vets.map = null;
   vets.initMap = function() {
-    map = new google.maps.Map(document.getElementById('map'), {
-      center: {lat: 47.6062, lng: 122.3321}, // Use zipcode from input field                                   two variables plug in here/ or just seattle
+    vets.map = new google.maps.Map(document.getElementById('map'), {
+      center: {lat: 35, lng: 150}, // Use zipcode from input field                                   two variables plug in here/ or just seattle
       zoom: 10 // zoom level 10 is city
     });
   };
 
-  vets.lat = 35;
-  vets.lng = 35;
-  vets.center = {lat: 35, lng: 35};
+  vets.lat = 47.608013;
+  vets.lng = -122.335167;
+  vets.center = {lat: vets.lat, lng: vets.lng};
 
   vets.findLocalVets = function() {
-    map.setCenter(vets.center);
-    request = {
-      location: map,
+    vets.map.setCenter(vets.center);
+    vets.request = {
+      location: vets.center,
       radius: '500',
       query: 'vet'
     };
   };
 
+  vets.placeMarkers = function(results, status) {
+    console.log('this is results');
+    console.log(results);
+    console.log('this is status');
+    console.log(status);
+  };
+
+  vets.newTest = function() {
+    vets.service = new google.maps.places.PlacesService(vets.map);
+    vets.service.nearbySearch(vets.request, vets.placeMarkers);
+  };
+
   module.vets = vets;
 })(window);
-
 // var map;
-// var service;
-// var infowindow;
+//       var infowindow;
 //
-// function initialize() {
-//   var pyrmont = new google.maps.LatLng(-33.8665433,151.1956316);
+//       function initMap() {
+//         var pyrmont = {lat: -33.867, lng: 151.195};
 //
-//   map = new google.maps.Map(document.getElementById('map'), {
-//       center: pyrmont,
-//       zoom: 15
-//     });
+//         map = new google.maps.Map(document.getElementById('map'), {
+//           center: pyrmont,
+//           zoom: 15
+//         });
 //
-//   var request = {
-//     location: pyrmont,
-//     radius: '500',
-//     query: 'restaurant'
-//   };
+//         infowindow = new google.maps.InfoWindow();
+//         var service = new google.maps.places.PlacesService(map);
+//         service.nearbySearch({
+//           location: pyrmont,
+//           radius: 500,
+//           type: ['store']
+//         }, callback);
+//       }
 //
-//   service = new google.maps.places.PlacesService(map);
-//   service.textSearch(request, callback);
-// }
+//       function callback(results, status) {
+//         if (status === google.maps.places.PlacesServiceStatus.OK) {
+//           for (var i = 0; i < results.length; i++) {
+//             createMarker(results[i]);
+//           }
+//         }
+//       }
 //
-// function callback(results, status) {
-//   if (status == google.maps.places.PlacesServiceStatus.OK) {
-//     for (var i = 0; i < results.length; i++) {
-//       var place = results[i];
-//       createMarker(results[i]);
-//     }
-//   }
-// }
+//       function createMarker(place) {
+//         var placeLoc = place.geometry.location;
+//         var marker = new google.maps.Marker({
+//           map: map,
+//           position: place.geometry.location
+//         });
+//
+//         google.maps.event.addListener(marker, 'click', function() {
+//           infowindow.setContent(place.name);
+//           infowindow.open(map, this);
+//         });
+//       }

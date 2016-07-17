@@ -3,6 +3,10 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <style type="text/css">
+    html, body { height: 100%; margin: 0; padding: 0; }
+    #map { height: 100%; }
+    </style>
   </head>
   <body>
     <nav class="main-nav">
@@ -13,5 +17,9 @@
         <li class="tab" data-content="about"><a href="about" class="ion-happy">ABOUT US</a></li>
       </ul>
     </nav>
+    <div id ="map"></div>
+    <script type="text/javascript" src="public/scripts/vetControl.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCU2VMSBA-zG2suPG-LwpUJcMbjLPsNqBw&callback=vets.initMap"></script>
+    <!-- remove public for node server.js -->
   </body>
 </html>

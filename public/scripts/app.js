@@ -7,7 +7,7 @@
 
 
   pets.requestPets = function(zip, animal) {
-    $.getJSON('http://api.petfinder.com/pet.find?format=json&key=8dc33d8c70fd213dc0874e9deaa0a2fd&location=' + zip + '&animal=' + animal + '&callback=?')
+    $.getJSON('https://api.petfinder.com/pet.find?format=json&key=8dc33d8c70fd213dc0874e9deaa0a2fd&location=' + zip + '&animal=' + animal + '&callback=?')
   .done(function(petApiData) {
     console.log(petApiData);
     pets.all = [];

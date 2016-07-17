@@ -23,16 +23,17 @@
       <section class="">{{}}</section>
       <hr />
     </script>
+
+    <!-- handlebars template for results after filtering -->
     <script id='search-result-template' type="text/x-handlebars-template">
-      <div>
-        <section class="">{{}}</section>
-        <section class="">{{}}</section>
-        <section class="">{{{}}}</section>
-        <section class="">{{}}</section>
-        <section class="">{{{}}}</section>
-        <section class="">{{}}</section>
+      {{#each pet}}
+        <section class="petImage">{{media}}</section>
+        <section class="petBreed">{{breed}}</section>
+        <section class="petAge">{{{age}}}</section>
+        <section class="petSex">{{sex}}</section>
+        <section class="petName">{{{name}}}</section>
         <hr />
-      </div>
+      {{/each}}
     </script>
   </head>
   <body>
@@ -90,25 +91,27 @@
       <div id="filterResultsWrapper">
         <h1>I would like a new pet who is...</h1>
       <div class="choice-container">
-        <input type="checkbox" id='input-snr-cb'><span class='page-text'>Senior</span></input>
+        <input type="checkbox" id='input-snr-cb' value="Senior"><span class='page-text'>Senior</span></input>
       </div>
       <div class="choice-container">
-        <input type="checkbox" id='input-spl-cb'><span class='page-text'>Special Needs</span></input>
+        <input type="checkbox" id='input-spl-cb' value="Special"><span class='page-text'>Special Needs</span></input>
       </div>
-        <select class="" name="">
+        <select  id="petLargeness" class="" name="">
           <option value="Size of Pet">Size Of Pet</option>
           <option value="Small">Small</option>
           <option value="Medium">Medium</option>
           <option value="Large">Large</option>
         </select>
         <form>
-      <div class="choice-container">
+      <div id="sexRadio" class="choice-container">
           <input type="radio" name="gender" value="male"><span class='page-text'>Male</span>
           <input type="radio" name="gender" value="female"><span class='page-text'>Female</span>
       </div>
         </form>
         <button type="button" id='show-me-btn' name="showMe">Show Me My New Friends!</button>
       </div>
+
+      <section id=narrowResults></section>
     </section>
 
 

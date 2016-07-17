@@ -6,6 +6,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href='https://fonts.googleapis.com/css?family=Patua+One|Telex|Russo+One' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Cedarville+Cursive' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="vendors/normalize.css">
     <link rel="stylesheet" href="styles/ionicons.css">
     <link rel="stylesheet" href="styles/base.css">
@@ -40,34 +41,30 @@
     <header>
       <h2>My Funny Friend and Me</h2>
     </header>
-  <nav class="main-nav">
-    <div class="ion-navicon-round"></div>
-    <ul>
-      <li class="tab" data-content="about"><a href="about" class="ion-happy">HOME</a></li>
-      <li class="tab" data-content="authors"><a href="authors" class="ion-ios-paw">FAVORITE PETS</a></li>
-      <li class="tab" data-content="about"><a href="about" class="ion-person">ABOUT US</a></li>
-    </ul>
+  <nav>
+    <div class="mobile-menu"><span class="ion-navicon-round float-left"></span></div>
+    <div id='nav-selection'>
+      <ul>
+        <li class="tab" data-content="about"><a href="about" class="ion-happy">HOME</a></li>
+        <li class="tab" data-content="authors"><a href="authors" class="ion-ios-paw">FAVORITE PETS</a></li>
+        <li class="tab" data-content="about"><a href="about" class="ion-person">ABOUT US</a></li>
+      </ul>
+    </div>
   </nav>
-  <main>
-    <section id="stage-1">
-      <div id='stage-1-wrapper'>
-        <h1>I would like to adopt a...</h1>
-      <div class="choice-container">
+    <div id='main-wrapper' class='wrapper'>
+      <section id="stage-1">
+        <div id='stage-1-wrapper' class='wrapper'>
+          <h1>I would like to adopt a...</h1>
+        <div class="choice-container">
         <button class="petButton" value='dog' id='dog-btn'>DOG</button>
-      </div>
-      <div class="choice-container">
-        <button class="petButton" value='cat' id='cat-btn'>CAT</button>
-      </div>
-      <div class="choice-container">
-        <button class="petButton" value='other' id='other-btn'>OTHER</button>
-      </div>
-        <!-- <button class="petButton" value='dog' id='dog-btn'>DOG</button>
-        <button class="petButton" value='cat' id='cat-btn'>CAT</button>
-        <button class="petButton" value='other' id='other-btn'>OTHER</button>
-        <button id='search-pet-btn'>SEARCH</button> -->
-      </div>
-    </section>
-    <section id="searchSection">
+        </div>
+        <div class="choice-container">
+          <button class="petButton" value='cat' id='cat-btn'>CAT</button>
+        </div>
+        <div class="choice-container">
+          <button class="petButton" value='other' id='other-btn'>OTHER</button>
+      </section>
+      <section id="searchSection">
       <div id="searchSectionWrapper">
         <h1>and I live in...</h1>
         <form class="" action="index.html" method="post">
@@ -75,9 +72,11 @@
         </form>
         <button id='find-new-pet-btn'>Find me a new friend!</button>
       </div>
+      </section>
+      <section id="totalMatches">
+
+      </section>
     </section>
-
-
     <section id="totalMatches">
       <div id="newFriends">
         <h1>We found</h1>
@@ -117,17 +116,22 @@
 
 
     <section id="Animal_Detail">
+
+    </section>
+    <section id="Animal_Detail">
       <div id="Animal_Detail_Wrapper">
         <button id='save-pet-btn'>Save For Later</button>
         <button id='adopt-pet-btn'>Adopted! Share!</button>
         <button id='back-search-btn'>Back to Results</button>
       </div>
     </section>
-    <section id="6">
+    <section id="stage-6">
+
     </section>
-  </main>
+    </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.amd.js"></script>
   <script src="scripts/app.js"></script>
+  <script src="javascript/pageController.js"></script>
   <script src="scripts/randomPet.js"></script>
   </body>
 </html>

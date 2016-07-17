@@ -7,10 +7,13 @@
 
 
   pets.requestPets = function(zip, animal) {
-    $.getJSON('http://api.petfinder.com/pet.find?format=json&key=8dc33d8c70fd213dc0874e9deaa0a2fd&location=' + zip + '&animal=' + animal + '&callback=?')
+    $.getJSON('https://api.petfinder.com/pet.find?format=json&key=8dc33d8c70fd213dc0874e9deaa0a2fd&location=' + zip + '&animal=' + animal + '&callback=?')
   .done(function(petApiData) {
+    console.log(petApiData);
     pets.all = [];
     pets.all = petApiData.petfinder.pets.pet;
+    console.log(pets.all);
+    pets.numberReturned();
   }).fail(function(err)
   { alert('Error retrieving data!');
 });
@@ -19,6 +22,7 @@
 pets.animal_wanted_click = function() {
   $('#stage-1-wrapper').on('click', '.petButton', function(e) {
     $petWanted = $(this).val();
+    console.log($petWanted);
     pets.searchClick($petWanted);
   });
 };
@@ -26,9 +30,16 @@ pets.animal_wanted_click = function() {
 pets.searchClick = function(wanted) {
   $('#find-new-pet-btn').on('click', function() {
     var $zipSearch = $('#zipFind').val();
+    console.log($zipSearch);
     pets.requestPets($zipSearch, $petWanted);
   })
 };
+
+pets.numberReturned = function() {
+  $('#numMatches').html(pets.all.length);
+};
+
+// Now i have to handle the deeper filtering and the push the information to the final results view.  and then push that to the details view.
 
 
 

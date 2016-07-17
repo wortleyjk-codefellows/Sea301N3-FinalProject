@@ -3,7 +3,7 @@
   vets.map = null;
   vets.initMap = function() {
     vets.map = new google.maps.Map(document.getElementById('map'), {
-      center: {lat: 35, lng: 150}, // Use zipcode from input field                                   two variables plug in here/ or just seattle
+      center: {lat: 47.608013, lng: 122.335167}, // Use zipcode from input field                                   two variables plug in here/ or just seattle
       zoom: 10 // zoom level 10 is city
     });
   };
@@ -11,14 +11,18 @@
   vets.lat = 47.608013;
   vets.lng = -122.335167;
   vets.center = {lat: vets.lat, lng: vets.lng};
+  vets.request = null;
 
   vets.findLocalVets = function() {
+    infoWindow = new google.maps.InfoWindow;
     vets.map.setCenter(vets.center);
     vets.request = {
       location: vets.center,
-      radius: '500',
-      query: 'vet'
+      radius: '1000',
+      type: ['veterinary_care']
     };
+    vets.service = new google.maps.places.PlacesService(vets.map);
+    vets.service.nearbySearch(vets.request, vets.placeMarkers);
   };
 
   vets.placeMarkers = function(results, status) {
@@ -26,11 +30,6 @@
     console.log(results);
     console.log('this is status');
     console.log(status);
-  };
-
-  vets.newTest = function() {
-    vets.service = new google.maps.places.PlacesService(vets.map);
-    vets.service.nearbySearch(vets.request, vets.placeMarkers);
   };
 
   module.vets = vets;

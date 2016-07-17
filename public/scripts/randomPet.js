@@ -4,7 +4,7 @@
 
 randomPets.getRandom = function() {
   console.log('running getRandom');
-  $.getJSON('http://api.petfinder.com/pet.getRandom?format=json&key=8dc33d8c70fd213dc0874e9deaa0a2fd&age=Senior&output=full&count=6&callback=?')
+  $.getJSON('https://api.petfinder.com/pet.getRandom?format=json&key=8dc33d8c70fd213dc0874e9deaa0a2fd&age=Senior&output=full&count=6&callback=?')
 .done(function(petApiData) {
   console.log(petApiData);
   randomPets.all = [];

@@ -57,6 +57,34 @@
     }
   }
 
+  pets.isSizePet = function(pet) {
+    console.log(pets.$petSize);
+    if (pets.$petSize === 'S') {
+      console.log(pet.size.$t);
+      return pets.$petSize === pet.size.$t;
+    } else if (pets.$petSize === 'M') {
+      console.log(pet.size.$t);
+      return pets.$petSize === pet.size.$t;
+    } else if (pets.$petSize === 'L') {
+    console.log(pet.size.$t);
+    return pets.$petSize === pet.size.$t;
+  } else {
+    return true;
+  }
+};
+
+  pets.isSexPet = function (pet) {
+    console.log(pets.$petSex);
+    if (pets.$petSex === 'M') {
+      console.log(pet.sex.$t);
+      return pets.$petSex === pet.sex.$t;
+    } else {
+      console.log(pet.sex.$t);
+      return pets.$petSex === pet.sex.$t;
+    }
+  }
+
+
   pets.requestPets = function(zip, animal) {
     $.getJSON('https://api.petfinder.com/pet.find?format=json&key=8dc33d8c70fd213dc0874e9deaa0a2fd&location=' + zip + '&animal=' + animal + '&count=100&output=full&callback=?')
   .done(function(petApiData) {
@@ -71,8 +99,8 @@
 pets.animal_wanted_click = function() {
   $('#stage-1-wrapper').off().on('click', '.petButton', function(e) {
     console.log('clicked an animal');
-    $petWanted = $(this).val();
-    pets.searchClick($petWanted);
+    pets.$petWanted = $(this).val();
+    pets.searchClick(pets.$petWanted);
   });
 };
 
@@ -80,7 +108,7 @@ pets.searchClick = function(wanted) {
   $('#find-new-pet-btn').off().on('click', function() {
     var $zipSearch = $('#zipFind').val();
     console.log($zipSearch);
-    pets.requestPets($zipSearch, $petWanted);
+    pets.requestPets($zipSearch, pets.$petWanted);
   })
 };
 
@@ -96,22 +124,22 @@ pets.snr_spl = function() {
     console.log(pets.$seniorPet);
   });
   $('#input-spl-cb').off().on('click', function(){
-    $specialPet = this.value;
-    console.log($specialPet);
+    pets.$specialPet = this.value;
+    console.log(pets.$specialPet);
   });
 };
 
 pets.howBig = function() {
   $('#petLargeness').off().on('change', function(){
-    $petSize = this.value;
-    console.log($petSize);
+    pets.$petSize = this.value;
+    console.log(pets.$petSize);
   });
 };
 
 pets.assignedGender = function() {
   $('#sexRadio').off().on('click', function(){
-    $petSex = this.value;
-    console.log($petSex);
+    pets.$petSex = this.value;
+    console.log(pets.$petSex);
   })
 };
 
@@ -137,10 +165,19 @@ pets.pareDown = function(){
       pets.filtered = pets.all
         .filter(function(pet) {
            return pets.isSenior(pet);
+           console.log(pets.filtered);
          })
-        //.filter(//check special needs)
+        .filter(function(pet) {
+          return pets.isSpecialNeeds(pet);
+        })
+        .filter(function(pet) {
+          return pets.isSizePet(pet)
+        })
+        .filter(function(pet) {
+          return pets.isSexPet(pet)
+        })
     } else {
-
+      console.log('you have to pick something');
       //if not, reject the form submission
     }
 

@@ -45,23 +45,72 @@ h2 {
   font-size: 40px;
 }
 
-h2 {
-  font-family: 'Cedarville Cursive', cursive;
-  font-size: 40px;
+li {
+  list-style-type: none;
 }
 
 .choice-container {
   width: 100%;
-  margin: 10px;
+  display: block;
+  height: 30px;
+  /*margin: 10px;*/
+}
+
+.left-buffer {
+  width: 33%;
+  margin: 0 auto;
+  float: left;
+  height: 20px;
+}
+
+.right-buffer {
+  width: 66%;
+  margin: 0 auto;
+  text-align: left;
+  float: left;
+}
+
+#petLargeness {
+  width: 33%;
+  font-size: 30px;
+  margin-top: 25px;
+}
+
+#gender, .page-text {
+  font-size: 30px;
+  margin: 15px;
 }
 
 #zipFind {
   margin: 10px;
 }
 
-#find-new-pet-btn, #show-me-btn {
-  width: 300px;
+#find-new-pet-btn {
+  width: 250px;
 }
+
+#show-me-btn {
+  width: 300px;
+  margin-top: 30px;
+}
+
+#search-btn-transition {
+  margin-top: 30px;
+  width: 100px;
+}
+
+#save-pet-btn, #adopt-pet-btn, #back-search-btn {
+  width: 200px;
+}
+
+input[type='radio'] {
+   transform: scale(1.5);
+}
+
+input[type='checkbox'] {
+   transform: scale(1.5);
+}
+
 /*#E6C3AF mid peach
 #E9BDA4 light peach
 #AE9181 dark peach

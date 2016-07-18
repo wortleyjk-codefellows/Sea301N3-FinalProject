@@ -100,18 +100,27 @@
       <div id="filterResultsWrapper">
         <h1>I would like a new pet who is...</h1>
       <div class="choice-container">
-        <input type="checkbox" id='input-snr-cb' value="Senior"><span class='page-text'>Senior</span></input>
+        <div class="left-buffer">
+        </div>
+        <div class="right-buffer">
+          <input type="checkbox" id='input-snr-cb' value="Senior"><span class='page-text'>Senior</span></input>
+        </div>
       </div>
       <div class="choice-container">
-        <input type="checkbox" id='input-spl-cb' value="specialNeeds"><span class='page-text'>Special Needs</span></input>
+        <div class="left-buffer">
+        </div>
+        <div class="right-buffer">
+          <input type="checkbox" id='input-spl-cb' value="specialNeeds"><span class='page-text'>Special Needs</span></input>
+        </div>
       </div>
-        <select  id="petLargeness" class="" name="">
+        <select id="petLargeness" class="" name="">
           <option value="Size of Pet">Size Of Pet</option>
           <option value="S">Small</option>
           <option value="M">Medium</option>
           <option value="L">Large</option>
         </select>
         <form>
+      <div id="gender" class="choice-container">
       <div id="sexRadio" class="choice-container">
           <input type="radio" name="gender" value="M"><span class='page-text'>Male</span>
           <input type="radio" name="gender" value="F"><span class='page-text'>Female</span>

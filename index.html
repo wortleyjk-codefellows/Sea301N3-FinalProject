@@ -63,16 +63,22 @@
         </div>
         <div class="choice-container">
           <button class="petButton" value='other' id='other-btn'>OTHER</button>
+        </div>
+      </div>
       </section>
       <section id="searchSection">
       <div id="searchSectionWrapper">
         <h1>and I live in...</h1>
-        <form class="" action="index.html" method="post">
+        <form>
           <input id="zipFind" type="text" name="zip" placeholder="zipcode">
         </form>
         <button id='find-new-pet-btn'>Find me a new friend!</button>
       </div>
       </section>
+
+
+
+
       <section id="totalMatches">
 
       </section>
@@ -86,6 +92,10 @@
         <button id='search-btn-transition'>OK</button>
       </div>
     </section>
+
+
+
+
     <section id="filterResults">
       <div id="filterResultsWrapper">
         <h1>I would like a new pet who is...</h1>
@@ -100,20 +110,20 @@
         <div class="left-buffer">
         </div>
         <div class="right-buffer">
-          <input type="checkbox" id='input-spl-cb' value="Special"><span class='page-text'>Special Needs</span></input>
+          <input type="checkbox" id='input-spl-cb' value="specialNeeds"><span class='page-text'>Special Needs</span></input>
         </div>
       </div>
         <select id="petLargeness" class="" name="">
           <option value="Size of Pet">Size Of Pet</option>
-          <option value="Small">Small</option>
-          <option value="Medium">Medium</option>
-          <option value="Large">Large</option>
+          <option value="S">Small</option>
+          <option value="M">Medium</option>
+          <option value="L">Large</option>
         </select>
         <form>
       <div id="gender" class="choice-container">
       <div id="sexRadio" class="choice-container">
-          <input type="radio" name="gender" value="male"><span class='page-text'>Male</span>
-          <input type="radio" name="gender" value="female"><span class='page-text'>Female</span>
+          <input type="radio" name="gender" value="M"><span class='page-text'>Male</span>
+          <input type="radio" name="gender" value="F"><span class='page-text'>Female</span>
       </div>
         </form>
         <button type="button" id='show-me-btn' name="showMe">Show Me My New Friends!</button>
@@ -141,6 +151,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.amd.js"></script>
   <script src="scripts/app.js"></script>
   <script src="javascript/pageController.js"></script>
-  <script src="scripts/randomPet.js"></script>
+  <!-- <script src="scripts/randomPet.js"></script> -->
   </body>
 </html>

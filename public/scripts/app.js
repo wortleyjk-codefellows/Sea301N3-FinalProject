@@ -7,6 +7,7 @@
   pets.$specialPet = null;
   pets.$petSize = null;
   pets.$petSex = null;
+  pets.$seniorSex = null;
   pets.all = [];
   pets.filtered = [];
 
@@ -16,7 +17,7 @@
         console.log('found pet with name ' + name + ' at pets.all[' + index + ']' );
       }
     });
-  }
+  };
 
   pets.getSpecialNeedsOptions = function(opt) {
     var outputOptions = [];
@@ -28,16 +29,16 @@
       outputOptions.push(opt.$t);
     }
     return outputOptions;
-  }
+  };
 
   pets.isSpecialNeeds = function(pet) {
     if (pet.options.option) { //is defined
-      var snOptsArray = pets.getSpecialNeedsOptions(pet.options.option)
+      var snOptsArray = pets.getSpecialNeedsOptions(pet.options.option);
 
       if (pets.$specialPet === 'specialNeeds') {
-        return snOptsArray.indexOf('specialNeeds') !== -1
+        return snOptsArray.indexOf('specialNeeds') !== -1;
       } else {
-        return snOptsArray.indexOf('specialNeeds') === -1
+        return snOptsArray.indexOf('specialNeeds') === -1;
       }
       //if they want special-needs pets
         //return special-needs pets
@@ -45,33 +46,36 @@
         //return non-special-needs pets
 
     }
-  }
+  };
 
   pets.isSenior = function(pet) {
     console.log(pets.$seniorPet);
     if (pets.$seniorPet === 'Senior') {
-      console.log(pet.age.$t);
+      console.log('pet age is: ' + pet.age.$t);
       return pets.$seniorPet === pet.age.$t;
     } else {
       return pets.$seniorPet !== pet.age.$t;
     }
-  }
+  };
 
   pets.isSizePet = function(pet) {
     console.log(pets.$petSize);
     if (pets.$petSize === 'S') {
+      console.log('pet size small chosen');
       console.log(pet.size.$t);
       return pets.$petSize === pet.size.$t;
     } else if (pets.$petSize === 'M') {
+      console.log('pet size medium chosen');
       console.log(pet.size.$t);
       return pets.$petSize === pet.size.$t;
     } else if (pets.$petSize === 'L') {
-    console.log(pet.size.$t);
-    return pets.$petSize === pet.size.$t;
-  } else {
-    return true;
-  }
-};
+      console.log('pet size large chosen');
+      console.log(pet.size.$t);
+      return pets.$petSize === pet.size.$t;
+    } else {
+      return true;
+    }
+  };
 
   pets.isSexPet = function (pet) {
     console.log(pets.$petSex);
@@ -82,7 +86,7 @@
       console.log(pet.sex.$t);
       return pets.$petSex === pet.sex.$t;
     }
-  }
+  };
 
 
   pets.requestPets = function(zip, animal) {
@@ -93,55 +97,55 @@
     pets.numberReturned();
   }).fail(function(err)
   { alert('Error retrieving data!');
-});
-};
-
-pets.animal_wanted_click = function() {
-  $('#stage-1-wrapper').off().on('click', '.petButton', function(e) {
-    console.log('clicked an animal');
-    pets.$petWanted = $(this).val();
-    pets.searchClick(pets.$petWanted);
   });
-};
+  };
 
-pets.searchClick = function(wanted) {
-  $('#find-new-pet-btn').off().on('click', function() {
-    var $zipSearch = $('#zipFind').val();
-    console.log($zipSearch);
-    pets.requestPets($zipSearch, pets.$petWanted);
-  })
-};
+  pets.animal_wanted_click = function() {
+    $('#stage-1-wrapper').off().on('click', '.petButton', function(e) {
+      console.log('clicked an animal');
+      pets.$petWanted = $(this).val();
+      pets.searchClick(pets.$petWanted);
+    });
+  };
 
-pets.numberReturned = function() {
-  $('#numMatches').html(pets.all.length);
-};
+  pets.searchClick = function(wanted) {
+    $('#find-new-pet-btn').off().on('click', function() {
+      var $zipSearch = $('#zipFind').val();
+      console.log($zipSearch);
+      pets.requestPets($zipSearch, pets.$petWanted);
+    });
+  };
+
+  pets.numberReturned = function() {
+    $('#numMatches').html(pets.all.length);
+  };
 
 // Now i have to handle the deeper filtering and the push the information to the final results view.  and then push that to the details view.
 
-pets.snr_spl = function() {
-  $('#input-snr-cb').off().on('click', function(){
-    pets.$seniorPet = this.value;
-    console.log(pets.$seniorPet);
-  });
-  $('#input-spl-cb').off().on('click', function(){
-    pets.$specialPet = this.value;
-    console.log(pets.$specialPet);
-  });
-};
+  pets.snr_spl = function() {
+    $('#input-snr-cb').off().on('click', function(){
+      pets.$seniorPet = this.value;
+      console.log(pets.$seniorPet);
+    });
+    $('#input-spl-cb').off().on('click', function(){
+      pets.$specialPet = this.value;
+      console.log(pets.$specialPet);
+    });
+  };
 
-pets.howBig = function() {
-  $('#petLargeness').off().on('change', function(){
-    pets.$petSize = this.value;
-    console.log(pets.$petSize);
-  });
-};
+  pets.howBig = function() {
+    $('#petLargeness').off().on('change', function(){
+      pets.$petSize = this.value;
+      console.log(pets.$petSize);
+    });
+  };
 
-pets.assignedGender = function() {
-  $('#sexRadio').off().on('click', function(){
-    pets.$petSex = this.value;
-    console.log(pets.$petSex);
-  })
-};
+  pets.assignedGender = function() {
+    $('.sexRadio').off().on('click', function(){
+      pets.$petSex = this.value;
+      console.log(pets.$petSex);
+    });
+  };
 
 
 // pets.toHtml = function() {
@@ -155,31 +159,71 @@ pets.assignedGender = function() {
 //   })
 //  };
 
-pets.pareDown = function(){
-  $('#show-me-btn').off().on('click', function(){
-    console.log('show me was clicked');
-    //check if at least one of senior & special needs is checked
-    if (pets.$seniorPet || pets.$specialPet) {
-      console.log('form is valid');
-      //if yes, filter results
-      pets.filtered = pets.all
-        .filter(function(pet) {
-           return pets.isSenior(pet);
-           console.log(pets.filtered);
-         })
-        .filter(function(pet) {
-          return pets.isSpecialNeeds(pet);
-        })
-        .filter(function(pet) {
-          return pets.isSizePet(pet)
-        })
-        .filter(function(pet) {
-          return pets.isSexPet(pet)
-        })
-    } else {
-      console.log('you have to pick something');
-      //if not, reject the form submission
-    }
+  pets.pareDown = function(){
+    $('#show-me-btn').off().on('click', function(){
+      if (pets.$seniorPet || pets.$specialPet) {
+        if(pets.$seniorPet) {
+          pets.filtered = pets.all
+          .filter(function(pet) {
+            return pets.isSenior(pet);
+          });
+        } else if (pets.$specialPet) {
+          pets.filtered = pets.all.filter(function(pet) {
+            return pets.isSpecialNeeds(pet);
+          });
+        } else if (pets.$petSize) {
+          pets.filtered = pets.all.filter(function(pet) {
+            return pets.isSizePet(pet);
+          });
+        } else if (pets.$petSex) {
+          console.log('running pet sex');
+          pets.filtered = pets.all.filter(function(pet) {
+            return pets.isSexPet(pet);
+          });
+        } else if (pets.$seniorPet && pets.$petSize) { // senior and size
+          console.log('running senior and sex elseif');
+          pets.filtered = pets.all.filter(function(pet) {
+            return pets.isSenior(pet);
+            return pets.isSizePet(pet);
+          });
+        } else if (pets.$seniorPet && pets.$petSex) { // senior and sex
+          pets.filtered = pets.all.filter(function(pet) {
+            pets.$seniorSex = pets.isSenior(pet);
+            console.log('seniorSex is: ' + pets.$seniorSex);
+
+            // pets.$seniorSex += pets.isSexPet(pet);
+          });
+        } else if (pets.$seniorPet && pets.$petSize && pets.$petSex) { // senior, size and sex
+          pets.filtered = pets.all.filter(function(pet) {
+            return pets.isSenior(pet);
+            return pets.isSizePet(pet);
+            return pets.isSexPet(pet);
+          });
+        } else if (pets.$specialPet && pets.$petSex) { // special and sex
+          pets.filtered = pets.all.filter(function(pet) {
+            return pets.isSpecialNeeds(pet);
+            return pets.isSexPet(pet);
+          });
+        } else if (pets.$specialPet && pets.$petSize) { // special and size
+          pets.filtered = pets.all.filter(function(pet) {
+            return pets.isSpecialNeeds(pet);
+            return pets.isSizePet(pet);
+          });
+        } else if (pets.$specialPet && pets.$seniorPet) { // special and senior
+          pets.filtered = pets.all.filter(function(pet) {
+            return pets.isSpecialNeeds(pet);
+            return pets.isSenior(pet);
+          });
+        } else {
+          console.log('you have to pick something');
+          //if not, reject the form submission
+        }
+    });
+    // });
+  };
+
+
+
 
       // pets.all.forEach(function(a){
       //   if (pets.$seniorPet === a.age.$t) {
@@ -196,8 +240,6 @@ pets.pareDown = function(){
       // }
     //})
     // then call .toHTML
-  });
-}
 
 
 

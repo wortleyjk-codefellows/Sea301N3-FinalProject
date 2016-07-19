@@ -3,7 +3,8 @@
   <head>
     <meta charset="utf-8">
     <title>My Funny Friend and Me</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href='https://fonts.googleapis.com/css?family=Patua+One|Telex|Russo+One' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Cedarville+Cursive' rel='stylesheet' type='text/css'>
@@ -13,29 +14,6 @@
     <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/module.css">
     <link rel="stylesheet" href="styles/state.css">
-
-<!-- Adding handlebars for animal detail view  -->
-    <script id="petDetails" type="text/x-handlebars-template">
-      <section class="">{{}}</section>
-      <section class="">{{}}</section>
-      <section class="">{{{}}}</section>
-      <section class="">{{}}</section>
-      <section class="">{{{}}}</section>
-      <section class="">{{}}</section>
-      <hr />
-    </script>
-
-    <!-- handlebars template for results after filtering -->
-    <script id='search-result-template' type="text/x-handlebars-template">
-      {{#each pet}}
-        <section class="petImage">{{media}}</section>
-        <section class="petBreed">{{breed}}</section>
-        <section class="petAge">{{{age}}}</section>
-        <section class="petSex">{{sex}}</section>
-        <section class="petName">{{{name}}}</section>
-        <hr />
-      {{/each}}
-    </script>
   </head>
   <body>
     <header>
@@ -128,12 +106,12 @@
         </form>
         <button type="button" id='show-me-btn' name="showMe">Show Me My New Friends!</button>
       </div>
-
-      <section id=narrowResults></section>
     </section>
 
 
-
+    <section id='narrowResults'>
+      <div id='narrowResultsWrapper'></div>
+    </section>
     <section id="Animal_Detail">
 
     </section>
@@ -151,9 +129,11 @@
           <li>Rehoming a Special-Needs Pet
             <p><a href="http://bestfriends.org/resources/rehoming-special-needs-pet">bestfriends.org</a></p>
             <p><a href ="http://www.petswithdisabilities.org">petswithdisabilities.org</a></p>
+            <p><a href="http://vth.vetmed.wsu.edu/good-samaritan">vth.vetmed.wsu/edu</a></p>
           </li>
           <li>Pet Supplies for Special-Needs Pets
             <p><a href="http://www.handicappedpets.com/">handicappedpets.com</a></p>
+            <p><a href="http://hpets.org/">hpets.org</a></p>
             <p><a href="http://www.k9carts.com/">k9carts.com</a></p>
             <p><a href="http://useddogwheelchairs.com/">useddogwheelchairs.com</a></p>
           </li>
@@ -163,12 +143,37 @@
             <p><a href="http://www.gopetplan.com/">Pet Plan</a></p>
             <p><a href="http://www.embracepetinsurance.com/">Embrace Pet Insurance</a></p>
           </li>
+          <li>Financial Assistance
+            <p><a href="http://www.handicappedpets.com/pet-services/financial-aid-for-pets">Handicapped Pets</a></p>
+            <p><a href="http://www.carecredit.com/vetmed">Care Credit</a></p>
+          </li>
         </ul>
     </section>
     </div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.amd.js"></script>
   <script src="scripts/app.js"></script>
   <script src="javascript/pageController.js"></script>
   <!-- <script src="scripts/randomPet.js"></script> -->
+
+  <!-- Adding handlebars for animal detail view  -->
+      <script id="petDetails" type="text/x-handlebars-template">
+        <section class="">{{}}</section>
+        <section class="">{{}}</section>
+        <section class="">{{{}}}</section>
+        <section class="">{{}}</section>
+        <section class="">{{{}}}</section>
+        <section class="">{{}}</section>
+        <hr />
+      </script>
+
+      <!-- handlebars template for results after filtering -->
+      <script id='search-result-template' type="text/x-handlebars-template">
+          <img class="petImage" src={{media.photos.photo[0].$t}}/>
+          <h1 class="petName">{{e.name.$t}}</h1>
+          <!-- <h2 class="petBreed">{{breed.$t}}</h2>
+          <h2 class="petAge">{{{age.$t}}}</h2>
+          <h2 class="petSex">{{sex.$t}}</h2>
+          <h3 class="petID">{{id.$t}}</h3> -->
+          <hr />
+      </script>
   </body>
 </html>

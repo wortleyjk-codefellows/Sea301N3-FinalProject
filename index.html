@@ -77,6 +77,7 @@
     <section id="filterResults">
       <div id="filterResultsWrapper">
         <h1>I would like a new pet who is...</h1>
+        <p>Please try to limit your criteria to 3 options for best results!</p>
       <div class="choice-container">
         <div class="left-buffer">
         </div>
@@ -99,12 +100,13 @@
         </select>
         <form>
       <div id="gender" class="choice-container">
-      <div id="sexRadio" class="choice-container">
-          <input type="radio" name="gender" value="M"><span class='page-text'>Male</span>
-          <input type="radio" name="gender" value="F"><span class='page-text'>Female</span>
+      <div class="choice-container">
+          <input class="sexRadio" type="radio" name="gender" value="M"><span class='page-text'>Male</span>
+          <input class="sexRadio" type="radio" name="gender" value="F"><span class='page-text'>Female</span>
       </div>
         </form>
         <button type="button" id='show-me-btn' name="showMe">Show Me My New Friends!</button>
+        <h3 id=noMatches></h3>
       </div>
     </section>
 
@@ -152,7 +154,8 @@
     </div>
 
   <script src="javascript/pageController.js"></script>
-  <!-- <script src="scripts/randomPet.js"></script> -->
+
+  <script src="scripts/randomPet.js"></script>
 
   <!-- Adding handlebars for animal detail view  -->
       <script id="petDetails" type="text/x-handlebars-template">

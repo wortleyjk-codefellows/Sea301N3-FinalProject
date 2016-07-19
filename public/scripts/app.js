@@ -208,6 +208,15 @@ pets.pareDown = function() {
   //     return repo[attr];
   //   });
   // };
+  pets.displayMatches = function() {
+    pets.all.forEach(function(e){
+      var source   = $("#search-result").html();
+      var template = Handlebars.compile(source);
+      var html    = template(e);
+      $('#narrowResultsWrapper').append(html);
+    });
+  }
+
 
   $(document).ready(function() {
     pets.animal_wanted_click();

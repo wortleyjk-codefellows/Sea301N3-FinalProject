@@ -213,15 +213,13 @@ pets.pareDown = function(){
   //   });
   // };
   pets.displayMatches = function() {
-    pets.all.forEach(function(e) {
-      //console.log(e);
-      var source   = $('#search-result-template').html();
+    pets.all.forEach(function(e){
+      var source   = $("#search-result").html();
       var template = Handlebars.compile(source);
       var html    = template(e);
       $('#narrowResultsWrapper').append(html);
-
-  });
-}
+    });
+  }
 
 
   $(document).ready(function() {

@@ -234,8 +234,14 @@ pets.pareDown = function(){
   pets.seeMoreButton = function() {
     $('#someButton').on('click', function() {
       var petVal = $('#someButton').val();
-      var pet = // match petVal id to pets.all aray entry
-      pets.displayFullPetDetails(pet);
+      // var pet = // match petVal id to pets.all aray entry
+      pets.all.forEach(function(pet) {
+        if (petVal === pet.id) {
+          var selectedPet = this;
+          console.log(selectedPet);
+        }
+      });
+      pets.displayFullPetDetails(SelectedPet);
       //Some CSS Hide and Show
     });
   };

@@ -29,13 +29,18 @@
       var placeLoc = result.geometry.location;
       var marker = new google.maps.Marker({
         map: vets.map,
-        position: result.geometry.location
+        position: result.geometry.location,
+        title: result.name
       });
     });
     console.log('this is results');
     console.log(results);
     console.log('this is status');
     console.log(status);
+    // google.maps.addListener(marker, 'click', function() { //not working
+    //   infowindow.setContent(result.name);
+    //   infowindow.open(map, this);
+    // });
   };
 
   module.vets = vets;

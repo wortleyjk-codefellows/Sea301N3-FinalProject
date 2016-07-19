@@ -231,6 +231,15 @@ pets.pareDown = function(){
     //Append somewhere ------ maybe call some other display function to hide everything else.
   };
 
+  pets.seeMoreButton = function() {
+    $('#someButton').on('click', function() {
+      var petVal = $('#someButton').val();
+      var pet = // match petVal id to pets.all aray entry
+      pets.displayFullPetDetails(pet);
+      //Some CSS Hide and Show
+    });
+  };
+
   $(document).ready(function() {
     pets.animal_wanted_click();
     pets.searchClick();

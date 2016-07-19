@@ -32,6 +32,11 @@
         position: result.geometry.location,
         title: result.name
       });
+      marker.addListener('click', function() {
+        console.log('you clicked ' + result.name);
+        vets.map.setZoom(20);/////////////////////////////////////////////////////////////////////////Change Later?
+        vets.map.setCenter(marker.getPosition());
+      });
     });
     console.log('this is results');
     console.log(results);

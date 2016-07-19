@@ -212,6 +212,17 @@ pets.pareDown = function(){
   //     return repo[attr];
   //   });
   // };
+  pets.displayMatches = function() {
+    pets.all.forEach(function(e) {
+      //console.log(e);
+      var source   = $('#search-result-template').html();
+      var template = Handlebars.compile(source);
+      var html    = template(e);
+      $('#narrowResultsWrapper').append(html);
+
+  });
+}
+
 
   pets.displayFullPetDetails = function(pet) { ///////////////////////////////////////////////////This is to display the full details of a selected pet.
     var fullDetailHtml = $('#petDetails').html();

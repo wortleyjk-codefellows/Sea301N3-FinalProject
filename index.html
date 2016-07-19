@@ -16,12 +16,31 @@
 
 <!-- Adding handlebars for animal detail view  -->
     <script id="petDetails" type="text/x-handlebars-template">
-      <section class="">{{}}</section>
-      <section class="">{{}}</section>
-      <section class="">{{{}}}</section>
-      <section class="">{{}}</section>
-      <section class="">{{{}}}</section>
-      <section class="">{{}}</section>
+      <section id={{id}}>
+        <article>
+          <h1>{{name}}</h1>
+          <ul>
+            <li>{{animal}}</li>
+            <li>{{breeds}}</li>
+            <li>{{mix}}</li>
+            <li>{{size}}</li>
+            <li>{{age}}</li>
+            <li>{{sex}}</li>
+          </ul>
+        </article>
+        <article>
+          <p>{{description}}</p>
+          <ul>
+            <li>{{shelterId}}</li>
+            <li>{{shelterPetId}}</li>
+            <li>{{lastUpdate}}</li>
+            <li>{{contact}}</li>
+          </ul>
+        </article>
+        <article id="allPetPics">
+          <p>{{media}}</p>
+        </article>
+      </section>
       <hr />
     </script>
 

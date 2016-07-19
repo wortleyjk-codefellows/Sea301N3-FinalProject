@@ -213,6 +213,14 @@ pets.pareDown = function(){
   //   });
   // };
 
+  pets.displayFullPetDetails = function(pet) { ///////////////////////////////////////////////////This is to display the full details of a selected pet.
+    var fullDetailHtml = $('#petDetails').html();
+    var fullDetailTemplate = Handlebars.compile(fullDetailHtml);
+    fullDetailTemplate(pet);
+    //Update the template in index.html ----- create some event on button that gets pet
+    //Append somewhere ------ maybe call some other display function to hide everything else.
+  };
+
   $(document).ready(function() {
     pets.animal_wanted_click();
     pets.searchClick();

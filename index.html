@@ -30,11 +30,11 @@
     </div>
   </nav>
     <div id='main-wrapper' class='wrapper'>
-      <section id="stage-1">
+    <section id="stage-1">
         <div id='stage-1-wrapper' class='wrapper'>
           <h1>I would like to adopt a...</h1>
         <div class="choice-container">
-        <button class="petButton" value='dog' id='dog-btn'>DOG</button>
+          <button class="petButton" value='dog' id='dog-btn'>DOG</button>
         </div>
         <div class="choice-container">
           <button class="petButton" value='cat' id='cat-btn'>CAT</button>
@@ -43,8 +43,8 @@
           <button class="petButton" value='bird' id='other-btn'>OTHER</button>
         </div>
       </div>
-      </section>
-      <section id="searchSection">
+    </section>
+    <section id="searchSection">
       <div id="searchSectionWrapper">
         <h1>and I live in...</h1>
         <form>
@@ -52,14 +52,6 @@
         </form>
         <button id='find-new-pet-btn'>Find me a new friend!</button>
       </div>
-      </section>
-
-<!-- barnyard, bird, cat, dog, horse, pig, reptile,  -->
-
-
-      <section id="totalMatches">
-
-      </section>
     </section>
     <section id="totalMatches">
       <div id="newFriends">
@@ -68,12 +60,8 @@
         <h1>potential new friends for you!</h1>
         <h1>We will need more information now to find you that special pet that you would love!</h1>
         <button id='search-btn-transition'>OK</button>
-      </div>
+    </div>
     </section>
-
-
-
-
     <section id="filterResults">
       <div id="filterResultsWrapper">
         <h1>I would like a new pet who is...</h1>
@@ -106,7 +94,7 @@
       </div>
         </form>
         <button type="button" id='show-me-btn' name="showMe">Show Me My New Friends!</button>
-        <h3 id=noMatches></h3>
+        <h3 id='noMatches'></h3>
       </div>
     </section>
 
@@ -152,11 +140,6 @@
         </ul>
     </section>
     </div>
-
-  <script src="javascript/pageController.js"></script>
-
-  <script src="scripts/randomPet.js"></script>
-
   <!-- Adding handlebars for animal detail view  -->
       <script id="petDetails" type="text/x-handlebars-template">
         <section class="">{{}}</section>
@@ -169,21 +152,21 @@
       </script>
 
       <!-- handlebars template for results after filtering -->
-      <script id="resultTemplate" type="text/x-handlebars-template">
-          // <img class="petImage" src={{media.photos.photo[0].$t}}/>
-          <h1>{{title}}</h1>
-          // <h2 class="petBreed">{{breed.$t}}</h2>
-          // <h2 class="petAge">{{{age.$t}}}</h2>
-          // <h2 class="petSex">{{sex.$t}}</h2>
-          // <h3 class="petID">{{id.$t}}</h3>
-          // <hr />
-      </script>
-
       <script id="search-result" type="text/x-handlebars-template">
-        <div>
+        <div class='pet-summary-element'>
+          <img src={{{media.photos.photo.0.$t}}} />
           <h1>{{name.$t}}</h1>
+          <h3>{{breed.$t}}</h3>
+          <h3>{{sex.$t}}</h3>
+          <h3>Pet ID: {{id.$t}}</h3>
+          <button class='petButton'>Interested!</button>
+          <button class='petButton'>Save for Later</button>
+          <hr/>
         </div>
       </script>
+
+  <script src="scripts/randomPet.js"></script>
+  <script src="javascript/pageController.js"></script>
   <script src="scripts/app.js"></script>
   </body>
 </html>

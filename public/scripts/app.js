@@ -209,7 +209,7 @@ pets.pareDown = function() {
   //   });
   // };
   pets.displayMatches = function() {
-    pets.all.forEach(function(e){
+    pets.filtered.forEach(function(e){
       var source   = $("#search-result").html();
       var template = Handlebars.compile(source);
       var html    = template(e);

@@ -15,14 +15,22 @@ randomPets.getRandom = function() {
 });
 };
 
-// here we need to forEAch over each item in the array, if special needs = true, then push that to the corresponding section/handlebars.  NOT SURE IF I NEED TO MAP THEM INTO A NEW ARRAY AND THEN DO THAT.
 
-
+randomPets.displayRandom = function() {
+  randomPets.all.forEach(function(e){
+    var source   = $("#landingRandom").html();
+    var template = Handlebars.compile(source);
+    var html    = template(e);
+    $('#randomResultsWrapper').append(html);
+  });
+}
 
 
 
 $(document).ready(function() {
+
   randomPets.getRandom();
+  randomPets.displayRandom();
 });
 
 module.pets = randomPets;

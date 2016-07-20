@@ -24,7 +24,7 @@ button {
   line-height: 1.8;
   appearance: none;
   box-shadow: none;
-  border-radius: 0;
+  border-radius: 15px;
 }
 
 button:focus {
@@ -53,19 +53,19 @@ li {
   list-style-type: none;
 }
 
-.choice-container {
+/*.choice-container {
   width: 100%;
-  display: block;
+  display: inline-block;
   height: 30px;
   /*margin: 10px;*/
-}
+}*/
 
-.left-buffer {
+/*.left-buffer {
   width: 33%;
   margin: 0 auto;
   float: left;
   height: 20px;
-}
+}*/
 
 .right-buffer {
   width: 66%;
@@ -77,6 +77,11 @@ li {
 #petLargeness {
   width: 33%;
   font-size: 25px;
+  width: 33%;
+  display: block;
+  font-size: 20px;
+  margin-left: auto;
+  margin-right: auto;
   margin-top: 25px;
 }
 
@@ -91,9 +96,11 @@ li {
 
 #find-new-pet-btn {
   width: 250px;
+  border-radius: 15px;
 }
 
 #show-me-btn {
+  display: block;
   width: 300px;
   margin-top: 30px;
 }
@@ -114,6 +121,7 @@ input[type='radio'] {
 input[type='checkbox'] {
    transform: scale(1.5);
 }
+
 
 /*#E6C3AF mid peach
 #E9BDA4 light peach

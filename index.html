@@ -11,8 +11,8 @@
     <link rel="stylesheet" href="vendors/normalize.css">
     <link rel="stylesheet" href="styles/ionicons.css">
     <link rel="stylesheet" href="styles/base.css">
-    <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/module.css">
+    <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/state.css">
   </head>
   <body>
@@ -33,22 +33,30 @@
     <section id="stage-1">
         <div id='stage-1-wrapper' class='wrapper'>
           <h1>I would like to adopt a...</h1>
-        <div class="choice-container">
+        <!-- <div class="choice-container"> -->
           <button class="petButton" value='dog' id='dog-btn'>DOG</button>
-        </div>
-        <div class="choice-container">
+        <!-- </div> -->
+        <!-- <div class="choice-container"> -->
           <button class="petButton" value='cat' id='cat-btn'>CAT</button>
-        </div>
-        <div class="choice-container">
-          <button class="petButton" value='bird' id='other-btn'>OTHER</button>
-        </div>
+        <!-- </div> -->
+
+        <!-- section where the random pets will go in desktop view -->
+        <!-- <section class='randomResults'> -->
+          <div id='randomResultsWrapper'>
+            <p>
+              this is a test random pet
+            </p>
+          </div>
+        <!-- </section> -->
       </div>
     </section>
+
+
     <section id="searchSection">
       <div id="searchSectionWrapper">
         <h1>and I live in...</h1>
         <form>
-          <input id="zipFind" type="text" name="zip" placeholder="zipcode">
+          <input id="zipFind" type="text" name="zip" placeholder="zipcode" required>
         </form>
         <button id='find-new-pet-btn'>Find me a new friend!</button>
       </div>
@@ -66,20 +74,20 @@
       <div id="filterResultsWrapper">
         <h1>I would like a new pet who is...</h1>
         <p>Please try to limit your criteria to 3 options for best results!</p>
-      <div class="choice-container">
-        <div class="left-buffer">
-        </div>
-        <div class="right-buffer">
+      <!-- <div class="choice-container"> -->
+        <!-- <div class="left-buffer">
+        </div> -->
+        <!-- <div class="right-buffer"> -->
           <input type="checkbox" id='input-snr-cb' value="Senior"><span class='page-text'>Senior</span></input>
-        </div>
-      </div>
-      <div class="choice-container">
-        <div class="left-buffer">
-        </div>
-        <div class="right-buffer">
+        <!-- </div> -->
+      <!-- </div> -->
+      <!-- <div class="choice-container"> -->
+        <!-- <div class="left-buffer">
+        </div> -->
+        <!-- <div class="right-buffer"> -->
           <input type="checkbox" id='input-spl-cb' value="specialNeeds"><span class='page-text'>Special Needs</span></input>
-        </div>
-      </div>
+        <!-- </div> -->
+      <!-- </div> -->
         <select id="petLargeness" class="" name="">
           <option value="Size of Pet">Size Of Pet</option>
           <option value="S">Small</option>
@@ -87,15 +95,16 @@
           <option value="L">Large</option>
         </select>
         <form>
-      <div id="gender" class="choice-container">
-      <div class="choice-container">
+      <div id="gender">
+      <!-- <div class="choice-container"> -->
           <input class="sexRadio" type="radio" name="gender" value="M"><span class='page-text'>Male</span>
           <input class="sexRadio" type="radio" name="gender" value="F"><span class='page-text'>Female</span>
-      </div>
+      <!-- </div> -->
         </form>
         <button type="button" id='show-me-btn' name="showMe">Show Me My New Friends!</button>
         <h3 id='noMatches'></h3>
       </div>
+    </div>
     </section>
 
 
@@ -159,6 +168,20 @@
           <h3>Breed: {{breeds.breed.$t}}</h3>
           <h3>Gender: {{sex.$t}}</h3>
           <h4>Pet ID: {{id.$t}}</h3>
+          <button class='petButton'>Interested!</button>
+          <button class='petButton'>Save for Later</button>
+          <hr/>
+        </div>
+      </script>
+
+      <!-- handlebars template for random pets when landing is in desktop -->
+      <script id="landingRandom" type="text/x-handlebars-template">
+        <div class='pet-summary-element'>
+          <img src={{{media.photos.photo.0.$t}}} />
+          <h1>{{name.$t}}</h1>
+          <h3>Breed: {{breed.$t}}</h3>
+          <h3>Gender: {{sex.$t}}</h3>
+          <h3>Pet ID: {{id.$t}}</h3>
           <button class='petButton'>Interested!</button>
           <button class='petButton'>Save for Later</button>
           <hr/>

@@ -11,7 +11,7 @@
   pets.filtered = [];
 
   pets.findByName = function(name) {
-    pets.all.forEach(function(pet, index) {
+    pets.filtered.forEach(function(pet, index) {
       if (pet.name.$t === name) {
         console.log('found pet with name ' + name + ' at pets.all[' + index + ']' );
       }
@@ -40,17 +40,10 @@
       } else {
         return snOptsArray.indexOf('specialNeeds') === -1
       }
-      //if they want special-needs pets
-        //return special-needs pets
-      //else
-        //return non-special-needs pets
-
     }
   }
 
   pets.isSenior = function(pet) {
-    // console.log('running isSenior');
-    console.log('isSenior: ' + pets.$seniorPet);
     if (pets.$seniorPet === 'Senior') {
       console.log(pet.age.$t);
       return pets.$seniorPet === pet.age.$t;
@@ -80,9 +73,11 @@
     if (pets.$petSex === 'M') {
       console.log(pet.sex.$t);
       return pets.$petSex === pet.sex.$t;
-    } else {
+    } else if (pets.$petSex === 'F'){
       console.log(pet.sex.$t);
       return pets.$petSex === pet.sex.$t;
+    } else {
+      console.log('no matches for sex');
     }
   }
 
@@ -156,58 +151,31 @@ pets.noMatch = function() {
   }
 }
 
-// pets.toHtml = function() {
-//   $('#show-me-btn').off().on('click', function(){
-//     console.log('start handlebars function');
-//     var $templateScript = $('#search-result-template').html();
-//     var theTemplate = Handlebars.compile($templateScript);
-//     var compiledHtml = theTemplate(pets);
-//     $('#narrowResults').append(compiledHtml);
-//     return theTemplate(this);
-//   })
-//  };
-
 
 pets.pareDown = function() {
   $('#show-me-btn').off().on('click', function(){
-    console.log('show me was clicked');
     if (pets.$seniorPet || pets.$specialPet) {
-      console.log('form is valid');
       pets.filtered = pets.all
         .filter(function(pet) {
-          console.log('checking if ' + pet + ' is senior');
            return pets.isSenior(pet);
          })
          .filter(function(pet) {
-           console.log('checking if ' + pet + ' is special');
            return pets.isSpecialNeeds(pet);
          })
          .filter(function(pet) {
-           console.log('checking if ' + pet + ' is size');
            return pets.isSizePet(pet)
          })
         .filter(function(pet) {
-          console.log('checking if ' + pet + ' is sex');
           return pets.isSexPet(pet)
         })
         pets.noMatch();
     } else {
       console.log('you have to pick something');
-      //if not, reject the form submission
     }
 
-
-// need to write a function that if there are no matches, display a message to have them search/filter again.
-
-    // then call .toHTML
   });
 }
 
-  // pets.with = function(attr) {
-  //   return pets.all.filter(function(repo){
-  //     return repo[attr];
-  //   });
-  // };
   pets.displayMatches = function() {
     pets.filtered.forEach(function(e){
       var source   = $("#search-result").html();
@@ -225,7 +193,6 @@ pets.pareDown = function() {
     pets.howBig();
     pets.assignedGender();
     pets.pareDown();
-    // pets.toHtml();
 
   });
 

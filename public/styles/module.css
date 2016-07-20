@@ -26,10 +26,25 @@
   height:100%;
 }
 
-.choice-container {
+/*.choice-container {
   width: 100%;
   margin: 10px;
+}*/
+
+#dog-btn {
+  margin-top: .25em;
 }
+
+.petButton {
+  display: block;
+  margin-bottom: .5em;
+  margin-left: auto;
+  margin-right: auto;
+  width: 85%;
+  border-radius: 15px;
+}
+
+
 
 #narrowResultsWrapper{
   width:100%;
@@ -39,3 +54,7 @@
   min-height: 100px;
   overflow:auto;
 }
+
+/*.randomResults {
+  display: none;
+}*/

@@ -33,7 +33,7 @@
   $('body').on('click', '#interested', function() {
     $('section').slideUp(400);
     pets.seeMoreButton();// this
-    $('Animal_Detail').slideDown(400);
+    $('Animal_Detail_Wrapper').slideDown(400);
   });
 
   $('section').hide(); //hides all initial sections first.

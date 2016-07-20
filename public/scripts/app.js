@@ -178,7 +178,7 @@ pets.pareDown = function() {
 
   pets.displayMatches = function() {
     pets.filtered.forEach(function(e){
-      var source   = $("#search-result").html();
+      var source   = $('#search-result').html();
       var template = Handlebars.compile(source);
       var html    = template(e);
       $('#narrowResultsWrapper').append(html);
@@ -187,8 +187,14 @@ pets.pareDown = function() {
 
   pets.displayFullPetDetails = function(pet) {
     var fullDetailHtml = $('#petDetails').html();
+    console.log('fullDetailHtml');
+    console.log(fullDetailHtml);
     var fullDetailTemplate = Handlebars.compile(fullDetailHtml);
+    console.log('fullDetailTemplate');
+    console.log(fullDetailTemplate);
     var petView = fullDetailTemplate(pet);
+    console.log('petView');
+    console.log(petView);
     $('#Animal_Detail_Wrapper').append(petView);
   };
 
@@ -196,11 +202,16 @@ pets.pareDown = function() {
 
   pets.seeMoreButton = function() {
     var petVal = $(this).val();
+    console.log('petVal');
+    console.log(petVal);
     pets.all.forEach(function(pet) {
       if (petVal === pet.id.$t) {
         pets.selectedPet = pet;
+        console.log('pets.selectedPet');
+        console.log(pets.selectedPet);
       }
     });
+    console.log('About to invoke pets.displayFullPetDetails');
     pets.displayFullPetDetails(pets.selectedPet);
   };
 

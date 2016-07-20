@@ -11,7 +11,7 @@
   pets.filtered = [];
 
   pets.findByName = function(name) {
-    pets.all.forEach(function(pet, index) {
+    pets.filtered.forEach(function(pet, index) {
       if (pet.name.$t === name) {
         console.log('found pet with name ' + name + ' at pets.all[' + index + ']' );
       }

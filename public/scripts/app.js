@@ -201,7 +201,7 @@ pets.pareDown = function() {
 
     // then call .toHTML
   });
-}
+};
 
   // pets.with = function(attr) {
   //   return pets.all.filter(function(repo){
@@ -210,39 +210,31 @@ pets.pareDown = function() {
   // };
   pets.displayMatches = function() {
     pets.all.forEach(function(e){
-      var source   = $("#search-result").html();
+      var source   = $('#search-result').html();
       var template = Handlebars.compile(source);
       var html    = template(e);
       $('#narrowResultsWrapper').append(html);
     });
   };
 
-
   pets.displayFullPetDetails = function(pet) {
     var fullDetailHtml = $('#petDetails').html();
     var fullDetailTemplate = Handlebars.compile(fullDetailHtml);
     var petView = fullDetailTemplate(pet);
-    $('section').hide();
-    $('#Animal_Detail').append(petView).show(); /////////////May want to change the way display is handled here.
+    $('#Animal_Detail').append(petView);
   };
 
   pets.selectedPet = null;
+
   pets.seeMoreButton = function() {
-    $('body').on('click', '#interested', function(){
-      console.log('Clicked something');
-      var petVal = $(this).val();
-      console.log(petVal);
-      pets.all.forEach(function(pet) {
-        if (petVal === pet.id.$t) {
-          console.log(pet);
-          pets.selectedPet = pet;
-          console.log(pets.selectedPet);
-        }
-      });
-      pets.displayFullPetDetails(pets.selectedPet);
+    var petVal = $(this).val();
+    pets.all.forEach(function(pet) {
+      if (petVal === pet.id.$t) {
+        pets.selectedPet = pet;
+      }
     });
+    pets.displayFullPetDetails(pets.selectedPet);
   };
-  pets.seeMoreButton(); //testing call here -->May want to more this to somewhere else.
 
   $(document).ready(function() {
     pets.animal_wanted_click();
@@ -252,7 +244,6 @@ pets.pareDown = function() {
     pets.assignedGender();
     pets.pareDown();
     // pets.toHtml();
-
   });
 
   module.pets = pets;

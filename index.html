@@ -161,7 +161,7 @@
     <section id='narrowResults'>
       <div id='narrowResultsWrapper'></div>
     </section>
-    
+
     <section id="Animal_Detail">
       <div id="Animal_Detail_Wrapper">
         <button id='save-pet-btn'>Save For Later</button>
@@ -207,7 +207,7 @@
           <h3>Breed: {{breeds.breed.$t}}</h3>
           <h3>Gender: {{sex.$t}}</h3>
           <h4>Pet ID: {{id.$t}}</h3>
-          <button class='petButton'>Interested!</button>
+          <button id="interested" class='petButton' value={{id.$t}}>Interested!</button>
           <button class='petButton'>Save for Later</button>
           <hr/>
         </div>

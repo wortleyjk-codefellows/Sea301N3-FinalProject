@@ -32,8 +32,9 @@
 
   $('body').on('click', '#interested', function() {
     $('section').slideUp(400);
+    console.log('interested button');
     pets.seeMoreButton();
-    $('Animal_Detail').slideDown(400);
+    $('#Animal_Detail').slideDown(400);
   });
 
   $('section').hide(); //hides all initial sections first.

@@ -189,7 +189,7 @@ pets.pareDown = function() {
     var fullDetailHtml = $('#petDetails').html();
     var fullDetailTemplate = Handlebars.compile(fullDetailHtml);
     var petView = fullDetailTemplate(pet);
-    $('#Animal_Detail').append(petView);
+    $('#Animal_Detail_Wrapper').append(petView);
   };
 
   pets.selectedPet = null;

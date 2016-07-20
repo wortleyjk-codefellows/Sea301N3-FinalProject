@@ -16,16 +16,8 @@ randomPets.getRandom = function() {
 };
 
 
-
-// function checkSize() {
-//   if ($('.randomResults').css('display') == 'none') {
-//     pets.displayRandom();
-//     $('.randomResults').show();
-//   }
-
-// }
 randomPets.displayRandom = function() {
-  randomPets.forEach(function(e){
+  randomPets.all.forEach(function(e){
     var source   = $("#landingRandom").html();
     var template = Handlebars.compile(source);
     var html    = template(e);
@@ -36,10 +28,9 @@ randomPets.displayRandom = function() {
 
 
 $(document).ready(function() {
-  // checkSize();
-  // $(window).resize(checksize);
+
   randomPets.getRandom();
-  pets.displayRandom();
+  randomPets.displayRandom();
 });
 
 module.pets = randomPets;

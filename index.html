@@ -16,29 +16,29 @@
     <link rel="stylesheet" href="styles/state.css">
 <!-- Adding handlebars for animal detail view  -->
     <script id="petDetails" type="text/x-handlebars-template">
-      <section id={{id}}>
+      <section id={{id.$t}}>
         <article>
-          <h1>{{name}}</h1>
+          <h1>{{name.$t}}</h1>
           <ul>
-            <li>{{animal}}</li>
-            <li>{{breeds}}</li>
-            <li>{{mix}}</li>
-            <li>{{size}}</li>
-            <li>{{age}}</li>
-            <li>{{sex}}</li>
+            <li>{{animal.$t}}</li>
+            <li>{{breeds.$t}}</li>
+            <li>{{mix.$t}}</li>
+            <li>{{size.$t}}</li>
+            <li>{{age.$t}}</li>
+            <li>{{sex.$t}}</li>
           </ul>
         </article>
         <article>
-          <p>{{description}}</p>
+          <p>{{description.$t}}</p>
           <ul>
-            <li>{{shelterId}}</li>
-            <li>{{shelterPetId}}</li>
-            <li>{{lastUpdate}}</li>
-            <li>{{contact}}</li>
+            <li>{{shelterId.$t}}</li>
+            <li>{{shelterPetId.$t}}</li>
+            <li>{{lastUpdate.$t}}</li>
+            <li>{{contact.$t}}</li>
           </ul>
         </article>
         <article id="allPetPics">
-          <!-- <p>{{media}}</p> -->
+          <img src={{{media.photos.photo.0.$t}}}/>
         </article>
       </section>
       <hr />
@@ -200,7 +200,7 @@
           <h3>{{breed.$t}}</h3>
           <h3>{{sex.$t}}</h3>
           <h3>Pet ID: {{id.$t}}</h3>
-          <button class='petButton'>Interested!</button>
+          <button id="interested" class='petButton' value={{id.$t}}>Interested!</button>
           <button class='petButton'>Save for Later</button>
           <hr/>
         </div>

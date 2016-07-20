@@ -33,5 +33,5 @@
   $('section').hide(); //hides all initial sections first.
   $('#stage-1').show();
   $('#nav-selection').hide();
-  module.controller = controller
-})(window)
+  module.controller = controller;
+})(window);

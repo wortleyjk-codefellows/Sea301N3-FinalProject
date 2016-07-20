@@ -215,32 +215,34 @@ pets.pareDown = function() {
       var html    = template(e);
       $('#narrowResultsWrapper').append(html);
     });
-  }
+  };
 
 
-  pets.displayFullPetDetails = function(pet) { ///////////////////////////////////////////////////This is to display the full details of a selected pet.
+  pets.displayFullPetDetails = function(pet) {
     var fullDetailHtml = $('#petDetails').html();
     var fullDetailTemplate = Handlebars.compile(fullDetailHtml);
     var petView = fullDetailTemplate(pet);
-    $('#Animal_Detail').append(petView);
-    //Update the template in index.html ----- create some event on button that gets pet
-    //Append somewhere ------ maybe call some other display function to hide everything else.
+    $('section').hide();
+    $('#Animal_Detail').append(petView).show(); /////////////May want to change the way display is handled here.
   };
 
+  pets.selectedPet = null;
   pets.seeMoreButton = function() {
-    $('#someButton').on('click', function() {
-      var petVal = $('#someButton').val();
-      // var pet = // match petVal id to pets.all aray entry
+    $('body').on('click', '#interested', function(){
+      console.log('Clicked something');
+      var petVal = $(this).val();
+      console.log(petVal);
       pets.all.forEach(function(pet) {
-        if (petVal === pet.id) {
-          var selectedPet = this;
-          console.log(selectedPet);
+        if (petVal === pet.id.$t) {
+          console.log(pet);
+          pets.selectedPet = pet;
+          console.log(pets.selectedPet);
         }
       });
-      pets.displayFullPetDetails(SelectedPet);
-      //Some CSS Hide and Show
+      pets.displayFullPetDetails(pets.selectedPet);
     });
   };
+  pets.seeMoreButton(); //testing call here -->May want to more this to somewhere else.
 
   $(document).ready(function() {
     pets.animal_wanted_click();

@@ -1,3 +1,32 @@
 .page-text{
   color:white;
 }
+
+
+/* Desktop */
+@media only screen and (min-width: 691px) {
+  .randomResults {
+    display: block;
+  }
+
+  .petButton {
+    display: inline-block;
+    width: 30%;
+
+  }
+
+  checkbox {
+    display: block;
+    margin-top: 1em;
+  }
+
+  checkbox span {
+    display: block;
+    margin-top: 1em;
+  }
+
+  .petLargeness {
+    display: inline-block;;
+    margin-left: 50%;
+    margin-right: 50%;
+  }

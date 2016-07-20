@@ -32,8 +32,8 @@
 
   $('body').on('click', '#interested', function() {
     $('section').slideUp(400);
-    console.log('interested button');
-    pets.seeMoreButton();
+    var buttonVal = $(this).val();
+    pets.seeMoreButton(buttonVal);
     $('#Animal_Detail').slideDown(400);
   });
 

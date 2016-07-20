@@ -186,38 +186,20 @@ pets.pareDown = function() {
   };
 
   pets.displayFullPetDetails = function(pet) {
-    console.log('pet');
-    console.log(pet);
     var fullDetailHtml = $('#petDetails').html();
-    console.log('fullDetailHtml');
-    console.log(fullDetailHtml);
     var fullDetailTemplate = Handlebars.compile(fullDetailHtml);
-    console.log('fullDetailTemplate');
-    console.log(fullDetailTemplate);
     var petView = fullDetailTemplate(pet);
-    console.log('petView');
-    console.log(petView);
     $('#Animal_Detail').append(petView);
-    console.log(pet);
   };
 
   pets.selectedPet = null;
 
-  pets.seeMoreButton = function() {
-    var petVal = $('#interested').val();
-    console.log('petVal');
-    console.log(petVal); //petVal works
+  pets.seeMoreButton = function(buttonVal) {
     pets.filtered.forEach(function(pet) {
-      // console.log(pet);
-      // console.log(this);
-      if (petVal === pet.id.$t) {
+      if (buttonVal === pet.id.$t) {
         pets.selectedPet = pet;
-        console.log('pets.selectedPet');
-        console.log(pets.selectedPet);
       }
     });
-    console.log('About to invoke pets.displayFullPetDetails');
-    console.log(pets.selectedPet);
     pets.displayFullPetDetails(pets.selectedPet);
   };
 

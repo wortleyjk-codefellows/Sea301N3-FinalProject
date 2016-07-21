@@ -51,6 +51,12 @@
     $('#narrowResults').slideDown(400);
   });
 
+  $('body').on('click', '#save-pet-btn', function() {
+    pets.setLocalStorage();
+    console.log('clicked save pet button');
+    // pets.interested
+  });
+
   $('section').hide(); //hides all initial sections first.
   $('#stage-1').show();
   $('#nav-selection').hide();

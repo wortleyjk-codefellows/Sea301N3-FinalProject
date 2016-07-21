@@ -190,6 +190,7 @@
   };
 
   pets.selectedPet = null;
+  pets.savedPets = [];
 
   pets.seeMoreButton = function(buttonVal) {
     pets.filtered.forEach(function(pet) {
@@ -198,6 +199,17 @@
       }
     });
     pets.displayFullPetDetails(pets.selectedPet);
+  };
+
+  pets.setLocalStorage = function() {
+    if (localStorage.savedPets) {
+      console.log('localStorage exists');
+      pets.savedPets = JSON.parse(localStorage.getItem('savedPets'));
+      console.log(pets.savedPets);
+    }
+    pets.savedPets.push(pets.selectedPet);
+    console.log(pets.savedPets);
+    localStorage.setItem('savedPets', JSON.stringify(pets.savedPets));
   };
 
   $(document).ready(function() {

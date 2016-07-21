@@ -100,10 +100,12 @@
     <section id="searchSection">
       <div id="searchSectionWrapper">
         <h1>and I live in...</h1>
-        <form>
+        <form id="zipFindForm">
           <input id="zipFind" type="text" name="zip" placeholder="zipcode" required>
+          <input class="find-new-pet-btn" type="button" name="findIt" value="Find me a new friend!">
+          <!-- <button id='find-new-pet-btn'>Find me a new friend!</button> -->
+          <!-- HAD TO CHANGE THIS TO A SUBMIT SO THE ZIPCODE REQUIRED WOULD WORK. -->
         </form>
-        <button id='find-new-pet-btn'>Find me a new friend!</button>
       </div>
     </section>
     <section id="totalMatches">

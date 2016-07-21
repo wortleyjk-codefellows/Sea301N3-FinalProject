@@ -27,6 +27,8 @@ button {
   border-radius: 15px;
 }
 
+
+
 button:focus {
   outline: none
 }
@@ -99,7 +101,7 @@ li {
   margin: 10px;
 }
 
-#find-new-pet-btn {
+.find-new-pet-btn {
   width: 250px;
   border-radius: 15px;
 }

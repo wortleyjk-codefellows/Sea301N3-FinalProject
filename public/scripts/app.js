@@ -114,8 +114,6 @@
     $('#numMatches').html(pets.all.length);
   };
 
-// Now i have to handle the deeper filtering and the push the information to the final results view.  and then push that to the details view.
-
   pets.snr_spl = function() {
     $('#input-snr-cb').off().on('click', function(){
       pets.$seniorPet = this.value;

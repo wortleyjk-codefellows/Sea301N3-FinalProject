@@ -22,6 +22,7 @@
   height:70%;
 }
 
+
 .wrapper{
   height:100%;
 }
@@ -54,6 +55,37 @@
   min-height: 100px;
   overflow:auto;
 }
+
+#randomResultsWrapper {
+  display: none;
+}
+
+
+/* random pets display for mobile...but don't need this */
+/*.adoptButton {
+  display: inline-block;
+  width: auto;
+  margin-bottom: 1em;
+}
+
+.pet-summary-element {
+  display: block;
+  margin: 2em 2em;
+  height: auto;
+  border: 1px solid black;
+  width: auto;%;
+  background-color: grey;
+}
+
+.pet-summary-element h1 {
+  font: 1em;
+}
+
+.pet-summary-element img {
+  margin-top: .5em;
+  height: 100px;
+  width: 200px;
+}*/
 
 /*.randomResults {
   display: none;

@@ -5,14 +5,40 @@
 
 /* Desktop */
 @media only screen and (min-width: 691px) {
-  .randomResults {
-    display: block;
+
+
+  #randomResultsWrapper{
+    display: inline;
   }
 
   .petButton {
     display: inline-block;
     width: 30%;
+  }
 
+  .adoptButton {
+    display: inline-block;
+    width: auto;
+    margin-bottom: 1em;
+  }
+
+  .pet-summary-element {
+    display: inline-block;
+    margin: 2em 2em;
+    height: auto;
+    border: 1px solid black;
+    width: 20%;
+    background-color: grey;
+  }
+
+  .pet-summary-element h1 {
+    font: 1em;
+  }
+
+  .pet-summary-element img {
+    margin-top: .5em;
+    height: 100px;
+    width: 100px;
   }
 
   checkbox {

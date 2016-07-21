@@ -15,9 +15,16 @@
     $('#nav-selection').toggle();
   });
 
+  $('body').on('click', '.tab', function(e) {
+    e.preventDefault();
+    $('section').slideUp(400);
+  });
+
   $('body').on('click', '.petButton', function(){
     $('section').slideUp(400);
     $('#searchSection').slideDown(400);
+    var link = this.attr();
+    console.log(link);
   });
 
   $('body').on('click', '#find-new-pet-btn', function(){

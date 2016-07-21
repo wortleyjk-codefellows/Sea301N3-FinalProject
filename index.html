@@ -168,8 +168,8 @@
           <h3>Breed: {{breeds.breed.$t}}</h3>
           <h3>Gender: {{sex.$t}}</h3>
           <h4>Pet ID: {{id.$t}}</h3>
-          <button value={{id.$t}} class='petButton'>Interested!</button>
-          <button value={{id.$t}} class='petButton'>Save for Later</button>
+          <button value={{id.$t}} onClick='adoptPet($(this).val())' class='petButton'>Interested!</button>
+          <button value={{id.$t}} onClick='savePet($(this).val())' class='petButton'>Save for Later</button>
           <hr/>
         </div>
       </script>
@@ -182,8 +182,8 @@
           <h3>Breed: {{breed.$t}}</h3>
           <h3>Gender: {{sex.$t}}</h3>
           <h3>Pet ID: {{id.$t}}</h3>
-          <button value={{id.$t}} class='petButton'>Interested!</button>
-          <button value={{id.$t}} class='petButton'>Save for Later</button>
+          <button value={{id.$t}} onClick='adoptPet($(this).val())' class='petButton'>Interested!</button>
+          <button value={{id.$t}} onClick='savePet($(this).val())' class='petButton'>Save for Later</button>
           <hr/>
         </div>
       </script>

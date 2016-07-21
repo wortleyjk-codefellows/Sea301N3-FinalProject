@@ -11,6 +11,10 @@
   //   alert('test')
   // });
 
+  $('body').on('click', '.mobile-menu', function() {
+    $('#nav-selection').toggle();
+  });
+
   $('body').on('click', '.petButton', function(){
     $('section').slideUp(400);
     $('#searchSection').slideDown(400);

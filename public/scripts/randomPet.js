@@ -10,6 +10,7 @@ randomPets.getRandom = function() {
   randomPets.all = [];
   randomPets.all = petApiData.petfinder.pet;
   console.log(randomPets.all);
+  randomPets.displayRandom();
 }).fail(function(err)
 { alert('Error retrieving data!');
 });
@@ -30,7 +31,6 @@ randomPets.displayRandom = function() {
 $(document).ready(function() {
 
   randomPets.getRandom();
-  randomPets.displayRandom();
 });
 
 module.pets = randomPets;

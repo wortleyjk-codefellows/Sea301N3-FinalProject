@@ -16,10 +16,11 @@
     $('#searchSection').slideDown(400);
   });
 
-  $('body').on('click', '#find-new-pet-btn', function(){
+  $('body').on('click', '.find-new-pet-btn', function(){
     $('section').slideUp(400);
     $('#totalMatches').slideDown(400);
   });
+
   $('body').on('click', '#search-btn-transition', function(){
     $('section').slideUp(400);
     $('#filterResults').slideDown(400);

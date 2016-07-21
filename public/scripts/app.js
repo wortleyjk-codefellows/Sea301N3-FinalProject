@@ -64,20 +64,17 @@
       console.log(pet.size.$t);
       return pets.$petSize === pet.size.$t;
     } else {
-      return true;
+      return pet.size.$t;
     }
   };
 
   pets.isSexPet = function (pet) {
-    console.log('sexPet is running: ' + pets.$petSex);
     if (pets.$petSex === 'M') {
-      console.log(pet.sex.$t);
       return pets.$petSex === pet.sex.$t;
     } else if (pets.$petSex === 'F'){
-      console.log(pet.sex.$t);
       return pets.$petSex === pet.sex.$t;
     } else {
-      console.log('no matches for sex');
+      return pet.sex.$t;
     }
   };
 
@@ -95,7 +92,6 @@
 
   pets.animal_wanted_click = function() {
     $('#stage-1-wrapper').off().on('click', '.petButton', function(e) {
-      console.log('clicked an animal');
       pets.$petWanted = $(this).val();
       $('#noMatches').text('');
       pets.searchClick(pets.$petWanted);
@@ -103,9 +99,9 @@
   };
 
   pets.searchClick = function(wanted) {
-    $('#find-new-pet-btn').off().on('click', function() {
+    $('#zipFindForm').off().on('click', '.find-new-pet-btn', function(e) {
+      e.preventDefault();
       var $zipSearch = $('#zipFind').val();
-      console.log($zipSearch);
       pets.requestPets($zipSearch, pets.$petWanted);
     });
   };
@@ -117,25 +113,21 @@
   pets.snr_spl = function() {
     $('#input-snr-cb').off().on('click', function(){
       pets.$seniorPet = this.value;
-      console.log(pets.$seniorPet);
     });
     $('#input-spl-cb').off().on('click', function(){
       pets.$specialPet = this.value;
-      console.log(pets.$specialPet);
     });
   };
 
   pets.howBig = function() {
     $('#petLargeness').off().on('change', function(){
       pets.$petSize = this.value;
-      console.log(pets.$petSize);
     });
   };
 
   pets.assignedGender = function() {
     $('.sexRadio').off().on('click', function(){
       pets.$petSex = this.value;
-      console.log(pets.$petSex);
     });
   };
 
@@ -152,6 +144,7 @@
 
   pets.pareDown = function() {
     $('#show-me-btn').off().on('click', function(){
+      console.log('running pareDown');
       if (pets.$seniorPet || pets.$specialPet) {
         pets.filtered = pets.all
         .filter(function(pet) {

@@ -14,6 +14,53 @@
     <link rel="stylesheet" href="styles/module.css">
     <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/state.css">
+<!-- Adding handlebars for animal detail view  -->
+    <script id="petDetails" type="text/x-handlebars-template">
+      <section id={{id.$t}}>
+        <article id="detailTop">
+          <h2>{{name.$t}}</h2>
+          <article id="allPetPics">
+            <img src={{{media.photos.photo.0.$t}}}/>
+          </article>
+          <ul id="basicInfo">
+            <li><p>{{animal.$t}}</p></li>
+            <li><p>Breed: {{breeds.$t}}</p></li>
+            <li><p>Mix: {{mix.$t}}</p></li>
+            <li><p>Size: {{size.$t}}</p></li>
+            <li><p>Age: {{age.$t}}</p></li>
+            <li><p>Sex: {{sex.$t}}</p></li>
+          </ul>
+        </article>
+        <article id="detailBottom">
+          <p>{{description.$t}}</p>
+          <ul id="detailContact">
+            <li>Shelter Id = {{shelterId.$t}}</li>
+            <li>Pet Id = {{id.$t}}</li>
+            <li>Last Updated: {{lastUpdate.$t}}</li>
+            <li>{{contact.address1.$t}}</li>
+            <li>{{contact.address2.$t}}</li>
+            <li>{{contact.city.$t}}</li>
+            <li>{{contact.email.$t}}</li>
+            <li>{{contact.fax.$t}}</li>
+            <li>{{contact.phone.$t}}</li>
+            <li>{{contact.state.$t}}</li>
+            <li>{{contact.zip.$t}}</li>
+          </ul>
+        </article>
+      </section>
+    </script>
+
+    <!-- handlebars template for results after filtering -->
+    <script id='search-result-template' type="text/x-handlebars-template">
+      {{#each pet}}
+        <section class="petImage">{{media}}</section>
+        <section class="petBreed">{{breed}}</section>
+        <section class="petAge">{{{age}}}</section>
+        <section class="petSex">{{sex}}</section>
+        <section class="petName">{{{name}}}</section>
+        <hr />
+      {{/each}}
+    </script>
   </head>
   <body>
     <header>
@@ -109,11 +156,10 @@
     <section id='narrowResults'>
       <div id='narrowResultsWrapper'></div>
     </section>
-    <section id="Animal_Detail">
 
-    </section>
     <section id="Animal_Detail">
-      <div id="Animal_Detail_Wrapper">
+      <div id="Animal_Detail_Wrapper"></div>
+      <div>
         <button id='save-pet-btn'>Save For Later</button>
         <button id='adopt-pet-btn'>Adopted! Share!</button>
         <button id='back-search-btn'>Back to Results</button>
@@ -148,15 +194,6 @@
     </section>
     </div>
   <!-- Adding handlebars for animal detail view  -->
-      <script id="petDetails" type="text/x-handlebars-template">
-        <section class="">{{}}</section>
-        <section class="">{{}}</section>
-        <section class="">{{{}}}</section>
-        <section class="">{{}}</section>
-        <section class="">{{{}}}</section>
-        <section class="">{{}}</section>
-        <hr />
-      </script>
 
       <!-- handlebars template for results after filtering -->
       <script id="search-result" type="text/x-handlebars-template">
@@ -166,9 +203,9 @@
           <h3>Breed: {{breeds.breed.$t}}</h3>
           <h3>Gender: {{sex.$t}}</h3>
           <h4>Pet ID: {{id.$t}}</h3>
-          <button value={{id.$t}} class='adoptButton'>Interested!</button>
-          <button value={{id.$t}} class='adoptButton'>Save for Later</button>
-          <hr />
+          <button id="interested" value={{id.$t}} onClick='adoptPet($(this).val())' class='petButton'>Interested!</button>
+          <button value={{id.$t}} onClick='savePet($(this).val())' class='petButton'>Save for Later</button>
+          <hr/>
         </div>
       </script>
 
@@ -180,8 +217,9 @@
           <h3>Breed: {{breed.$t}}</h3>
           <h3>Gender: {{sex.$t}}</h3>
           <h3>Pet ID: {{id.$t}}</h3>
-          <button value={{id.$t}} class='adoptButton'>Interested!</button>
-          <button value={{id.$t}} class='adoptButton'>Save for Later</button>
+          <button id="interested" value={{id.$t}} onClick='adoptPet($(this).val())' class='petButton'>Interested!</button>
+          <button value={{id.$t}} onClick='savePet($(this).val())' class='petButton'>Save for Later</button>
+          <hr/>
         </div>
       </script>
 

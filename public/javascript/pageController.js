@@ -29,12 +29,15 @@
     pets.displayMatches();
     $('#narrowResults').slideDown(400);
   });
-
   $('body').on('click', '#interested', function() {
     $('section').slideUp(400);
     var buttonVal = $(this).val();
     pets.seeMoreButton(buttonVal);
     $('#Animal_Detail').slideDown(400);
+  });
+  $('body').on('click', '#back-search-btn', function() {
+    $('section').slideUp(400);
+    $('#narrowResults').slideDown(400);
   });
 
   $('section').hide(); //hides all initial sections first.

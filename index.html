@@ -69,9 +69,9 @@
     <div class="mobile-menu"><span class="ion-navicon-round float-left"></span></div>
     <div id='nav-selection'>
       <ul>
-        <li class="tab" data-content="about"><a href="about" class="ion-happy">HOME</a></li>
-        <li class="tab" data-content="authors"><a href="authors" class="ion-ios-paw">FAVORITE PETS</a></li>
-        <li class="tab" data-content="about"><a href="about" class="ion-person">ABOUT US</a></li>
+        <li class="tab"><a href="home" class="ion-happy">HOME</a></li>
+        <li class="tab"><a href="favorites" class="ion-ios-paw">FAVORITE PETS</a></li>
+        <li class="tab"><a href="about" class="ion-person">ABOUT US</a></li>
       </ul>
     </div>
   </nav>
@@ -194,6 +194,47 @@
         </ul>
     </section>
     </div>
+
+    <section id="favorites">
+      <h1>TEST CONTENT</h1>
+    </section>
+
+    <section id="about">
+      <h1>About Us</h1>
+      <div id="container">
+        <div id="">
+          <img src="" alt="" />
+          <h2>James</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+        </div>
+        <div id="">
+          <img src="" alt="" />
+          <h2>Jonathan</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+        </div>
+        <div id="">
+          <img src="" alt="" />
+          <h2>Serina</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+        </div>
+        <div id="">
+          <img src="" alt="" />
+          <h2>Geoff</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+        </div>
+      </section>
+
+      <section id="findVet">
+        <div id ="map"></div>
+      </section>
   <!-- Adding handlebars for animal detail view  -->
 
       <!-- handlebars template for results after filtering -->
@@ -204,8 +245,7 @@
           <h3>Breed: {{breeds.breed.$t}}</h3>
           <h3>Gender: {{sex.$t}}</h3>
           <h4>Pet ID: {{id.$t}}</h3>
-          <button id="interested" value={{id.$t}} onClick='adoptPet($(this).val())' class='petButton'>Interested!</button>
-          <button value={{id.$t}} onClick='savePet($(this).val())' class='petButton'>Save for Later</button>
+          <button id="interested" value={{id.$t}} class='petButton'>Interested!</button>
           <hr/>
         </div>
       </script>
@@ -218,14 +258,14 @@
           <h3>Breed: {{breeds.breed.$t}}</h3>
           <h3>Gender: {{sex.$t}}</h3>
           <h3>Pet ID: {{id.$t}}</h3>
-          <button id="interested" value={{id.$t}} onClick='adoptPet($(this).val())' class='petButton'>Interested!</button>
-          <button value={{id.$t}} onClick='savePet($(this).val())' class='petButton'>Save for Later</button>
+          <button id="interested" value={{id.$t}}  class='petButton'>Interested!</button>
           <hr/>
         </div>
       </script>
-
+  <script type="text/javascript" src="scripts/vetControl.js"></script>
   <script src="scripts/randomPet.js"></script>
   <script src="javascript/pageController.js"></script>
   <script src="scripts/app.js"></script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCU2VMSBA-zG2suPG-LwpUJcMbjLPsNqBw&libraries=places&callback=vets.initMap"></script>
   </body>
 </html>

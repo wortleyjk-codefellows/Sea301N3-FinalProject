@@ -11,6 +11,17 @@
   //   alert('test')
   // });
 
+  $('body').on('click', '.mobile-menu', function() {
+    $('#nav-selection').toggle();
+  });
+
+  $('body').on('click', '.tab', function(e) {
+    e.preventDefault();
+    $('section').slideUp(400);
+
+
+  });
+
   $('body').on('click', '.petButton', function(){
     $('section').slideUp(400);
     $('#searchSection').slideDown(400);
@@ -39,6 +50,12 @@
   $('body').on('click', '#back-search-btn', function() {
     $('section').slideUp(400);
     $('#narrowResults').slideDown(400);
+  });
+
+  $('body').on('click', '#save-pet-btn', function() {
+    pets.setLocalStorage();
+    console.log('clicked save pet button');
+    // pets.interested
   });
 
   $('section').hide(); //hides all initial sections first.

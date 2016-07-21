@@ -174,17 +174,34 @@ pets.pareDown = function() {
     }
 
   });
-}
+};
 
   pets.displayMatches = function() {
     pets.filtered.forEach(function(e){
-      var source   = $("#search-result").html();
+      var source   = $('#search-result').html();
       var template = Handlebars.compile(source);
       var html    = template(e);
       $('#narrowResultsWrapper').append(html);
     });
-  }
+  };
 
+  pets.displayFullPetDetails = function(pet) {
+    var fullDetailHtml = $('#petDetails').html();
+    var fullDetailTemplate = Handlebars.compile(fullDetailHtml);
+    var petView = fullDetailTemplate(pet);
+    $('#Animal_Detail_Wrapper').append(petView);
+  };
+
+  pets.selectedPet = null;
+
+  pets.seeMoreButton = function(buttonVal) {
+    pets.filtered.forEach(function(pet) {
+      if (buttonVal === pet.id.$t) {
+        pets.selectedPet = pet;
+      }
+    });
+    pets.displayFullPetDetails(pets.selectedPet);
+  };
 
   $(document).ready(function() {
     pets.animal_wanted_click();
@@ -193,7 +210,6 @@ pets.pareDown = function() {
     pets.howBig();
     pets.assignedGender();
     pets.pareDown();
-
   });
 
   module.pets = pets;

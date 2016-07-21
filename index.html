@@ -23,8 +23,8 @@
             <img src={{{media.photos.photo.0.$t}}}/>
           </article>
           <ul id="basicInfo">
-            <li><p>{{animal.$t}}</p></li>
-            <li><p>Breed: {{breeds.$t}}</p></li>
+            <li><p>Animal: {{animal.$t}}</p></li>
+            <li><p>Breed: {{breeds.breed.$t}}</p></li>
             <li><p>Mix: {{mix.$t}}</p></li>
             <li><p>Size: {{size.$t}}</p></li>
             <li><p>Age: {{age.$t}}</p></li>
@@ -34,17 +34,16 @@
         <article id="detailBottom">
           <p>{{description.$t}}</p>
           <ul id="detailContact">
-            <li>Shelter Id = {{shelterId.$t}}</li>
-            <li>Pet Id = {{id.$t}}</li>
+            <li>Shelter Id: {{shelterId.$t}}</li>
+            <li>Pet Id: {{id.$t}}</li>
             <li>Last Updated: {{lastUpdate.$t}}</li>
             <li>{{contact.address1.$t}}</li>
             <li>{{contact.address2.$t}}</li>
-            <li>{{contact.city.$t}}</li>
-            <li>{{contact.email.$t}}</li>
-            <li>{{contact.fax.$t}}</li>
-            <li>{{contact.phone.$t}}</li>
-            <li>{{contact.state.$t}}</li>
-            <li>{{contact.zip.$t}}</li>
+            <li>City: {{contact.city.$t}}</li>
+            <a href="mailto:{{contact.email.$t}}">Email Contact</a>
+            <li>Contact #: {{contact.phone.$t}}</li>
+            <li>State: {{contact.state.$t}}</li>
+            <li>Zip: {{contact.zip.$t}}</li>
           </ul>
         </article>
       </section>
@@ -216,7 +215,7 @@
         <div class='pet-summary-element'>
           <img src={{{media.photos.photo.0.$t}}} />
           <h1>{{name.$t}}</h1>
-          <h3>Breed: {{breed.$t}}</h3>
+          <h3>Breed: {{breeds.breed.$t}}</h3>
           <h3>Gender: {{sex.$t}}</h3>
           <h3>Pet ID: {{id.$t}}</h3>
           <button id="interested" value={{id.$t}} onClick='adoptPet($(this).val())' class='petButton'>Interested!</button>

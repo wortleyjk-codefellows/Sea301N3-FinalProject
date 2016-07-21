@@ -19,12 +19,14 @@
     $('section').slideUp(400);
     $('#searchSection').slideDown();
   });
-  $('body').on('click', '#favoritesLink', function() {
+  $('body').on('click', '#favoritesLink', function(e) {
+    e.preventDefault();
     $('#nav-selection').toggle();
     $('section').slideUp(400);
     $('#favoritesSection').slideDown(400);
   });
-  $('body').on('click', '#aboutLink', function() {
+  $('body').on('click', '#aboutLink', function(e) {
+    e.preventDefault();
     $('#nav-selection').toggle();
     $('section').slideUp(400);
     $('#about').slideDown(400);

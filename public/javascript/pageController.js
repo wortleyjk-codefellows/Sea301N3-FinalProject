@@ -14,13 +14,24 @@
   $('body').on('click', '.mobile-menu', function() {
     $('#nav-selection').toggle();
   });
-
-  $('body').on('click', '.tab', function(e) {
-    e.preventDefault();
+  $('body').on('click', '#homeLink', function() {
+    $('#nav-selection').toggle();
     $('section').slideUp(400);
-
-
+    $('#searchSection').slideDown();
   });
+  $('body').on('click', '#favoritesLink', function(e) {
+    e.preventDefault();
+    $('#nav-selection').toggle();
+    $('section').slideUp(400);
+    $('#favoritesSection').slideDown(400);
+  });
+  $('body').on('click', '#aboutLink', function(e) {
+    e.preventDefault();
+    $('#nav-selection').toggle();
+    $('section').slideUp(400);
+    $('#about').slideDown(400);
+  });
+
 
   $('body').on('click', '.petButton', function(){
     $('section').slideUp(400);

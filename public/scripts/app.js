@@ -168,6 +168,7 @@
     // });
   };
 
+<<<<<<< HEAD
   pets.displayMatches = function() {
     if(pets.filtered.length > 0) {
       var source   = $('#search-result').html();
@@ -180,6 +181,15 @@
     } else {
       pets.noMatch();
     }
+=======
+  pets.displayMatches = function(arr, appendLocation) {
+    arr.forEach(function(e){
+      var source   = $('#search-result').html();
+      var template = Handlebars.compile(source);
+      var html    = template(e);
+      $(appendLocation).append(html);
+    });
+>>>>>>> 41b5eab40029ff1acb85f585a68895024319a447
   };
 
   pets.displayFullPetDetails = function(pet) {

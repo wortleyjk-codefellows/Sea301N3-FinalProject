@@ -49,17 +49,6 @@
       </section>
     </script>
 
-    <!-- handlebars template for results after filtering -->
-    <script id='search-result-template' type="text/x-handlebars-template">
-      <!-- {{#each pet}} -->
-        <section class="petImage">{{media}}</section>
-        <section class="petBreed">{{breed}}</section>
-        <section class="petAge">{{{age}}}</section>
-        <section class="petSex">{{sex}}</section>
-        <section class="petName">{{{name}}}</section>
-        <hr />
-      <!-- {{/each}} -->
-    </script>
   </head>
   <body>
     <header>
@@ -69,9 +58,10 @@
     <div class="mobile-menu"><span class="ion-navicon-round float-left"></span></div>
     <div id='nav-selection'>
       <ul>
-        <li class="tab"><a href="" id="homeLink" class="ion-happy">HOME</a></li>
-        <li class="tab"><a href="Favorite_Pets" id="favoritesLink" class="ion-ios-paw">FAVORITE PETS</a></li>
-        <li class="tab"><a href="About_Us" id="aboutLink" class="ion-person">ABOUT US</a></li>
+        <li class="tab"><a href="#" id="homeLink" class="ion-happy">HOME</a></li>
+        <li class="tab"><a href="#" id="favoritesLink" class="ion-ios-paw">FAVORITE PETS</a></li>
+        <li class="tab"><a href="#" id="aboutLink" class="ion-person">ABOUT US</a></li>
+        <li class="tab"><a href="#" id="resourcesLink" class="ion-link">RESOURCES</a></li>
       </ul>
     </div>
   </nav>
@@ -170,8 +160,8 @@
       </div>
     </section>
     <div>
-    <section id="PetResources">
-      <h1 id="resources">Pet Resources</h1>
+    <section id="resources">
+      <h1>Pet Resources</h1>
         <ul>
           <li>Rehoming a Special-Needs Pet
             <p><a href="http://bestfriends.org/resources/rehoming-special-needs-pet">bestfriends.org</a></p>
@@ -199,35 +189,36 @@
     </div>
 
     <section id="favoritesSection">
-      <h1>TEST CONTENT</h1>
+      <h1>Favorite Pets</h1>
+      <div id="savedPets"></div>
     </section>
 
     <section id="about">
       <h1>About Us</h1>
       <div id="container">
         <div id="">
-          <img src="" alt="" />
+          <img class="round" src="images/james.jpg" alt="" style="width:300px;height:300px;" />
           <h2>James</h2>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
           </p>
         </div>
         <div id="">
-          <img src="" alt="" />
+          <img class="round" src="images/jonathan.jpg" alt="" style="width:300px;height:300px;" />
           <h2>Jonathan</h2>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            Jonathan is a recent transplant to Seattle from Alabama.  He’s worked as a software Business Analyst for the past 10 years.  He’s a published author with several short pieces and two novels under his belt.  He spends his days working on the next book, playing with his Boston Terriers and chatting with the voices in his head.
           </p>
         </div>
         <div id="">
-          <img src="" alt="" />
+          <img class="round" src="images/serina.jpg" alt="" style="width:300px;height:300px;" />
           <h2>Serina</h2>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            Serina is a research scientist at the UW and has lived in Seattle for most of her life. She enjoys spending time with family which includes her personal hubby chef, 4 going on 14 beloved daughter, loner doxiepoo and crazy french bulldog.
           </p>
         </div>
         <div id="">
-          <img src="" alt="" />
+          <img class="round" src="images/geoff.jpg" alt="" style="width:300px;height:300px;" />
           <h2>Geoff</h2>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.

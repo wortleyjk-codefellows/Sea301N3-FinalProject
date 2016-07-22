@@ -129,6 +129,12 @@ input[type='checkbox'] {
    transform: scale(1.5);
 }
 
+#noMatches {
+  width: 30em;
+  margin-top: 5em;
+  margin: auto;
+  line-height: 150%;
+}
 
 /*#E6C3AF mid peach
 #E9BDA4 light peach

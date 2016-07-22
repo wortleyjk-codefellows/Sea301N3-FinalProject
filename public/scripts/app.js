@@ -133,7 +133,7 @@
 
   pets.noMatch = function() {
     if(pets.filtered.length <= 0) {
-      $('#noMatches').text('Sorry there were no pets matching your criteria.  Please choose different options and search again.');
+      $('#noMatches').html('<h2>Sorry there were no pets matching your criteria.  Please choose different options and search again.</h2>');
       $('#input-snr-cb').prop('checked', false);
       $('#input-spl-cb').prop('checked', false);
     // $('#petLargeness').empty();
@@ -161,7 +161,7 @@
         });
         pets.noMatch();
       } else {
-        console.log('you have to pick something');
+        console.error('you have to pick something');
       }
     });
   };

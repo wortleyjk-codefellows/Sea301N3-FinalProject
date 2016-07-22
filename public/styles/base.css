@@ -129,6 +129,10 @@ input[type='checkbox'] {
    transform: scale(1.5);
 }
 
+.round {
+  border-radius: 500px;
+}
+
 #noMatches {
   width: 30em;
   margin-top: 5em;

@@ -31,7 +31,7 @@
   };
 
   pets.isSpecialNeeds = function(pet) {
-    console.log('running specialNeeds');
+    // console.log('running specialNeeds');
     if (pet.options.option) { //is defined
       var snOptsArray = pets.getSpecialNeedsOptions(pet.options.option);
 
@@ -45,7 +45,7 @@
 
   pets.isSenior = function(pet) {
     if (pets.$seniorPet === 'Senior') {
-      console.log(pet.age.$t);
+      // console.log(pet.age.$t);
       return pets.$seniorPet === pet.age.$t;
     } else {
       return pets.$seniorPet !== pet.age.$t;
@@ -55,13 +55,13 @@
   pets.isSizePet = function(pet) {
     console.log('petSize is running: ' + pets.$petSize);
     if (pets.$petSize === 'S') {
-      console.log(pet.size.$t);
+      // console.log(pet.size.$t);
       return pets.$petSize === pet.size.$t;
     } else if (pets.$petSize === 'M') {
-      console.log(pet.size.$t);
+      // console.log(pet.size.$t);
       return pets.$petSize === pet.size.$t;
     } else if (pets.$petSize === 'L') {
-      console.log(pet.size.$t);
+      // console.log(pet.size.$t);
       return pets.$petSize === pet.size.$t;
     } else {
       return pet.size.$t;
@@ -93,7 +93,7 @@
   pets.animal_wanted_click = function() {
     $('#stage-1-wrapper').off().on('click', '.petButton', function(e) {
       pets.$petWanted = $(this).val();
-      $('#noMatches').text('');
+      // $('#noMatches').text('');
       pets.searchClick(pets.$petWanted);
     });
   };
@@ -132,20 +132,22 @@
   };
 
   pets.noMatch = function() {
-    if(pets.filtered.length <= 0) {
-      $('#noMatches').html('<h2>Sorry there were no pets matching your criteria.  Please choose different options and search again.</h2>');
+    // if(pets.filtered.length <= 0) {
+      console.log($('#noMatches'));
+      $('#noMatches').show();
       $('#input-snr-cb').prop('checked', false);
       $('#input-spl-cb').prop('checked', false);
     // $('#petLargeness').empty();
       $('.sexRadio').prop('checked', false);
-    }
+    // }
   };
 
+  // .html('<h2>Sorry there were no pets matching your criteria.  Please choose different options and search again.</h2>');
 
   pets.pareDown = function() {
-    $('#show-me-btn').off().on('click', function(){
+    // $('#show-me-btn').off().on('click', function(){
       console.log('running pareDown');
-      if (pets.$seniorPet || pets.$specialPet) {
+      // if (pets.$seniorPet || pets.$specialPet) {
         pets.filtered = pets.all
         .filter(function(pet) {
           return pets.isSenior(pet);
@@ -159,20 +161,25 @@
         .filter(function(pet) {
           return pets.isSexPet(pet);
         });
-        pets.noMatch();
-      } else {
-        console.error('you have to pick something');
-      }
-    });
+        // pets.noMatch();
+      // } else {
+      //   console.error('you have to pick something');
+      // }
+    // });
   };
 
   pets.displayMatches = function() {
-    pets.filtered.forEach(function(e){
+    if(pets.filtered.length > 0) {
       var source   = $('#search-result').html();
       var template = Handlebars.compile(source);
-      var html    = template(e);
-      $('#narrowResultsWrapper').append(html);
-    });
+      pets.filtered.forEach(function(e){
+        var html    = template(e);
+        $('#narrowResults').append(html);
+        controller.showResults();
+      });
+    } else {
+      pets.noMatch();
+    }
   };
 
   pets.displayFullPetDetails = function(pet) {
@@ -211,7 +218,9 @@
     pets.snr_spl();
     pets.howBig();
     pets.assignedGender();
-    pets.pareDown();
+    // pets.pareDown();
+    $('#noMatches').hide();
+    controller.showResults();
   });
 
   module.pets = pets;

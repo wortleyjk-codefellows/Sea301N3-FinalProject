@@ -16,6 +16,7 @@
   });
   $('body').on('click', '#homeLink', function() {
     $('#nav-selection').toggle();
+    $('#noMatches').hide();
     $('section').slideUp(400);
     $('#searchSection').slideDown();
   });
@@ -47,11 +48,24 @@
     $('section').slideUp(400);
     $('#filterResults').slideDown(400);
   });
-  $('body').on('click', '#show-me-btn', function(){
-    // $('section').slideUp(400);    NOTE: commented out because they were overwriting the 'no matches message and not needed for the page to function as expected.'
-    pets.displayMatches();
-    // $('#narrowResults').slideDown(400);  NOTE: commented out because they were overwriting the 'no matches message and not needed for the page to function as expected.'
+
+
+  controller.showResults = function(){
+    $('#filterGroupForm').on('submit', function(e){
+      e.preventDefault();
+      if (pets.$seniorPet || pets.$specialPet) {
+        pets.pareDown();
+        $('section').slideUp(400);
+        pets.displayMatches();
+        $('#narrowResults').slideDown(400);
+    } else {
+      console.error('pick an option')
+    }
   });
+};
+
+
+
   $('body').on('click', '#interested', function() {
     $('section').slideUp(400);
     var buttonVal = $(this).val();

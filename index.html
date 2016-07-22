@@ -51,14 +51,14 @@
 
     <!-- handlebars template for results after filtering -->
     <script id='search-result-template' type="text/x-handlebars-template">
-      {{#each pet}}
+      <!-- {{#each pet}} -->
         <section class="petImage">{{media}}</section>
         <section class="petBreed">{{breed}}</section>
         <section class="petAge">{{{age}}}</section>
         <section class="petSex">{{sex}}</section>
         <section class="petName">{{{name}}}</section>
         <hr />
-      {{/each}}
+      <!-- {{/each}} -->
     </script>
   </head>
   <body>
@@ -124,6 +124,7 @@
         <!-- <div class="left-buffer">
         </div> -->
         <!-- <div class="right-buffer"> -->
+        <form id="filterGroupForm">
           <input type="checkbox" id='input-snr-cb' value="Senior"><span class='page-text'>Senior</span></input>
         <!-- </div> -->
       <!-- </div> -->
@@ -140,23 +141,25 @@
           <option value="M">Medium</option>
           <option value="L">Large</option>
         </select>
-        <form>
       <div id="gender">
       <!-- <div class="choice-container"> -->
           <input class="sexRadio" type="radio" name="gender" value="M"><span class='page-text'>Male</span>
           <input class="sexRadio" type="radio" name="gender" value="F"><span class='page-text'>Female</span>
       <!-- </div> -->
+          <button type="submit" id='show-me-btn' name="showMe">Show Me My New Friends!</button>
         </form>
-        <button type="button" id='show-me-btn' name="showMe">Show Me My New Friends!</button>
-        <h3 id='noMatches'></h3>
       </div>
     </div>
     </section>
 
 
     <section id='narrowResults'>
-      <div id='narrowResultsWrapper'></div>
+      <!-- <div id='narrowResultsWrapper'></div> -->
+      <h3 id='noMatches'>Sorry there were no pets matching your criteria.  Please choose different options and search again.</h3>
     </section>
+
+    <!-- <section id='noResults'> -->
+    <!-- </section> -->
 
     <section id="Animal_Detail">
       <div id="Animal_Detail_Wrapper"></div>

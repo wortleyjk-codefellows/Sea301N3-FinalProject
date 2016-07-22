@@ -167,11 +167,11 @@
   };
 
   pets.displayMatches = function(arr, appendLocation) {
-    arr.forEach(function(e){ //was pets.filtered
+    arr.forEach(function(e){
       var source   = $('#search-result').html();
       var template = Handlebars.compile(source);
       var html    = template(e);
-      $(appendLocation).append(html); //was appendLocation
+      $(appendLocation).append(html);
     });
   };
 

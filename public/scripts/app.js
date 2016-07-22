@@ -199,6 +199,7 @@
       console.log('localStorage exists');
       pets.savedPets = JSON.parse(localStorage.getItem('savedPets'));
       console.log(pets.savedPets);
+      pets.filtered = pets.savedPets;
     }
     pets.savedPets.push(pets.selectedPet);
     console.log(pets.savedPets);

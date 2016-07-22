@@ -3,39 +3,52 @@
   <head>
     <meta charset="utf-8">
     <title>My Funny Friend and Me</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href='https://fonts.googleapis.com/css?family=Patua+One|Telex|Russo+One' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Cedarville+Cursive' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="vendors/normalize.css">
     <link rel="stylesheet" href="styles/ionicons.css">
     <link rel="stylesheet" href="styles/base.css">
-    <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/module.css">
+    <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/state.css">
-
 <!-- Adding handlebars for animal detail view  -->
     <script id="petDetails" type="text/x-handlebars-template">
-      <section class="">{{}}</section>
-      <section class="">{{}}</section>
-      <section class="">{{{}}}</section>
-      <section class="">{{}}</section>
-      <section class="">{{{}}}</section>
-      <section class="">{{}}</section>
-      <hr />
+      <section id={{id.$t}}>
+        <article id="detailTop">
+          <h2>{{name.$t}}</h2>
+          <article id="allPetPics">
+            <img src={{{media.photos.photo.0.$t}}}/>
+          </article>
+          <ul id="basicInfo">
+            <li><p>Animal: {{animal.$t}}</p></li>
+            <li><p>Breed: {{breeds.breed.$t}}</p></li>
+            <li><p>Mix: {{mix.$t}}</p></li>
+            <li><p>Size: {{size.$t}}</p></li>
+            <li><p>Age: {{age.$t}}</p></li>
+            <li><p>Sex: {{sex.$t}}</p></li>
+          </ul>
+        </article>
+        <article id="detailBottom">
+          <p>{{description.$t}}</p>
+          <ul id="detailContact">
+            <li>Shelter Id: {{shelterId.$t}}</li>
+            <li>Pet Id: {{id.$t}}</li>
+            <li>Last Updated: {{lastUpdate.$t}}</li>
+            <li>{{contact.address1.$t}}</li>
+            <li>{{contact.address2.$t}}</li>
+            <li>City: {{contact.city.$t}}</li>
+            <a href="mailto:{{contact.email.$t}}">Email Contact</a>
+            <li>Contact #: {{contact.phone.$t}}</li>
+            <li>State: {{contact.state.$t}}</li>
+            <li>Zip: {{contact.zip.$t}}</li>
+          </ul>
+        </article>
+      </section>
     </script>
 
-    <!-- handlebars template for results after filtering -->
-    <script id='search-result-template' type="text/x-handlebars-template">
-      {{#each pet}}
-        <section class="petImage">{{media}}</section>
-        <section class="petBreed">{{breed}}</section>
-        <section class="petAge">{{{age}}}</section>
-        <section class="petSex">{{sex}}</section>
-        <section class="petName">{{{name}}}</section>
-        <hr />
-      {{/each}}
-    </script>
   </head>
   <body>
     <header>
@@ -45,43 +58,44 @@
     <div class="mobile-menu"><span class="ion-navicon-round float-left"></span></div>
     <div id='nav-selection'>
       <ul>
-        <li class="tab" data-content="about"><a href="about" class="ion-happy">HOME</a></li>
-        <li class="tab" data-content="authors"><a href="authors" class="ion-ios-paw">FAVORITE PETS</a></li>
-        <li class="tab" data-content="about"><a href="about" class="ion-person">ABOUT US</a></li>
+        <li class="tab"><a href="#" id="homeLink" class="ion-happy">HOME</a></li>
+        <li class="tab"><a href="#" id="favoritesLink" class="ion-ios-paw">FAVORITE PETS</a></li>
+        <li class="tab"><a href="#" id="aboutLink" class="ion-person">ABOUT US</a></li>
+        <li class="tab"><a href="#" id="resourcesLink" class="ion-link">RESOURCES</a></li>
       </ul>
     </div>
   </nav>
     <div id='main-wrapper' class='wrapper'>
-      <section id="stage-1">
+    <section id="stage-1">
         <div id='stage-1-wrapper' class='wrapper'>
           <h1>I would like to adopt a...</h1>
-        <div class="choice-container">
-        <button class="petButton" value='dog' id='dog-btn'>DOG</button>
-        </div>
-        <div class="choice-container">
+        <!-- <div class="choice-container"> -->
+          <button class="petButton" value='dog' id='dog-btn'>DOG</button>
+        <!-- </div> -->
+        <!-- <div class="choice-container"> -->
           <button class="petButton" value='cat' id='cat-btn'>CAT</button>
-        </div>
-        <div class="choice-container">
-          <button class="petButton" value='other' id='other-btn'>OTHER</button>
-        </div>
+        <!-- </div> -->
+
+        <!-- section where the random pets will go in desktop view -->
+        <!-- <section class='randomResults'> -->
+          <div id='randomResultsWrapper'>
+            <h2>Some of our favorite pets, just waiting for you.</h2>
+          </div>
+        <!-- </section> -->
       </div>
-      </section>
-      <section id="searchSection">
+    </section>
+
+
+    <section id="searchSection">
       <div id="searchSectionWrapper">
         <h1>and I live in...</h1>
-        <form>
-          <input id="zipFind" type="text" name="zip" placeholder="zipcode">
+        <form id="zipFindForm">
+          <input id="zipFind" type="text" name="zip" placeholder="zipcode" required>
+          <input class="find-new-pet-btn" type="button" name="findIt" value="Find me a new friend!">
+          <!-- <button id='find-new-pet-btn'>Find me a new friend!</button> -->
+          <!-- HAD TO CHANGE THIS TO A SUBMIT SO THE ZIPCODE REQUIRED WOULD WORK. -->
         </form>
-        <button id='find-new-pet-btn'>Find me a new friend!</button>
       </div>
-      </section>
-
-
-
-
-      <section id="totalMatches">
-
-      </section>
     </section>
     <section id="totalMatches">
       <div id="newFriends">
@@ -90,29 +104,26 @@
         <h1>potential new friends for you!</h1>
         <h1>We will need more information now to find you that special pet that you would love!</h1>
         <button id='search-btn-transition'>OK</button>
-      </div>
+    </div>
     </section>
-
-
-
-
     <section id="filterResults">
       <div id="filterResultsWrapper">
         <h1>I would like a new pet who is...</h1>
-      <div class="choice-container">
-        <div class="left-buffer">
-        </div>
-        <div class="right-buffer">
+        <p>Please try to limit your criteria to 3 options for best results!</p>
+      <!-- <div class="choice-container"> -->
+        <!-- <div class="left-buffer">
+        </div> -->
+        <!-- <div class="right-buffer"> -->
           <input type="checkbox" id='input-snr-cb' value="Senior"><span class='page-text'>Senior</span></input>
-        </div>
-      </div>
-      <div class="choice-container">
-        <div class="left-buffer">
-        </div>
-        <div class="right-buffer">
+        <!-- </div> -->
+      <!-- </div> -->
+      <!-- <div class="choice-container"> -->
+        <!-- <div class="left-buffer">
+        </div> -->
+        <!-- <div class="right-buffer"> -->
           <input type="checkbox" id='input-spl-cb' value="specialNeeds"><span class='page-text'>Special Needs</span></input>
-        </div>
-      </div>
+        <!-- </div> -->
+      <!-- </div> -->
         <select id="petLargeness" class="" name="">
           <option value="Size of Pet">Size Of Pet</option>
           <option value="S">Small</option>
@@ -120,40 +131,43 @@
           <option value="L">Large</option>
         </select>
         <form>
-      <div id="gender" class="choice-container">
-      <div id="sexRadio" class="choice-container">
-          <input type="radio" name="gender" value="M"><span class='page-text'>Male</span>
-          <input type="radio" name="gender" value="F"><span class='page-text'>Female</span>
-      </div>
+      <div id="gender">
+      <!-- <div class="choice-container"> -->
+          <input class="sexRadio" type="radio" name="gender" value="M"><span class='page-text'>Male</span>
+          <input class="sexRadio" type="radio" name="gender" value="F"><span class='page-text'>Female</span>
+      <!-- </div> -->
         </form>
         <button type="button" id='show-me-btn' name="showMe">Show Me My New Friends!</button>
+        <h3 id='noMatches'></h3>
       </div>
-
-      <section id=narrowResults></section>
+    </div>
     </section>
 
 
-
-    <section id="Animal_Detail">
-
+    <section id='narrowResults'>
+      <div id='narrowResultsWrapper'></div>
     </section>
+
     <section id="Animal_Detail">
-      <div id="Animal_Detail_Wrapper">
+      <div id="Animal_Detail_Wrapper"></div>
+      <div>
         <button id='save-pet-btn'>Save For Later</button>
         <button id='adopt-pet-btn'>Adopted! Share!</button>
         <button id='back-search-btn'>Back to Results</button>
       </div>
     </section>
     <div>
-    <section id="PetResources">
-      <h1 id="resources">Pet Resources</h1>
+    <section id="resources">
+      <h1>Pet Resources</h1>
         <ul>
           <li>Rehoming a Special-Needs Pet
             <p><a href="http://bestfriends.org/resources/rehoming-special-needs-pet">bestfriends.org</a></p>
             <p><a href ="http://www.petswithdisabilities.org">petswithdisabilities.org</a></p>
+            <p><a href="http://vth.vetmed.wsu.edu/good-samaritan">vth.vetmed.wsu/edu</a></p>
           </li>
           <li>Pet Supplies for Special-Needs Pets
             <p><a href="http://www.handicappedpets.com/">handicappedpets.com</a></p>
+            <p><a href="http://hpets.org/">hpets.org</a></p>
             <p><a href="http://www.k9carts.com/">k9carts.com</a></p>
             <p><a href="http://useddogwheelchairs.com/">useddogwheelchairs.com</a></p>
           </li>
@@ -163,12 +177,86 @@
             <p><a href="http://www.gopetplan.com/">Pet Plan</a></p>
             <p><a href="http://www.embracepetinsurance.com/">Embrace Pet Insurance</a></p>
           </li>
+          <li>Financial Assistance
+            <p><a href="http://www.handicappedpets.com/pet-services/financial-aid-for-pets">Handicapped Pets</a></p>
+            <p><a href="http://www.carecredit.com/vetmed">Care Credit</a></p>
+          </li>
         </ul>
     </section>
     </div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.amd.js"></script>
-  <script src="scripts/app.js"></script>
+
+    <section id="favoritesSection">
+      <h1>Favorite Pets</h1>
+      <div id="savedPets"></div>
+    </section>
+
+    <section id="about">
+      <h1>About Us</h1>
+      <div id="container">
+        <div id="">
+          <img class="round" src="images/james.jpg" alt="" style="width:300px;height:300px;" />
+          <h2>James</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+        </div>
+        <div id="">
+          <img class="round" src="images/jonathan.jpg" alt="" style="width:300px;height:300px;" />
+          <h2>Jonathan</h2>
+          <p>
+            Jonathan is a recent transplant to Seattle from Alabama.  He’s worked as a software Business Analyst for the past 10 years.  He’s a published author with several short pieces and two novels under his belt.  He spends his days working on the next book, playing with his Boston Terriers and chatting with the voices in his head.
+          </p>
+        </div>
+        <div id="">
+          <img class="round" src="images/serina.jpg" alt="" style="width:300px;height:300px;" />
+          <h2>Serina</h2>
+          <p>
+            Serina is a research scientist at the UW and has lived in Seattle for most of her life. She enjoys spending time with family which includes her personal hubby chef, 4 going on 14 beloved daughter, loner doxiepoo and crazy french bulldog.
+          </p>
+        </div>
+        <div id="">
+          <img class="round" src="images/geoff.jpg" alt="" style="width:300px;height:300px;" />
+          <h2>Geoff</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+        </div>
+      </section>
+
+      <section id="findVet">
+        <div id ="map"></div>
+      </section>
+  <!-- Adding handlebars for animal detail view  -->
+
+      <!-- handlebars template for results after filtering -->
+      <script id="search-result" type="text/x-handlebars-template">
+        <div class='pet-summary-element'>
+          <img src={{{media.photos.photo.0.$t}}} />
+          <h1>{{name.$t}}</h1>
+          <h3>Breed: {{breeds.breed.$t}}</h3>
+          <h3>Gender: {{sex.$t}}</h3>
+          <h4>Pet ID: {{id.$t}}</h3>
+          <button id="interested" value={{id.$t}} class='petButton'>Interested!</button>
+          <hr/>
+        </div>
+      </script>
+
+      <!-- handlebars template for random pets when landing is in desktop -->
+      <script id="landingRandom" type="text/x-handlebars-template">
+        <div class='pet-summary-element'>
+          <img src={{{media.photos.photo.0.$t}}} />
+          <h1>{{name.$t}}</h1>
+          <h3>Breed: {{breeds.breed.$t}}</h3>
+          <h3>Gender: {{sex.$t}}</h3>
+          <h3>Pet ID: {{id.$t}}</h3>
+          <button id="interested" value={{id.$t}}  class='petButton'>Interested!</button>
+          <hr/>
+        </div>
+      </script>
+  <script type="text/javascript" src="scripts/vetControl.js"></script>
+  <script src="scripts/randomPet.js"></script>
   <script src="javascript/pageController.js"></script>
-  <!-- <script src="scripts/randomPet.js"></script> -->
+  <script src="scripts/app.js"></script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCU2VMSBA-zG2suPG-LwpUJcMbjLPsNqBw&libraries=places&callback=vets.initMap"></script>
   </body>
 </html>

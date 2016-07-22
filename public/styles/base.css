@@ -133,6 +133,13 @@ input[type='checkbox'] {
   border-radius: 500px;
 }
 
+#noMatches {
+  width: 30em;
+  margin-top: 5em;
+  margin: auto;
+  line-height: 150%;
+}
+
 /*#E6C3AF mid peach
 #E9BDA4 light peach
 #AE9181 dark peach

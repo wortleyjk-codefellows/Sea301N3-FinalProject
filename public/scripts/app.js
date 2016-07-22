@@ -133,7 +133,7 @@
 
   pets.noMatch = function() {
     if(pets.filtered.length <= 0) {
-      $('#noMatches').text('Sorry there were no pets matching your criteria.  Please choose different options and search again.');
+      $('#noMatches').html('<h2>Sorry there were no pets matching your criteria.  Please choose different options and search again.</h2>');
       $('#input-snr-cb').prop('checked', false);
       $('#input-spl-cb').prop('checked', false);
     // $('#petLargeness').empty();
@@ -161,17 +161,17 @@
         });
         pets.noMatch();
       } else {
-        console.log('you have to pick something');
+        console.error('you have to pick something');
       }
     });
   };
 
-  pets.displayMatches = function() {
-    pets.filtered.forEach(function(e){
+  pets.displayMatches = function(arr, appendLocation) {
+    arr.forEach(function(e){
       var source   = $('#search-result').html();
       var template = Handlebars.compile(source);
       var html    = template(e);
-      $('#narrowResultsWrapper').append(html);
+      $(appendLocation).append(html);
     });
   };
 

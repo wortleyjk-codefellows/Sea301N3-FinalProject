@@ -53,7 +53,6 @@
     // $('section').slideUp(400);
     pets.displayMatches(pets.filtered, '#narrowResultsWrapper');
     // $('#narrowResults').slideDown(400);
-    pets.displayMatches();
   });
   $('body').on('click', '#interested', function() {
     $('section').slideUp(400);

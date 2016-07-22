@@ -166,12 +166,12 @@
     });
   };
 
-  pets.displayMatches = function() {
-    pets.filtered.forEach(function(e){
+  pets.displayMatches = function(arr, appendLocation) {
+    arr.forEach(function(e){ //was pets.filtered
       var source   = $('#search-result').html();
       var template = Handlebars.compile(source);
       var html    = template(e);
-      $('#narrowResultsWrapper').append(html);
+      $(appendLocation).append(html); //was appendLocation
     });
   };
 

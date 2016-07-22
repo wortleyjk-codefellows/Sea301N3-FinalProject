@@ -23,6 +23,7 @@
     e.preventDefault();
     $('#nav-selection').toggle();
     $('section').slideUp(400);
+    pets.displayMatches(JSON.parse(localStorage.savedPets), '#savedPets');
     $('#favoritesSection').slideDown(400);
   });
   $('body').on('click', '#aboutLink', function(e) {
@@ -49,7 +50,7 @@
   });
   $('body').on('click', '#show-me-btn', function(){
     $('section').slideUp(400);
-    pets.displayMatches();
+    pets.displayMatches(pets.filtered, '#narrowResultsWrapper');
     $('#narrowResults').slideDown(400);
   });
   $('body').on('click', '#interested', function() {

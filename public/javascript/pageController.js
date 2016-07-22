@@ -50,9 +50,10 @@
     $('#filterResults').slideDown(400);
   });
   $('body').on('click', '#show-me-btn', function(){
-    $('section').slideUp(400);
+    // $('section').slideUp(400);
     pets.displayMatches(pets.filtered, '#narrowResultsWrapper');
-    $('#narrowResults').slideDown(400);
+    // $('#narrowResults').slideDown(400);
+    pets.displayMatches();
   });
   $('body').on('click', '#interested', function() {
     $('section').slideUp(400);

@@ -17,14 +17,14 @@
   $('body').on('click', '#homeLink', function() {
     $('#nav-selection').toggle();
     $('section').slideUp(400);
-    $('#searchSection').slideDown();
+    $('#stage-1').slideDown();
   });
   $('body').on('click', '#favoritesLink', function(e) {
     e.preventDefault();
     $('#nav-selection').toggle();
     $('section').slideUp(400);
     $('#savedPets').empty();
-    pets.displayMatches(JSON.parse(localStorage.savedPets), '#savedPets');
+    pets.displayMatches(pets.savedPets, '#savedPets');
     $('#favoritesSection').slideDown(400);
   });
   $('body').on('click', '#aboutLink', function(e) {

@@ -23,7 +23,8 @@
     e.preventDefault();
     $('#nav-selection').toggle();
     $('section').slideUp(400);
-    pets.displayMatches(JSON.parse(localStorage.savedPets), '#savedPets');
+    $('#savedPets').empty();
+    pets.displayMatches(pets.savedPets, '#savedPets'); //JSON.parse(localStorage.savedPets)
     $('#favoritesSection').slideDown(400);
   });
   $('body').on('click', '#aboutLink', function(e) {

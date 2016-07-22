@@ -31,8 +31,12 @@
     $('section').slideUp(400);
     $('#about').slideDown(400);
   });
-
-
+  $('body').on('click', '#resourcesLink', function(e) {
+    e.preventDefault();
+    $('#nav-selection').toggle();
+    $('section').slideUp(400);
+    $('#resources').slideDown(400);
+  });
   $('body').on('click', '.petButton', function(){
     $('section').slideUp(400);
     $('#searchSection').slideDown(400);

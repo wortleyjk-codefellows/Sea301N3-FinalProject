@@ -23,6 +23,8 @@
     e.preventDefault();
     $('#nav-selection').toggle();
     $('section').slideUp(400);
+    $('#savedPets').empty();
+    pets.displayMatches(JSON.parse(localStorage.savedPets), '#savedPets');
     $('#favoritesSection').slideDown(400);
   });
   $('body').on('click', '#aboutLink', function(e) {
@@ -48,9 +50,9 @@
     $('#filterResults').slideDown(400);
   });
   $('body').on('click', '#show-me-btn', function(){
-    // $('section').slideUp(400);    NOTE: commented out because they were overwriting the 'no matches message and not needed for the page to function as expected.'
-    pets.displayMatches();
-    // $('#narrowResults').slideDown(400);  NOTE: commented out because they were overwriting the 'no matches message and not needed for the page to function as expected.'
+    $('section').slideUp(400);
+    pets.displayMatches(pets.filtered, '#narrowResultsWrapper');
+    $('#narrowResults').slideDown(400);
   });
   $('body').on('click', '#interested', function() {
     $('section').slideUp(400);

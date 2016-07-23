@@ -53,7 +53,8 @@
   display: none;
 }*/
 #allPetPics {
-  float: right;
+  /*float: right;*/
+  margin: auto;
 }
 
 #Animal_Detail {

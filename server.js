@@ -8,6 +8,10 @@ app.get('/', function(req, res) {
   res.sendFile(__dirname + '/index.html');
 });
 
+app.get('/findVet', function(req, res) { ///////////////// TESTING
+  res.sendFile(__dirname + '/findVet.html');
+});
+
 app.listen(port, function(){
   console.log('Listening on port:', port);
 });

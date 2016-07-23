@@ -6,7 +6,7 @@
     <script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href='https://fonts.googleapis.com/css?family=Patua+One|Telex|Russo+One' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Poiret+One|Maven+Pro|Montserrat' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Cedarville+Cursive' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="vendors/normalize.css">
     <link rel="stylesheet" href="styles/ionicons.css">
@@ -14,81 +14,54 @@
     <link rel="stylesheet" href="styles/module.css">
     <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/state.css">
-<!-- Adding handlebars for animal detail view  -->
-    <script id="petDetails" type="text/x-handlebars-template">
-      <section id={{id.$t}}>
-        <article id="detailTop">
-          <h2>{{name.$t}}</h2>
-          <article id="allPetPics">
-            <img src={{{media.photos.photo.0.$t}}}/>
-          </article>
-          <ul id="basicInfo">
-            <li><p>Animal: {{animal.$t}}</p></li>
-            <li><p>Breed: {{breeds.breed.$t}}</p></li>
-            <li><p>Mix: {{mix.$t}}</p></li>
-            <li><p>Size: {{size.$t}}</p></li>
-            <li><p>Age: {{age.$t}}</p></li>
-            <li><p>Sex: {{sex.$t}}</p></li>
-          </ul>
-        </article>
-        <article id="detailBottom">
-          <p>{{description.$t}}</p>
-          <ul id="detailContact">
-            <li>Shelter Id: {{shelterId.$t}}</li>
-            <li>Pet Id: {{id.$t}}</li>
-            <li>Last Updated: {{lastUpdate.$t}}</li>
-            <li>{{contact.address1.$t}}</li>
-            <li>{{contact.address2.$t}}</li>
-            <li>City: {{contact.city.$t}}</li>
-            <a href="mailto:{{contact.email.$t}}">Email Contact</a>
-            <li>Contact #: {{contact.phone.$t}}</li>
-            <li>State: {{contact.state.$t}}</li>
-            <li>Zip: {{contact.zip.$t}}</li>
-          </ul>
-        </article>
-      </section>
-    </script>
-
   </head>
   <body>
-    <header>
-      <h2>My Funny Friend and Me</h2>
-    </header>
-  <nav>
-    <div class="mobile-menu"><span class="ion-navicon-round float-left"></span></div>
+  <div id='body-wrapper'></div>
+  <div id='nav-title-wrapper'>
+    <nav>
+    <div id='nav-details'>
+      <div id="mobile-menu" class='float-left'>
+        <span class="ion-navicon-round float-left"></span>
+      </div>
+      <div id='nav-title'>My Funny Friend and Me</div>
+    </div>
     <div id='nav-selection'>
       <ul>
-        <li class="tab"><a href="#" id="homeLink" class="ion-happy">HOME</a></li>
-        <li class="tab"><a href="#" id="favoritesLink" class="ion-ios-paw">FAVORITE PETS</a></li>
-        <li class="tab"><a href="#" id="aboutLink" class="ion-person">ABOUT US</a></li>
-        <li class="tab"><a href="#" id="resourcesLink" class="ion-link">RESOURCES</a></li>
+        <li class="tab"><a href="#" id="homeLink" class="ion-happy maven ivory-text">HOME</a></li>
+        <li class="tab"><a href="#" id="favoritesLink" class="ion-ios-paw maven ivory-text">FAVORITE PETS</a></li>
+        <li class="tab"><a href="#" id="aboutLink" class="ion-person maven ivory-text">ABOUT US</a></li>
+        <li class="tab"><a href="#" id="resourcesLink" class="ion-link maven ivory-text">RESOURCES</a></li>
       </ul>
     </div>
-  </nav>
-    <div id='main-wrapper' class='wrapper'>
-    <section id="stage-1">
-        <div id='stage-1-wrapper' class='wrapper'>
-          <h1>I would like to adopt a...</h1>
-        <!-- <div class="choice-container"> -->
+    </nav>
+  </div>
+    <div id='main-wrapper'>
+    <section id='greeting-page' class='section-wrapper'>
+      <div>
+        <h1 id='greeting-text' class='maven ivory-text'>...Your new pet is just a few clicks away! Click anywhere here to start...</h1>
+      </div>
+    </section>
+    <section id="stage-1" class='section-wrapper'>
+        <div id='stage-1-wrapper'>
+          <h1 class='maven ivory-text'>I would like to adopt a...</h1>
+        <div class='choice-container'>
           <button class="petButton" value='dog' id='dog-btn'>DOG</button>
-        <!-- </div> -->
-        <!-- <div class="choice-container"> -->
           <button class="petButton" value='cat' id='cat-btn'>CAT</button>
-        <!-- </div> -->
-
+        </div>
         <!-- section where the random pets will go in desktop view -->
         <!-- <section class='randomResults'> -->
+          <h2 id='randomPetMessage' class='maven ivory-text'>Click me for some pets that might interest you.</h2>
           <div id='randomResultsWrapper'>
-            <h2>Some of our favorite pets, just waiting for you.</h2>
+
           </div>
         <!-- </section> -->
       </div>
     </section>
 
 
-    <section id="searchSection">
+    <section id="searchSection" class='section-wrapper'>
       <div id="searchSectionWrapper">
-        <h1>and I live in...</h1>
+        <h1 class='maven ivory-text'>and I live in...</h1>
         <form id="zipFindForm">
           <input id="zipFind" type="text" name="zip" placeholder="zipcode" required>
           <input class="find-new-pet-btn" type="button" name="findIt" value="Find me a new friend!">
@@ -97,32 +70,32 @@
         </form>
       </div>
     </section>
-    <section id="totalMatches">
+    <section id="totalMatches" class='section-wrapper'>
       <div id="newFriends">
-        <h1>We found</h1>
-        <h1 id="numMatches"></h1>
-        <h1>potential new friends for you!</h1>
-        <h1>We will need more information now to find you that special pet that you would love!</h1>
-        <button id='search-btn-transition'>OK</button>
+        <h1 class='maven ivory-text'>We found</h1>
+        <h1 id="numMatches" class='maven ivory-text'></h1>
+        <h1 class='maven ivory-text'>potential new friends for you!</h1>
+        <h1 class='maven ivory-text'>We will need more information now to find you that special pet that you would love!</h1>
+        <button id='search-btn-transition' class='maven ivory-text'>OK</button>
     </div>
     </section>
-    <section id="filterResults">
+    <section id="filterResults" class='section-wrapper'>
       <div id="filterResultsWrapper">
-        <h1>I would like a new pet who is...</h1>
-        <p>Please try to limit your criteria to 3 options for best results!</p>
+        <h1 class='maven ivory-text'>I would like a new pet who is...</h1>
+        <p class='maven ivory-text'>Please try to limit your criteria to 3 options for best results!</p>
       <!-- <div class="choice-container"> -->
         <!-- <div class="left-buffer">
         </div> -->
         <!-- <div class="right-buffer"> -->
         <form id="filterGroupForm">
-          <input type="checkbox" id='input-snr-cb' value="Senior"><span class='page-text'>Senior</span></input>
+          <input type="checkbox" id='input-snr-cb' value="Senior"><span class='page-text maven ivory-text'>Senior</span></input>
         <!-- </div> -->
       <!-- </div> -->
       <!-- <div class="choice-container"> -->
         <!-- <div class="left-buffer">
         </div> -->
         <!-- <div class="right-buffer"> -->
-          <input type="checkbox" id='input-spl-cb' value="specialNeeds"><span class='page-text'>Special Needs</span></input>
+          <input type="checkbox" id='input-spl-cb' value="specialNeeds"><span class='page-text maven ivory-text'>Special Needs</span></input>
         <!-- </div> -->
       <!-- </div> -->
         <select id="petLargeness" class="" name="">
@@ -133,25 +106,26 @@
         </select>
       <div id="gender">
       <!-- <div class="choice-container"> -->
-          <input class="sexRadio" type="radio" name="gender" value="M"><span class='page-text'>Male</span>
-          <input class="sexRadio" type="radio" name="gender" value="F"><span class='page-text'>Female</span>
+          <input class="sexRadio" type="radio" name="gender" value="M"><span class='page-text maven ivory-text'>Male</span>
+          <input class="sexRadio" type="radio" name="gender" value="F"><span class='page-text maven ivory-text'>Female</span>
       <!-- </div> -->
-          <button type="submit" id='show-me-btn' name="showMe">Show Me My New Friends!</button>
+          <button type="submit" id='show-me-btn' name="showMe" class='maven ivory-text'>Show Me My New Friends!</button>
         </form>
       </div>
     </div>
     </section>
 
 
-    <section id='narrowResults'>
+    <section id='narrowResults' class='section-wrapper'>
       <!-- <div id='narrowResultsWrapper'></div> -->
+
       <h3 id='noMatches'>Sorry there were no pets matching your criteria.  Please choose different options and search again.</h3>
     </section>
 
     <!-- <section id='noResults'> -->
     <!-- </section> -->
 
-    <section id="Animal_Detail">
+    <section id="Animal_Detail" class='section-wrapper'>
       <div id="Animal_Detail_Wrapper"></div>
       <div>
         <button id='save-pet-btn'>Save For Later</button>
@@ -160,7 +134,7 @@
       </div>
     </section>
     <div>
-    <section id="resources">
+    <section id="resources" class='section-wrapper'>
       <h1>Pet Resources</h1>
         <ul>
           <li>Rehoming a Special-Needs Pet
@@ -188,12 +162,12 @@
     </section>
     </div>
 
-    <section id="favoritesSection">
+    <section id="favoritesSection" class='section-wrapper'>
       <h1>Favorite Pets</h1>
       <div id="savedPets"></div>
     </section>
 
-    <section id="about">
+    <section id="about" class='section-wrapper'>
       <h1>About Us</h1>
       <div id="container">
         <div id="">
@@ -235,12 +209,11 @@
       <script id="search-result" type="text/x-handlebars-template">
         <div class='pet-summary-element'>
           <img src={{{media.photos.photo.0.$t}}} />
-          <h1>{{name.$t}}</h1>
-          <h3>Breed: {{breeds.breed.$t}}</h3>
-          <h3>Gender: {{sex.$t}}</h3>
-          <h4>Pet ID: {{id.$t}}</h3>
-          <button id="interested" value={{id.$t}} class='petButton'>Interested!</button>
-          <hr/>
+          <h1 class='maven ivory-text'>{{name.$t}}</h1>
+          <h3 class='maven ivory-text'>Breed: {{breeds.breed.$t}}</h3>
+          <h3 class='maven ivory-text'>Gender: {{sex.$t}}</h3>
+          <h4 class='maven ivory-text'>Pet ID: {{id.$t}}</h3>
+          <button id="interested" value={{id.$t}} class='interestedButton'>Interested!</button>
         </div>
       </script>
 
@@ -248,14 +221,47 @@
       <script id="landingRandom" type="text/x-handlebars-template">
         <div class='pet-summary-element'>
           <img src={{{media.photos.photo.0.$t}}} />
-          <h1>{{name.$t}}</h1>
-          <h3>Breed: {{breeds.breed.$t}}</h3>
-          <h3>Gender: {{sex.$t}}</h3>
-          <h3>Pet ID: {{id.$t}}</h3>
+          <h1 class='maven ivory-text'>{{name.$t}}</h1>
+          <h4 class='maven ivory-text'>Breed: {{breeds.breed.$t}}</h3>
+          <h4 class='maven ivory-text'>Gender: {{sex.$t}}</h3>
+          <h4 class='maven ivory-text'>Pet ID: {{id.$t}}</h3>
           <button id="interested" value={{id.$t}}  class='petButton'>Interested!</button>
-          <hr/>
         </div>
       </script>
+      <!-- Adding handlebars for animal detail view  -->
+    <script id="petDetails" type="text/x-handlebars-template">
+      <section id={{id.$t}}>
+        <article id="detailTop" class='detailTop'>
+          <h2 class='maven ivory-text'>{{name.$t}}</h2>
+          <article id="allPetPics">
+            <img src={{{media.photos.photo.0.$t}}}/>
+          </article>
+          <ul id="basicInfo" class='basicInfo'>
+            <li><p class='maven ivory-text'>Animal: {{animal.$t}}</p></li>
+            <li><p class='maven ivory-text'>Breed: {{breeds.breed.$t}}</p></li>
+            <li><p class='maven ivory-text'>Mix: {{mix.$t}}</p></li>
+            <li><p class='maven ivory-text'>Size: {{size.$t}}</p></li>
+            <li><p class='maven ivory-text'>Age: {{age.$t}}</p></li>
+            <li><p class='maven ivory-text'>Sex: {{sex.$t}}</p></li>
+          </ul>
+        </article>
+        <article id="detailBottom" class='detailBottom'>
+          <p class='maven ivory-text'>{{description.$t}}</p>
+          <ul id="detailContact">
+            <li class='maven ivory-text'>Shelter Id: {{shelterId.$t}}</li>
+            <li class='maven ivory-text'>Pet Id: {{id.$t}}</li>
+            <li class='maven ivory-text'>Last Updated: {{lastUpdate.$t}}</li>
+            <li class='maven ivory-text'>{{contact.address1.$t}}</li>
+            <li class='maven ivory-text'>{{contact.address2.$t}}</li>
+            <li class='maven ivory-text'>City: {{contact.city.$t}}</li>
+            <a href="mailto:{{contact.email.$t}}" class='maven ivory-text'>Email Contact: {{contact.email.$t}}</a>
+            <li class='maven ivory-text'>Contact #: {{contact.phone.$t}}</li>
+            <li class='maven ivory-text'>State: {{contact.state.$t}}</li>
+            <li class='maven ivory-text'>Zip: {{contact.zip.$t}}</li>
+          </ul>
+        </article>
+      </section>
+    </script>
   <script type="text/javascript" src="scripts/vetControl.js"></script>
   <script src="scripts/randomPet.js"></script>
   <script src="javascript/pageController.js"></script>

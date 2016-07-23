@@ -1,16 +1,190 @@
-.page-text{
+/*.page-text{
   color:white;
+}
+
+.right-buffer {
+  width: 66%;
+  margin: 0 auto;
+  text-align: left;
+  float: left;
+}
+
+#petLargeness {
+  width: 33%;
+  font-size: 25px;
+  width: 33%;
+  display: block;
+  font-size: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 25px;
+}
+
+#gender, .page-text {
+  font-size: 30px;
+  margin: 15px;
+}
+
+#zipFind {
+  margin: 10px;
+}
+
+.find-new-pet-btn {
+  width: 250px;
+  border-radius: 15px;
+}
+
+#show-me-btn {
+  display: block;
+  width: 300px;
+  margin-top: 30px;
+}
+
+#search-btn-transition {
+  margin-top: 30px;
+  width: 100px;
+}
+
+#save-pet-btn, #adopt-pet-btn, #back-search-btn {
+  width: 200px;
+}
+
+input[type='radio'] {
+   transform: scale(1.5);
+}
+
+input[type='checkbox'] {
+   transform: scale(1.5);
+}
+
+.round {
+  border-radius: 500px;
+  margin-top: 5em;
+}
+
+#noMatches {
+  width: 30em;
+  margin-top: 5em;
+  margin: auto;
+  line-height: 150%;
+}
+
+.choice-container {
+  width: 100%;
+  display: inline-block;
+  height: 30px;
+}
+
+.left-buffer {
+  width: 33%;
+  margin: 0 auto;
+  float: left;
+  height: 20px;
+}
+
+.adoptButton {
+  display: inline-block;
+  width: auto;
+}*/
+
+
+/*------Element Properties-----*/
+/*------Element IDs-------*/
+#body-wrapper{
+  background-image: url('../images/dog-pet.jpg');
+  background-size: cover;
+  height:100%;
+  width: 100%;
+  z-index: 0;
+  position: fixed;
+}
+#nav-title-wrapper{
+  position:relative;
+  width: 100%;
+}
+#nav-details{
+  display: table;
+  width: 100%;
+  height: 100%;
+}
+#mobile-menu{
+  font-size: 50px;
+  width: 50px;
+  height:50px;
+  margin:0 auto;
+  color: ivory;
+  display: table-cell;
+}
+#nav-title{
+  font-size: 45px;
+  height: 50px;
+  color: ivory;
+  font-family: 'Poiret One', cursive;
+  display: table-cell;
+}
+#main-wrapper{
+  position:relative;
+  width: 100%;
+}
+
+#greeting-text{
+  position: relative;
+  top:200px;
+}
+#randomResultsWrapper{
+  display: table;
+}
+
+/*--------Element Classes--------*/
+.section-wrapper{
+  position:relative;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+.pet-summary-element{
+  width: 300px;
+  height: 350px;
+  margin: 3px;
+  float: left;
+  background-color: #2c2c2c;
+  border-radius: 10px;
+}
+.petButton {
+  width: 100px;
+  border-radius: 15px;
+}
+
+.interestedButton{
+  width: 200px;
+  border-radius: 15px;
+}
+/*-------Positioning--------*/
+.float-left{
+  float: left;
+}
+
+/*--------Styling------*/
+.ivory-text{
+  color:ivory;
+}
+.maven{
+  font-family: 'Maven Pro', sans-serif;
+}
+.blur{
+  -webkit-filter: blur(10px);
+}
+.basicInfo, .detailTop, .detailBottom{
+  padding-left: 15px;
 }
 
 
 /* Desktop */
 @media only screen and (min-width: 691px) {
-
-
-  #randomResultsWrapper{
+   #randomResultsWrapper{
     display: inline;
   }
-
+/*
   .petButton {
     display: inline-block;
     width: 30%;
@@ -55,4 +229,5 @@
     display: inline-block;;
     margin-left: 50%;
     margin-right: 50%;
-  }
+  }*/
+}

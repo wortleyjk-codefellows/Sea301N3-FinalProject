@@ -5,9 +5,11 @@
     <title>My Funny Friend and Me</title>
     <script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js"></script>
+    <script type="text/javascript" src='//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js'></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href='https://fonts.googleapis.com/css?family=Poiret+One|Maven+Pro|Montserrat' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Cedarville+Cursive' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
     <link rel="stylesheet" href="vendors/normalize.css">
     <link rel="stylesheet" href="styles/ionicons.css">
     <link rel="stylesheet" href="styles/base.css">
@@ -27,7 +29,7 @@
     </div>
     <div id='nav-selection'>
       <ul>
-        <li class="tab"><a href="#" id="homeLink" class="ion-happy maven ivory-text">HOME</a></li>
+        <li class="tab"><a href="/" id="homeLink" class="ion-happy maven ivory-text">HOME</a></li>
         <li class="tab"><a href="#" id="favoritesLink" class="ion-ios-paw maven ivory-text">FAVORITE PETS</a></li>
         <li class="tab"><a href="#" id="aboutLink" class="ion-person maven ivory-text">ABOUT US</a></li>
         <li class="tab"><a href="#" id="resourcesLink" class="ion-link maven ivory-text">RESOURCES</a></li>
@@ -38,7 +40,7 @@
     <div id='main-wrapper'>
     <section id='greeting-page' class='section-wrapper'>
       <div>
-        <h1 id='greeting-text' class='maven ivory-text'>...Your new pet is just a few clicks away! Click anywhere here to start...</h1>
+        <h1 id='greeting-text' class='maven ivory-text'>...Your new pet is just a few clicks away! Click here to start...</h1>
       </div>
     </section>
     <section id="stage-1" class='section-wrapper'>
@@ -119,7 +121,7 @@
     <section id='narrowResults' class='section-wrapper'>
       <!-- <div id='narrowResultsWrapper'></div> -->
 
-      <h3 id='noMatches'>Sorry there were no pets matching your criteria.  Please choose different options and search again.</h3>
+      <h3 id='noMatches' class='maven ivory-text'>Sorry there were no pets matching your criteria.  Please choose different options and search again.</h3>
     </section>
 
     <!-- <section id='noResults'> -->
@@ -134,7 +136,7 @@
       </div>
     </section>
     <div>
-    <section id="resources" class='section-wrapper'>
+    <section id="resources" class='section-wrapper maven ivory-text'>
       <h1>Pet Resources</h1>
         <ul>
           <li>Rehoming a Special-Needs Pet
@@ -163,38 +165,38 @@
     </div>
 
     <section id="favoritesSection" class='section-wrapper'>
-      <h1>Favorite Pets</h1>
+      <h1 class='maven ivory-text'>Favorite Pets</h1>
       <div id="savedPets"></div>
     </section>
 
     <section id="about" class='section-wrapper'>
       <h1>About Us</h1>
       <div id="container">
-        <div id="">
+        <div>
           <img class="round" src="images/james.jpg" alt="" style="width:300px;height:300px;" />
-          <h2>James</h2>
-          <p>
+          <h2 class='maven ivory-text'>James</h2>
+          <p class='maven ivory-text'>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
           </p>
         </div>
-        <div id="">
+        <div>
           <img class="round" src="images/jonathan.jpg" alt="" style="width:300px;height:300px;" />
           <h2>Jonathan</h2>
-          <p>
+          <p class='maven ivory-text'>
             Jonathan is a recent transplant to Seattle from Alabama.  He’s worked as a software Business Analyst for the past 10 years.  He’s a published author with several short pieces and two novels under his belt.  He spends his days working on the next book, playing with his Boston Terriers and chatting with the voices in his head.
           </p>
         </div>
-        <div id="">
+        <div>
           <img class="round" src="images/serina.jpg" alt="" style="width:300px;height:300px;" />
-          <h2>Serina</h2>
-          <p>
+          <h2 class='maven ivory-text'>Serina</h2>
+          <p class='maven ivory-text'>
             Serina is a research scientist at the UW and has lived in Seattle for most of her life. She enjoys spending time with family which includes her personal hubby chef, 4 going on 14 beloved daughter, loner doxiepoo and crazy french bulldog.
           </p>
         </div>
-        <div id="">
+        <div>
           <img class="round" src="images/geoff.jpg" alt="" style="width:300px;height:300px;" />
-          <h2>Geoff</h2>
-          <p>
+          <h2 class='maven ivory-text'>Geoff</h2>
+          <p class='maven ivory-text'>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
           </p>
         </div>
@@ -225,7 +227,7 @@
           <h4 class='maven ivory-text'>Breed: {{breeds.breed.$t}}</h3>
           <h4 class='maven ivory-text'>Gender: {{sex.$t}}</h3>
           <h4 class='maven ivory-text'>Pet ID: {{id.$t}}</h3>
-          <button id="interested" value={{id.$t}}  class='petButton'>Interested!</button>
+          <button id="interested" value={{id.$t}}  class='interestedButton'>Interested!</button>
         </div>
       </script>
       <!-- Adding handlebars for animal detail view  -->
@@ -254,7 +256,7 @@
             <li class='maven ivory-text'>{{contact.address1.$t}}</li>
             <li class='maven ivory-text'>{{contact.address2.$t}}</li>
             <li class='maven ivory-text'>City: {{contact.city.$t}}</li>
-            <a href="mailto:{{contact.email.$t}}" class='maven ivory-text'>Email Contact: {{contact.email.$t}}</a>
+            <a href="mailto:{{contact.email.$t}}" class='maven ivory-text '>Email Contact: <span class='underline'>{{contact.email.$t}} </span></a>
             <li class='maven ivory-text'>Contact #: {{contact.phone.$t}}</li>
             <li class='maven ivory-text'>State: {{contact.state.$t}}</li>
             <li class='maven ivory-text'>Zip: {{contact.zip.$t}}</li>

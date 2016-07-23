@@ -18,6 +18,8 @@
     $('section').slideUp(400);
     $('#randomResultsWrapper').hide();
     $('#greeting-page').slideDown(400);
+    $('#zipFind').val('');
+    pets.clearData();
   });
   $('body').on('click', '#randomPetMessage', function() {
     $('#randomPetMessage').fadeOut(400);
@@ -29,7 +31,7 @@
     $('#nav-selection').toggle();
     $('section').slideUp(400);
     $('#savedPets').empty();
-    pets.displayMatches(pets.savedPets, '#savedPets');
+    pets.displaySavedPets();
     $('#favoritesSection').slideDown(400);
   });
   $('body').on('click', '#aboutLink', function(e) {
@@ -50,14 +52,36 @@
   });
 
   $('body').on('click', '.find-new-pet-btn', function(){
-    $('section').slideUp(400);
-    $('#totalMatches').slideDown(400);
+    if($('#zipFind').val() != ''){
+      $('section').slideUp(400);
+      $('#totalMatches').slideDown(400);
+    }
+    else{
+      //do nothing
+    }
+
   });
 
   $('body').on('click', '#search-btn-transition', function(){
     $('section').slideUp(400);
     $('#filterResults').slideDown(400);
   });
+
+  $('body').on('click', '#savedPets > .pet-summary-element > .interestedButton', function(){
+    $('section').slideUp(400);
+    var buttonVal = $(this).val();
+    pets.seeMoreButton(buttonVal);
+    $('#Animal_Detail').slideDown(400);
+    $('#back-search-btn').hide();
+  });
+
+  $('body').on('click', '#narrowResults > .pet-summary-element > .interestedButton', function() {
+    $('section').slideUp(400);
+    var buttonVal = $(this).val();
+    pets.seeMoreButton(buttonVal);
+    $('#Animal_Detail').slideDown(400);
+  });
+
 
 
   controller.showResults = function(){
@@ -76,30 +100,29 @@
 
 
 $('body').on('click', '#show-me-btn', function(){
+  if( !$('#input-snr-cb').is(':checked') && !$('#input-spl-cb').is(':checked')){
+    toastr.error("Please select a minimum of either Senior, Special needs or both");
+  }
+  else{
     $('section').slideUp(400);
     pets.displayMatches(pets.filtered, '#narrowResultsWrapper');
     $('#narrowResults').slideDown(400);
+  }
+
 });
 
-$('body').on('click', '#interested', function() {
-    $('section').slideUp(400);
-    var buttonVal = $(this).val();
-    pets.seeMoreButton(buttonVal);
-    $('#Animal_Detail').slideDown(400);
-});
-  $('body').on('click', '#back-search-btn', function() {
-    $('section').slideUp(400);
-    $('#narrowResults').slideDown(400);
+$('body').on('click', '#back-search-btn', function() {
+  $('section').slideUp(400);
+  $('#narrowResults').slideDown(400);
 });
 
 $('body').on('click', '#save-pet-btn', function() {
     pets.setLocalStorage();
     console.log('clicked save pet button');
-    // pets.interested
+    //pets.interested
 });
 
   $('.section-wrapper').hide(); //hides all initial sections first.
-  //$('#stage-1').show();
   $('#greeting-page').show();
   $('#nav-selection').hide();
   module.controller = controller;

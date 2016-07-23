@@ -102,7 +102,12 @@
     $('#zipFindForm').off().on('click', '.find-new-pet-btn', function(e) {
       e.preventDefault();
       var $zipSearch = $('#zipFind').val();
-      pets.requestPets($zipSearch, pets.$petWanted);
+      if($zipSearch != ''){
+        pets.requestPets($zipSearch, pets.$petWanted);
+      }
+      else{
+        toastr.error('Please enter a zip code to continue')
+      }
     });
   };
 
@@ -176,20 +181,21 @@
         $('#narrowResults').append(html);
         controller.showResults();
       });
+      pets.filtered = [];
     } else {
       pets.noMatch();
     }
   };
-// =======
-//   pets.displayMatches = function(arr, appendLocation) {
-//     arr.forEach(function(e){
-//       var source   = $('#search-result').html();
-//       var template = Handlebars.compile(source);
-//       var html    = template(e);
-//       $(appendLocation).append(html);
-//     });
-// >>>>>>> 41b5eab40029ff1acb85f585a68895024319a447
-//   };
+
+  pets.displaySavedPets = function() {
+    pets.savedPets = JSON.parse(localStorage.getItem('savedPets'));
+    pets.savedPets.forEach(function(e){
+      var source   = $('#search-result').html();
+      var template = Handlebars.compile(source);
+      var html    = template(e);
+      $('#savedPets').append(html);
+    });
+  };
 
   pets.displayFullPetDetails = function(pet) {
     var fullDetailHtml = $('#petDetails').html();
@@ -202,24 +208,56 @@
   pets.savedPets = [];
 
   pets.seeMoreButton = function(buttonVal) {
-    pets.filtered.forEach(function(pet) {
-      if (buttonVal === pet.id.$t) {
-        pets.selectedPet = pet;
-      }
-    });
-    pets.displayFullPetDetails(pets.selectedPet);
+    if(pets.all.length != 0){
+      //search pets.all
+      pets.all.forEach(function(elem){
+        if(buttonVal == elem.id.$t){
+          console.log('found: '+elem.id.$t);
+          pets.displayFullPetDetails(elem);
+        }
+      });
+    }
+    else if(pets.filtered.length !=0){
+      //search pets.filtered
+      pets.filtered.forEach(function(elem){
+        if(buttonVal == elem.id.$t){
+          pets.displayFullPetDetails(elem);
+        }
+      });
+    }
+    else{
+      //use local storage to retrieve data
+      petsArr = JSON.parse(localStorage.getItem('savedPets'));
+      console.log(petsArr);
+      petsArr.forEach(function(elem){
+        if(buttonVal == elem.id.$t){
+          pets.displayFullPetDetails(elem);
+        }
+      });
+    }
+
+    // pets.filtered.forEach(function(pet) {
+    //   if (buttonVal === pet.id.$t) {
+    //     pets.selectedPet = pet;
+    //   }
+    // });
+    // pets.displayFullPetDetails(pets.selectedPet);
   };
 
   pets.setLocalStorage = function() {
-    if (localStorage.savedPets) {
-      console.log('localStorage exists');
-      pets.savedPets = JSON.parse(localStorage.getItem('savedPets'));
-      console.log(pets.savedPets);
-    }
+    // if (localStorage.savedPets) {
+    //   console.log('localStorage exists');
+    //   console.log(pets.savedPets);
+    // }
     pets.savedPets.push(pets.selectedPet);
     console.log(pets.savedPets);
     localStorage.setItem('savedPets', JSON.stringify(pets.savedPets));
   };
+
+  pets.clearData = function(){
+    pets.all = [];
+    pets.filtered = [];
+  }
 
   $(document).ready(function() {
     pets.animal_wanted_click();

@@ -195,6 +195,10 @@ input[type='checkbox'] {
   text-decoration: underline;
 }
 
+.descript {
+  padding-right: 6.250em;
+}
+
 
 /* Desktop */
 @media only screen and (min-width: 691px) {

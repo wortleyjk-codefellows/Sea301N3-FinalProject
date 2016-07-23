@@ -167,8 +167,6 @@
       // }
     // });
   };
-
-//<<<<<<< HEAD
   pets.displayMatches = function() {
     if(pets.filtered.length > 0) {
       var source   = $('#search-result').html();

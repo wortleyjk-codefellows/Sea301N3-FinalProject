@@ -1,13 +1,14 @@
 (function(module){
   var controller = {};
 
-  $('body').on('click', '.mobile-menu', function() {
-    $('#nav-selection').toggle();
+  $('body').on('click', '#mobile-menu', function() {
+    $('#nav-selection').toggle(400);
   });
 
   $('body').on('click', '#greeting-page', function() {
     $('#body-wrapper').addClass('blur');
     $('#greeting-page').fadeOut(400);
+    $('#randomResultsWrapper').hide();
     $('#stage-1').slideDown(400);
   });
 
@@ -15,8 +16,14 @@
     $('#nav-selection').toggle();
     $('#noMatches').hide();
     $('section').slideUp(400);
-    $('#stage-1').slideDown();
+    $('#randomResultsWrapper').hide();
+    $('#greeting-page').slideDown(400);
   });
+  $('body').on('click', '#randomPetMessage', function() {
+    $('#randomPetMessage').fadeOut(400);
+    $('#randomResultsWrapper').slideDown(400);
+  });
+
   $('body').on('click', '#favoritesLink', function(e) {
     e.preventDefault();
     $('#nav-selection').toggle();
@@ -79,17 +86,17 @@ $('body').on('click', '#interested', function() {
     var buttonVal = $(this).val();
     pets.seeMoreButton(buttonVal);
     $('#Animal_Detail').slideDown(400);
-  });
+});
   $('body').on('click', '#back-search-btn', function() {
     $('section').slideUp(400);
     $('#narrowResults').slideDown(400);
-  });
+});
 
-  $('body').on('click', '#save-pet-btn', function() {
+$('body').on('click', '#save-pet-btn', function() {
     pets.setLocalStorage();
     console.log('clicked save pet button');
     // pets.interested
-  });
+});
 
   $('.section-wrapper').hide(); //hides all initial sections first.
   //$('#stage-1').show();

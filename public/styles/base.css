@@ -17,6 +17,49 @@ nav{
   z-index: 1;
 }
 
+button{
+  color: ivory;
+  word-spacing: 0.25em;
+  font-family: 'maven', sans-serif;
+  text-transform: uppercase;
+  border: 1px solid ivory;
+  line-height: 22px;
+  padding: 12px 13px 11px;
+  text-align: center;
+  display: inline-block;
+  margin-top: 5px;
+  margin-bottom: 18px;
+  text-decoration: none;
+  background-color:transparent;
+}
+input[type="text"] {
+  display: block;
+  margin: 0 auto;
+  width: 25%;
+  height:50px;
+  font-family: sans-serif;
+  font-size: 40px;
+  appearance: none;
+  box-shadow: none;
+  border-radius: 15px;
+  text-align: center;
+}
+input[type="button"] {
+  color: ivory;
+  word-spacing: 0.25em;
+  font-family: 'maven', sans-serif;
+  text-transform: uppercase;
+  border: 1px solid ivory;
+  line-height: 22px;
+  padding: 12px 13px 11px;
+  text-align: center;
+  display: inline-block;
+  margin-top: 5px;
+  margin-bottom: 18px;
+  text-decoration: none;
+  background-color:transparent;
+}
+
 /*
 font-family: 'Poiret One', cursive;
 font-family: 'Maven Pro', sans-serif;

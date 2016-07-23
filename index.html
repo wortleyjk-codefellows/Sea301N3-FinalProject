@@ -16,8 +16,10 @@
     <link rel="stylesheet" href="styles/state.css">
   </head>
   <body>
-  <nav>
-    <div id='nav-title-wrapper'>
+  <div id='body-wrapper'></div>
+  <div id='nav-title-wrapper'>
+    <nav>
+    <div>
       <div id="mobile-menu" class='float-left'>
         <span class="ion-navicon-round float-left"></span>
       </div>
@@ -31,11 +33,12 @@
         <li class="tab"><a href="#" id="resourcesLink" class="ion-link">RESOURCES</a></li>
       </ul>
     </div>
-  </nav>
+    </nav>
+  </div>
     <div id='main-wrapper'>
     <section id='greeting-page' class='section-wrapper'>
-      <div id='section-wrapper'>
-        <h1 class='maven ivory-text'>Your new pet is just a few clicks away! Click anywhere here to start</h1>
+      <div>
+        <h1 id='greeting-text' class='maven ivory-text'>...Your new pet is just a few clicks away! Click anywhere here to start...</h1>
       </div>
     </section>
     <section id="stage-1" class='section-wrapper'>
@@ -51,14 +54,14 @@
         <!-- section where the random pets will go in desktop view -->
         <!-- <section class='randomResults'> -->
           <div id='randomResultsWrapper'>
-            <h2>Some of our favorite pets, just waiting for you.</h2>
+            <h2 class='maven ivory-text'>Here are some pets that might interest you.</h2>
           </div>
         <!-- </section> -->
       </div>
     </section>
 
 
-    <section id="searchSection">
+    <section id="searchSection" class='section-wrapper'>
       <div id="searchSectionWrapper">
         <h1>and I live in...</h1>
         <form id="zipFindForm">
@@ -69,7 +72,7 @@
         </form>
       </div>
     </section>
-    <section id="totalMatches">
+    <section id="totalMatches" class='section-wrapper'>
       <div id="newFriends">
         <h1>We found</h1>
         <h1 id="numMatches"></h1>
@@ -78,7 +81,7 @@
         <button id='search-btn-transition'>OK</button>
     </div>
     </section>
-    <section id="filterResults">
+    <section id="filterResults" class='section-wrapper'>
       <div id="filterResultsWrapper">
         <h1>I would like a new pet who is...</h1>
         <p>Please try to limit your criteria to 3 options for best results!</p>
@@ -115,7 +118,7 @@
     </section>
 
 
-    <section id='narrowResults'>
+    <section id='narrowResults' class='section-wrapper'>
       <!-- <div id='narrowResultsWrapper'></div> -->
       <h3 id='noMatches'>Sorry there were no pets matching your criteria.  Please choose different options and search again.</h3>
     </section>
@@ -123,7 +126,7 @@
     <!-- <section id='noResults'> -->
     <!-- </section> -->
 
-    <section id="Animal_Detail">
+    <section id="Animal_Detail" class='section-wrapper'>
       <div id="Animal_Detail_Wrapper"></div>
       <div>
         <button id='save-pet-btn'>Save For Later</button>
@@ -132,7 +135,7 @@
       </div>
     </section>
     <div>
-    <section id="resources">
+    <section id="resources" class='section-wrapper'>
       <h1>Pet Resources</h1>
         <ul>
           <li>Rehoming a Special-Needs Pet
@@ -160,12 +163,12 @@
     </section>
     </div>
 
-    <section id="favoritesSection">
+    <section id="favoritesSection" class='section-wrapper'>
       <h1>Favorite Pets</h1>
       <div id="savedPets"></div>
     </section>
 
-    <section id="about">
+    <section id="about" class='section-wrapper'>
       <h1>About Us</h1>
       <div id="container">
         <div id="">

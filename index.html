@@ -6,7 +6,7 @@
     <script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href='https://fonts.googleapis.com/css?family=Patua+One|Telex|Russo+One' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Poiret+One|Maven+Pro|Montserrat' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Cedarville+Cursive' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="vendors/normalize.css">
     <link rel="stylesheet" href="styles/ionicons.css">
@@ -14,48 +14,15 @@
     <link rel="stylesheet" href="styles/module.css">
     <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/state.css">
-<!-- Adding handlebars for animal detail view  -->
-    <script id="petDetails" type="text/x-handlebars-template">
-      <section id={{id.$t}}>
-        <article id="detailTop">
-          <h2>{{name.$t}}</h2>
-          <article id="allPetPics">
-            <img src={{{media.photos.photo.0.$t}}}/>
-          </article>
-          <ul id="basicInfo">
-            <li><p>Animal: {{animal.$t}}</p></li>
-            <li><p>Breed: {{breeds.breed.$t}}</p></li>
-            <li><p>Mix: {{mix.$t}}</p></li>
-            <li><p>Size: {{size.$t}}</p></li>
-            <li><p>Age: {{age.$t}}</p></li>
-            <li><p>Sex: {{sex.$t}}</p></li>
-          </ul>
-        </article>
-        <article id="detailBottom">
-          <p>{{description.$t}}</p>
-          <ul id="detailContact">
-            <li>Shelter Id: {{shelterId.$t}}</li>
-            <li>Pet Id: {{id.$t}}</li>
-            <li>Last Updated: {{lastUpdate.$t}}</li>
-            <li>{{contact.address1.$t}}</li>
-            <li>{{contact.address2.$t}}</li>
-            <li>City: {{contact.city.$t}}</li>
-            <a href="mailto:{{contact.email.$t}}">Email Contact</a>
-            <li>Contact #: {{contact.phone.$t}}</li>
-            <li>State: {{contact.state.$t}}</li>
-            <li>Zip: {{contact.zip.$t}}</li>
-          </ul>
-        </article>
-      </section>
-    </script>
-
   </head>
   <body>
-    <header>
-      <h2>My Funny Friend and Me</h2>
-    </header>
   <nav>
-    <div class="mobile-menu"><span class="ion-navicon-round float-left"></span></div>
+    <div id='nav-title-wrapper'>
+      <div id="mobile-menu" class='float-left'>
+        <span class="ion-navicon-round float-left"></span>
+      </div>
+      <div id='nav-title'>My Funny Friend and Me</div>
+    </div>
     <div id='nav-selection'>
       <ul>
         <li class="tab"><a href="#" id="homeLink" class="ion-happy">HOME</a></li>
@@ -65,9 +32,14 @@
       </ul>
     </div>
   </nav>
-    <div id='main-wrapper' class='wrapper'>
-    <section id="stage-1">
-        <div id='stage-1-wrapper' class='wrapper'>
+    <div id='main-wrapper'>
+    <section id='greeting-page' class='section-wrapper'>
+      <div id='section-wrapper'>
+        <h1 class='maven ivory-text'>Your new pet is just a few clicks away! Click anywhere here to start</h1>
+      </div>
+    </section>
+    <section id="stage-1" class='section-wrapper'>
+        <div id='stage-1-wrapper'>
           <h1>I would like to adopt a...</h1>
         <!-- <div class="choice-container"> -->
           <button class="petButton" value='dog' id='dog-btn'>DOG</button>
@@ -256,6 +228,40 @@
           <hr/>
         </div>
       </script>
+      <!-- Adding handlebars for animal detail view  -->
+    <script id="petDetails" type="text/x-handlebars-template">
+      <section id={{id.$t}}>
+        <article id="detailTop">
+          <h2>{{name.$t}}</h2>
+          <article id="allPetPics">
+            <img src={{{media.photos.photo.0.$t}}}/>
+          </article>
+          <ul id="basicInfo">
+            <li><p>Animal: {{animal.$t}}</p></li>
+            <li><p>Breed: {{breeds.breed.$t}}</p></li>
+            <li><p>Mix: {{mix.$t}}</p></li>
+            <li><p>Size: {{size.$t}}</p></li>
+            <li><p>Age: {{age.$t}}</p></li>
+            <li><p>Sex: {{sex.$t}}</p></li>
+          </ul>
+        </article>
+        <article id="detailBottom">
+          <p>{{description.$t}}</p>
+          <ul id="detailContact">
+            <li>Shelter Id: {{shelterId.$t}}</li>
+            <li>Pet Id: {{id.$t}}</li>
+            <li>Last Updated: {{lastUpdate.$t}}</li>
+            <li>{{contact.address1.$t}}</li>
+            <li>{{contact.address2.$t}}</li>
+            <li>City: {{contact.city.$t}}</li>
+            <a href="mailto:{{contact.email.$t}}">Email Contact</a>
+            <li>Contact #: {{contact.phone.$t}}</li>
+            <li>State: {{contact.state.$t}}</li>
+            <li>Zip: {{contact.zip.$t}}</li>
+          </ul>
+        </article>
+      </section>
+    </script>
   <script type="text/javascript" src="scripts/vetControl.js"></script>
   <script src="scripts/randomPet.js"></script>
   <script src="javascript/pageController.js"></script>

@@ -178,6 +178,7 @@
   pets.setLocalStorage = function() {
     pets.savedPets.push(pets.selectedPet);
     localStorage.setItem('savedPets', JSON.stringify(pets.savedPets));
+    toastr.success('Saved Pet for later view');
   };
 
   pets.clearData = function(){

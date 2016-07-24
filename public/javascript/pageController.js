@@ -50,6 +50,9 @@
     $('#nav-selection').toggle();
     $('section').slideUp(400);
     $('#resources').slideDown(400);
+    $('#body-wrapper').addClass('blur');
+    $('#body-wrapper').addClass('darken');
+    $('section.section-wrapper').addClass('black-background');
   });
   $('body').on('click', '.petButton', function(){
     $('section').slideUp(400);
@@ -77,6 +80,7 @@
     $('#Animal_Detail').slideDown(400);
     $('section.section-wrapper').addClass('black-background');
     $('#back-search-btn').hide();
+    $('#save-pet-btn').show();
   });
 
   $('body').on('click', '#savedPets > .pet-summary-element > .interestedButton', function(){
@@ -86,6 +90,8 @@
     $('section.section-wrapper').addClass('black-background');
     $('#Animal_Detail').slideDown(400);
     $('#back-search-btn').hide();
+    $('#save-pet-btn').hide();
+
   });
 
   $('body').on('click', '#narrowResults > .pet-summary-element > .interestedButton', function() {
@@ -94,6 +100,9 @@
     pets.seeMoreButton(buttonVal,pets.all);
     $('section.section-wrapper').addClass('black-background');
     $('#Animal_Detail').slideDown(400);
+    $('#back-search-btn').show();
+    $('#save-pet-btn').show();
+
   });
   controller.showResults = function(){
     $('#show-me-btn').on('click', function(e){

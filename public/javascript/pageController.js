@@ -105,19 +105,6 @@
     });
   };
 
-
-$('body').on('click', '#show-me-btn', function(){
-  if( !$('#input-snr-cb').is(':checked') && !$('#input-spl-cb').is(':checked')){
-    toastr.error("Please select a minimum of either Senior, Special needs or both");
-  }
-  else{
-    $('section').slideUp(400);
-    pets.displayMatches(pets.filtered, '#narrowResultsWrapper');
-    $('#narrowResults').slideDown(400);
-  }
-
-});
-
 $('body').on('click', '#back-search-btn', function() {
   $('section').slideUp(400);
   $('#narrowResults').slideDown(400);

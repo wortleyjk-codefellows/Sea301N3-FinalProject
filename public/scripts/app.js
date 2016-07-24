@@ -172,19 +172,20 @@
       // }
     // });
   };
-  pets.displayMatches = function() {
+  pets.displayMatches = function(){
     if(pets.filtered.length > 0) {
       var source   = $('#search-result').html();
       var template = Handlebars.compile(source);
       pets.filtered.forEach(function(e){
-        var html    = template(e);
-        $('#narrowResults').append(html);
-        controller.showResults();
-      });
-    } else {
+          var html    = template(e);
+          $('#narrowResults').append(html);
+          controller.showResults();
+        });
+      }
+      else {
       pets.noMatch();
     }
-    pets.filtered = [];
+    //pets.filtered = [];
   };
 
   pets.displaySavedPets = function() {
@@ -211,6 +212,7 @@
     searchSource.forEach(function(elem){
       if(buttonVal == elem.id.$t){
         pets.displayFullPetDetails(elem);
+        pets.selectedPet = elem;
       }
     });
     // pets.filtered.forEach(function(pet) {
@@ -233,13 +235,12 @@
   }
 
   $(document).ready(function() {
+    $('#noMatches').hide();
     pets.animal_wanted_click();
     pets.searchClick();
     pets.snr_spl();
     pets.howBig();
     pets.assignedGender();
-    // pets.pareDown();
-    $('#noMatches').hide();
     controller.showResults();
   });
 

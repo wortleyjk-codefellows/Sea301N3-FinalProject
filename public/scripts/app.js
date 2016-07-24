@@ -9,6 +9,8 @@
   pets.$petSex = null;
   pets.all = [];
   pets.filtered = [];
+  pets.savedPets = JSON.parse(localStorage.getItem('savedPets')) || [];
+  pets.selectedPet = null;
 
   pets.findByName = function(name) {
     pets.filtered.forEach(function(pet, index) {
@@ -185,11 +187,11 @@
       else {
       pets.noMatch();
     }
+    $('section.section-wrapper').addClass('black-background');
     //pets.filtered = [];
   };
 
   pets.displaySavedPets = function() {
-    pets.savedPets = JSON.parse(localStorage.getItem('savedPets'));
     pets.savedPets.forEach(function(e){
       var source   = $('#search-result').html();
       var template = Handlebars.compile(source);
@@ -204,9 +206,6 @@
     var petView = fullDetailTemplate(pet);
     $('#Animal_Detail_Wrapper').append(petView);
   };
-
-  pets.selectedPet = null;
-  pets.savedPets = [];
 
   pets.seeMoreButton = function(buttonVal,searchSource) {
     searchSource.forEach(function(elem){

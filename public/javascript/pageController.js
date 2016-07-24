@@ -34,6 +34,7 @@
     $('#savedPets').empty();
     pets.displaySavedPets();
     $('#favoritesSection').slideDown(400);
+    $('section.section-wrapper').addClass('black-background');
   });
   $('body').on('click', '#aboutLink', function(e) {
     e.preventDefault();

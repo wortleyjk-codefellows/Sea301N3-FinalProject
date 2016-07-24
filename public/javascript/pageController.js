@@ -41,6 +41,7 @@
     $('#nav-selection').toggle();
     $('#body-wrapper').addClass('blur');
     $('#body-wrapper').addClass('darken');
+    $('section.section-wrapper').addClass('black-background');
     $('section').slideUp(400);
     $('#about').slideDown(400);
   });
@@ -99,6 +100,7 @@
     $('#show-me-btn').on('click', function(e){
       e.preventDefault();
       if (!$('#input-snr-cb').is(':checked') && !$('#input-spl-cb').is(':checked')) {
+        toastr.error('Please select Senior or Special Needs or both')
         console.error('pick an option');
     } else {
         pets.pareDown();

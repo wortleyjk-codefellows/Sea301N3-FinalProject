@@ -108,7 +108,7 @@
         pets.requestPets($zipSearch, pets.$petWanted);
       }
       else{
-        toastr.error('Please enter a zip code to continue')
+        toastr.error('Please enter a zip code to continue');
       }
     });
   };
@@ -140,26 +140,24 @@
 
   pets.noMatch = function() {
     // if(pets.filtered.length <= 0) {
-      console.log($('#noMatches'));
-      $('#noMatches').show();
-      $('#input-snr-cb').prop('checked', false);
-      $('#input-spl-cb').prop('checked', false);
+    console.log($('#noMatches'));
+    $('#noMatches').show();
+    $('#input-snr-cb').prop('checked', false);
+    $('#input-spl-cb').prop('checked', false);
     // $('#petLargeness').empty();
-      $('.sexRadio').prop('checked', false);
+    $('.sexRadio').prop('checked', false);
     // }
   };
 
-  // .html('<h2>Sorry there were no pets matching your criteria.  Please choose different options and search again.</h2>');
 
   pets.pareDown = function() {
-    // $('#show-me-btn').off().on('click', function(){
       console.log('running pareDown');
       pets.$seniorPet = $('#input-snr-cb').is(':checked');
       pets.$specialPet = $('#input-spl-cb').is(':checked');
       pets.$petSize = $('#petLargeness').val();
       pets.$petSex = $('input.sexRadio:checked').val();
-      // if (pets.$seniorPet || pets.$specialPet) {
-        pets.filtered = pets.all
+    console.log('running pareDown');
+    pets.filtered = pets.all
         .filter(function(pet) {
           return pets.isSenior(pet);
         })
@@ -172,23 +170,17 @@
         .filter(function(pet) {
           return pets.isSexPet(pet);
         });
-        // pets.noMatch();
-      // } else {
-      //   console.error('you have to pick something');
-      // }
-    // });
   };
   pets.displayMatches = function(){
     if(pets.filtered.length > 0) {
       var source   = $('#search-result').html();
       var template = Handlebars.compile(source);
       pets.filtered.forEach(function(e){
-          var html    = template(e);
-          $('#narrowResults').append(html);
-          controller.showResults();
-        });
-      }
-      else {
+        var html    = template(e);
+        $('#narrowResults').append(html);
+        controller.showResults();
+      });
+    } else {
       pets.noMatch();
     }
     $('section.section-wrapper').addClass('black-background');
@@ -235,7 +227,7 @@
   pets.clearData = function(){
     pets.all = [];
     pets.filtered = [];
-  }
+  };
 
   $(document).ready(function() {
     $('#noMatches').hide();

@@ -21,3 +21,9 @@ The Gently Used Pets project seeks to alleviate this by bringing those animals t
 
 ###The Solution
 The team will develop a web based application that will allow a user to search for a senior or special needs pet. Each day, a new selection of pets will be featured as well. Users will be able to view details of each animal including contact information for the shelter or rescue organization currently housing the animal. The site will also provide information regarding care of the animal as well as links to organizations that can help with living/medical expenses and that provide any special equipment the pet could potentially need to make their life the best it possibly can.
+
+####Menu
+* HOME --> Select to return to the homepage.
+* FAVORITE PETS --> Select to view any of your saved favorites.
+* ABOUT US --> Information about the authors.
+* RESOURCES --> Helpful links for taking care of a special-needs pet.

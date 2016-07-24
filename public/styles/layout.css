@@ -57,11 +57,6 @@ input[type='checkbox'] {
    transform: scale(1.5);
 }
 
-.round {
-  border-radius: 500px;
-  margin-top: 5em;
-}
-
 #noMatches {
   width: 30em;
   margin-top: 5em;
@@ -148,6 +143,14 @@ input[type='checkbox'] {
 #randomPetMessage{
   display: none;
 }
+#Animal_Detail > * {
+  text-align: left;
+  width: 70%;
+  margin: 0 auto;
+}
+#about{
+  text-align: center;
+}
 
 /*--------Element Classes--------*/
 .section-wrapper{
@@ -176,11 +179,39 @@ input[type='checkbox'] {
 .basicInfo, .detailTop, .detailBottom{
   padding-left: 15px;
 }
+.profile-element{
+  display: table;
+  height: 100%;
+  width: 80%;
+}
+.img {
+  display: table-cell;
+  vertical-align: center;
+  width: 100px;
+  height: 100px;
+}
+.profile-icons{
+  padding: 5px;
+  font-size: 30px;
+}
+.profile-element{
+  margin: 0 auto;
+  display: table;
+}
 /*-------Positioning--------*/
 .float-left{
   float: left;
 }
-
+.table-cell{
+  display: table-cell;
+}
+.photo-container{
+  width: 100px;
+  padding: 10px;
+}
+.vertical-align{
+  vertical-align: top;
+}
 /*--------Styling------*/
 .ivory-text{
   color:ivory;
@@ -190,6 +221,10 @@ input[type='checkbox'] {
 }
 .blur{
   -webkit-filter: blur(10px);
+  filter: blur(10px);
+}
+.darken{
+  -webkit-filter: brightness(25%);
 }
 .underline{
   text-decoration: underline;
@@ -197,6 +232,12 @@ input[type='checkbox'] {
 
 .descript {
   padding-right: 6.250em;
+}
+.img-round {
+  border-radius: 500px;
+}
+.justify-text{
+  text-align: justify;
 }
 
 

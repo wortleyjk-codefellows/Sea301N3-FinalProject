@@ -225,6 +225,13 @@
         }
       });
     }
+    else if(randomPets.all.length!=0){
+      randomPets.all.forEach(function(elem){
+        if(buttonVal == elem.id.$t){
+          pets.displayFullPetDetails(elem);
+        }
+      });
+    }
     else{
       //use local storage to retrieve data
       petsArr = JSON.parse(localStorage.getItem('savedPets'));

@@ -1,58 +1,67 @@
-body {
-  background-color: #603838;
+html, body {
   text-align: center;
+  height:100%;
+  width:100;
+  font-family: 'Maven Pro', sans-serif;
 }
-
-section{
-  background-color: #AE9181;
-  margin: 10px;
-}
-
 input,select{
   border-style: none;
 }
-
-button {
-  display: inline-block;
-  width: 180px;
-  margin: 0 auto;
-  padding: 5px 15px;
-  font-size: 20px;
-  line-height: 1.8;
-  appearance: none;
-  box-shadow: none;
-  border-radius: 0;
-}
-
-button:focus {
-  outline: none
-}
-
 a {
   text-decoration: none;
-  color: white;
+}
+li {
+  list-style-type: none;
+}
+nav{
+  z-index: 1;
 }
 
-h1, h2, p {
-  color: white;
+button{
+  color: ivory;
+  word-spacing: 0.25em;
+  font-family: 'maven', sans-serif;
+  text-transform: uppercase;
+  border: 1px solid ivory;
+  line-height: 22px;
+  padding: 12px 13px 11px;
+  text-align: center;
+  display: inline-block;
+  margin-top: 5px;
+  margin-bottom: 18px;
+  text-decoration: none;
+  background-color:transparent;
+}
+input[type="text"] {
+  display: block;
+  margin: 0 auto;
+  width: 25%;
+  height:50px;
+  font-family: sans-serif;
+  font-size: 40px;
+  appearance: none;
+  box-shadow: none;
+  border-radius: 15px;
+  text-align: center;
+}
+input[type="button"] {
+  color: ivory;
+  word-spacing: 0.25em;
+  font-family: 'maven', sans-serif;
+  text-transform: uppercase;
+  border: 1px solid ivory;
+  line-height: 22px;
+  padding: 12px 13px 11px;
+  text-align: center;
+  display: inline-block;
+  margin-top: 5px;
+  margin-bottom: 18px;
+  text-decoration: none;
+  background-color:transparent;
 }
 
-.choice-container {
-  width: 100%;
-  margin: 10px;
-}
-
-#find-new-pet-btn, #show-me-btn {
-  width: 300px;
-}
-/*#E6C3AF mid peach
-#E9BDA4 light peach
-#AE9181 dark peach
-#603838 dark red
-#82595D light red*/
-
-/*font-family: 'Patua One', cursive;
-
-font-family: 'Telex', sans-serif;
-
-font-family: 'Russo One', sans-serif;*/
+/*
+font-family: 'Poiret One', cursive;
+font-family: 'Maven Pro', sans-serif;
+font-family: 'Montserrat', sans-serif;
+*/

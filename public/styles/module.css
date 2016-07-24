@@ -1,3 +1,17 @@
 .tab {
   list-style: none;
 }
+
+#dog-btn {
+  margin-top: .25em;
+}
+
+#randomResultsWrapper {
+  display: none;
+}
+#allPetPics {
+  /*float: right;*/
+  margin: auto;
+}
+
+#map { height: 100%; }

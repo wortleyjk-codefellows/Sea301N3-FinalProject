@@ -3,36 +3,31 @@
   randomPets.all = [];
 
   randomPets.getRandom = function() {
-    console.log('running getRandom');
     $.getJSON('https://api.petfinder.com/pet.getRandom?format=json&key=8dc33d8c70fd213dc0874e9deaa0a2fd&age=Senior&output=full&count=6&callback=?',function(data){
       return data;
     }).done(function(data) {
-      console.log(data);
       randomPets.all = [];
       randomPets.all = data.petfinder.pet;
-      console.log(randomPets.all);
       randomPets.displayRandom();
     }).fail(function(err)
     { toastr.error('Data could not be retrieved, error: ' + err);
     });
   };
 
+  randomPets.displayRandom = function() {
+    randomPets.all.forEach(function(e){
+      var source   = $('#landingRandom').html();
+      var template = Handlebars.compile(source);
+      var html    = template(e);
+      $('#randomResultsWrapper').append(html);
+    });
+  };
 
-randomPets.displayRandom = function() {
-  randomPets.all.forEach(function(e){
-    var source   = $("#landingRandom").html();
-    var template = Handlebars.compile(source);
-    var html    = template(e);
-    $('#randomResultsWrapper').append(html);
+
+
+  $(document).ready(function() {
+    randomPets.getRandom();
   });
-}
 
-
-
-$(document).ready(function() {
-
-  randomPets.getRandom();
-});
-
-module.randomPets = randomPets;
+  module.randomPets = randomPets;
 })(window);

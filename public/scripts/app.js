@@ -1,5 +1,4 @@
 // this is the Ajax call to the petfinder api
-
 (function(module) {
   var pets = {};
   pets.$petWanted = null;
@@ -15,7 +14,6 @@
   pets.findByName = function(name) {
     pets.filtered.forEach(function(pet, index) {
       if (pet.name.$t === name) {
-        console.log('found pet with name ' + name + ' at pets.all[' + index + ']' );
       }
     });
   };
@@ -33,10 +31,8 @@
   };
 
   pets.isSpecialNeeds = function(pet) {
-    // console.log('running specialNeeds');
-    if (pet.options.option) { //is defined
+    if (pet.options.option) {
       var snOptsArray = pets.getSpecialNeedsOptions(pet.options.option);
-
       if (pets.$specialPet === true) {
         return snOptsArray.indexOf('specialNeeds') !== -1;
       } else {
@@ -47,23 +43,18 @@
 
   pets.isSenior = function(pet) {
     if (pets.$seniorPet === true) {
-      // console.log(pet.age.$t);
-      return "Senior" === pet.age.$t;
+      return 'Senior' === pet.age.$t;
     } else {
-      return "Senior" !== pet.age.$t;
+      return 'Senior' !== pet.age.$t;
     }
   };
 
   pets.isSizePet = function(pet) {
-    console.log('petSize is running: ' + pets.$petSize);
     if (pets.$petSize === 'S') {
-      // console.log(pet.size.$t);
       return pets.$petSize === pet.size.$t;
     } else if (pets.$petSize === 'M') {
-      // console.log(pet.size.$t);
       return pets.$petSize === pet.size.$t;
     } else if (pets.$petSize === 'L') {
-      // console.log(pet.size.$t);
       return pets.$petSize === pet.size.$t;
     } else {
       return pet.size.$t;
@@ -117,46 +108,19 @@
     $('#numMatches').html(pets.all.length);
   };
 
-  // pets.snr_spl = function() {
-  //   $('#input-snr-cb').off().on('click', function(){
-  //     pets.$seniorPet = this.value;
-  //   });
-  //   $('#input-spl-cb').off().on('click', function(){
-  //     pets.$specialPet = this.value;
-  //   });
-  // };
-
-  // pets.howBig = function() {
-  //   $('#petLargeness').off().on('change', function(){
-  //     pets.$petSize = this.value;
-  //   });
-  // };
-
-  // pets.assignedGender = function() {
-  //   $('.sexRadio').off().on('click', function(){
-  //     pets.$petSex = this.value;
-  //   });
-  // };
-
   pets.noMatch = function() {
-    // if(pets.filtered.length <= 0) {
-    console.log($('#noMatches'));
     $('#noMatches').show();
     $('#input-snr-cb').prop('checked', false);
     $('#input-spl-cb').prop('checked', false);
-    // $('#petLargeness').empty();
     $('.sexRadio').prop('checked', false);
-    // }
   };
 
 
   pets.pareDown = function() {
-      console.log('running pareDown');
-      pets.$seniorPet = $('#input-snr-cb').is(':checked');
-      pets.$specialPet = $('#input-spl-cb').is(':checked');
-      pets.$petSize = $('#petLargeness').val();
-      pets.$petSex = $('input.sexRadio:checked').val();
-    console.log('running pareDown');
+    pets.$seniorPet = $('#input-snr-cb').is(':checked');
+    pets.$specialPet = $('#input-spl-cb').is(':checked');
+    pets.$petSize = $('#petLargeness').val();
+    pets.$petSex = $('input.sexRadio:checked').val();
     pets.filtered = pets.all
         .filter(function(pet) {
           return pets.isSenior(pet);
@@ -184,7 +148,6 @@
       pets.noMatch();
     }
     $('section.section-wrapper').addClass('black-background');
-    //pets.filtered = [];
   };
 
   pets.displaySavedPets = function() {
@@ -210,17 +173,10 @@
         pets.selectedPet = elem;
       }
     });
-    // pets.filtered.forEach(function(pet) {
-    //   if (buttonVal === pet.id.$t) {
-    //     pets.selectedPet = pet;
-    //   }
-    // });
-    // pets.displayFullPetDetails(pets.selectedPet);
   };
 
   pets.setLocalStorage = function() {
     pets.savedPets.push(pets.selectedPet);
-    console.log(pets.savedPets);
     localStorage.setItem('savedPets', JSON.stringify(pets.savedPets));
   };
 
@@ -233,9 +189,6 @@
     $('#noMatches').hide();
     pets.animal_wanted_click();
     pets.searchClick();
-    // pets.snr_spl();
-    // pets.howBig();
-    // pets.assignedGender();
     controller.showResults();
   });
 

@@ -62,7 +62,6 @@
       $('#totalMatches').slideDown(400);
     }
     else{
-      //do nothing
     }
 
   });
@@ -100,9 +99,8 @@
     $('#show-me-btn').on('click', function(e){
       e.preventDefault();
       if (!$('#input-snr-cb').is(':checked') && !$('#input-spl-cb').is(':checked')) {
-        toastr.error('Please select Senior or Special Needs or both')
-        console.error('pick an option');
-    } else {
+        toastr.error('Please select Senior or Special Needs or both');
+      } else {
         pets.pareDown();
         $('section').slideUp(400);
         pets.displayMatches();
@@ -111,18 +109,16 @@
     });
   };
 
-$('body').on('click', '#back-search-btn', function() {
-  $('section').slideUp(400);
-  $('#narrowResults').slideDown(400);
-});
+  $('body').on('click', '#back-search-btn', function() {
+    $('section').slideUp(400);
+    $('#narrowResults').slideDown(400);
+  });
 
-$('body').on('click', '#save-pet-btn', function() {
+  $('body').on('click', '#save-pet-btn', function() {
     pets.setLocalStorage();
-    console.log('clicked save pet button');
-    //pets.interested
-});
+  });
 
-  $('.section-wrapper').hide(); //hides all initial sections first.
+  $('.section-wrapper').hide();
   $('#greeting-page').show();
   $('#nav-selection').hide();
   module.controller = controller;

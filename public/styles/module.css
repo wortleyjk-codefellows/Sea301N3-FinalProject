@@ -1,17 +1,99 @@
+/*--------Element Classes--------*/
+.section-wrapper{
+  position:relative;
+  width: 100%;
+  z-index: 1;
+}
+.pet-summary-element{
+  width: 300px;
+  height: 350px;
+  margin: 3px;
+  float: left;
+  background-color: #2c2c2c;
+  border-radius: 10px;
+  display: table-cell;
+}
+.petButton {
+  width: 100px;
+  border-radius: 15px;
+}
+
+.interestedButton{
+  width: 200px;
+  border-radius: 15px;
+}
+.basicInfo, .detailTop, .detailBottom{
+  padding-left: 15px;
+}
+.profile-element{
+  display: table;
+  height: 100%;
+  width: 80%;
+}
+.img {
+  display: table-cell;
+  vertical-align: center;
+  width: 100px;
+  height: 100px;
+}
+.profile-icons{
+  padding: 5px;
+  font-size: 30px;
+}
+.profile-element{
+  margin: 0 auto;
+  display: table;
+}
+.descript {
+  width: 80%;
+}
+/*-------Positioning--------*/
+.float-left{
+  float: left;
+}
+.table-cell{
+  display: table-cell;
+}
+.photo-container{
+  width: 100px;
+  padding: 10px;
+}
+.vertical-align{
+  vertical-align: top;
+}
+.align-center{
+  margin: 0 auto;
+}
+/*--------Styling------*/
+.ivory-text{
+  color:ivory;
+}
+.maven{
+  font-family: 'Maven Pro', sans-serif;
+}
+.blur{
+  -webkit-filter: blur(10px);
+  filter: blur(10px);
+}
+.darken{
+  -webkit-filter: brightness(25%);
+}
+.black-background{
+  background-color: #111111;
+}
+.underline{
+  text-decoration: underline;
+}
+
+.descript {
+  padding-right: 6.250em;
+}
+.img-round {
+  border-radius: 500px;
+}
+.justify-text{
+  text-align: justify;
+}
 .tab {
   list-style: none;
 }
-
-#dog-btn {
-  margin-top: .25em;
-}
-
-#randomResultsWrapper {
-  display: none;
-}
-#allPetPics {
-  /*float: right;*/
-  margin: auto;
-}
-
-#map { height: 100%; }

@@ -104,7 +104,7 @@
         pets.displayMatches();
         $('#narrowResults').slideDown(400);
     } else {
-        console.error('pick an option')
+        console.error('pick an option');
       }
     });
   };

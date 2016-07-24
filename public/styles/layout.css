@@ -152,6 +152,10 @@ input[type='checkbox'] {
   text-align: center;
 }
 
+.descript {
+  width: 80%;
+}
+
 /*--------Element Classes--------*/
 .section-wrapper{
   position:relative;

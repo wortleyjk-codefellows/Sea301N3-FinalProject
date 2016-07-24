@@ -108,7 +108,7 @@
         pets.requestPets($zipSearch, pets.$petWanted);
       }
       else{
-        toastr.error('Please enter a zip code to continue')
+        toastr.error('Please enter a zip code to continue');
       }
     });
   };
@@ -140,12 +140,12 @@
 
   pets.noMatch = function() {
     // if(pets.filtered.length <= 0) {
-      console.log($('#noMatches'));
-      $('#noMatches').show();
-      $('#input-snr-cb').prop('checked', false);
-      $('#input-spl-cb').prop('checked', false);
+    console.log($('#noMatches'));
+    $('#noMatches').show();
+    $('#input-snr-cb').prop('checked', false);
+    $('#input-spl-cb').prop('checked', false);
     // $('#petLargeness').empty();
-      $('.sexRadio').prop('checked', false);
+    $('.sexRadio').prop('checked', false);
     // }
   };
 
@@ -153,9 +153,9 @@
 
   pets.pareDown = function() {
     // $('#show-me-btn').off().on('click', function(){
-      console.log('running pareDown');
+    console.log('running pareDown');
       // if (pets.$seniorPet || pets.$specialPet) {
-        pets.filtered = pets.all
+    pets.filtered = pets.all
         .filter(function(pet) {
           return pets.isSenior(pet);
         })
@@ -179,12 +179,11 @@
       var source   = $('#search-result').html();
       var template = Handlebars.compile(source);
       pets.filtered.forEach(function(e){
-          var html    = template(e);
-          $('#narrowResults').append(html);
-          controller.showResults();
-        });
-      }
-      else {
+        var html    = template(e);
+        $('#narrowResults').append(html);
+        controller.showResults();
+      });
+    } else {
       pets.noMatch();
     }
     $('section.section-wrapper').addClass('black-background');
@@ -231,7 +230,7 @@
   pets.clearData = function(){
     pets.all = [];
     pets.filtered = [];
-  }
+  };
 
   $(document).ready(function() {
     $('#noMatches').hide();

@@ -37,7 +37,7 @@
     if (pet.options.option) { //is defined
       var snOptsArray = pets.getSpecialNeedsOptions(pet.options.option);
 
-      if (pets.$specialPet === 'specialNeeds') {
+      if (pets.$specialPet === true) {
         return snOptsArray.indexOf('specialNeeds') !== -1;
       } else {
         return snOptsArray.indexOf('specialNeeds') === -1;
@@ -46,11 +46,11 @@
   };
 
   pets.isSenior = function(pet) {
-    if (pets.$seniorPet === 'Senior') {
+    if (pets.$seniorPet === true) {
       // console.log(pet.age.$t);
-      return pets.$seniorPet === pet.age.$t;
+      return "Senior" === pet.age.$t;
     } else {
-      return pets.$seniorPet !== pet.age.$t;
+      return "Senior" !== pet.age.$t;
     }
   };
 
@@ -117,26 +117,26 @@
     $('#numMatches').html(pets.all.length);
   };
 
-  pets.snr_spl = function() {
-    $('#input-snr-cb').off().on('click', function(){
-      pets.$seniorPet = this.value;
-    });
-    $('#input-spl-cb').off().on('click', function(){
-      pets.$specialPet = this.value;
-    });
-  };
+  // pets.snr_spl = function() {
+  //   $('#input-snr-cb').off().on('click', function(){
+  //     pets.$seniorPet = this.value;
+  //   });
+  //   $('#input-spl-cb').off().on('click', function(){
+  //     pets.$specialPet = this.value;
+  //   });
+  // };
 
-  pets.howBig = function() {
-    $('#petLargeness').off().on('change', function(){
-      pets.$petSize = this.value;
-    });
-  };
+  // pets.howBig = function() {
+  //   $('#petLargeness').off().on('change', function(){
+  //     pets.$petSize = this.value;
+  //   });
+  // };
 
-  pets.assignedGender = function() {
-    $('.sexRadio').off().on('click', function(){
-      pets.$petSex = this.value;
-    });
-  };
+  // pets.assignedGender = function() {
+  //   $('.sexRadio').off().on('click', function(){
+  //     pets.$petSex = this.value;
+  //   });
+  // };
 
   pets.noMatch = function() {
     // if(pets.filtered.length <= 0) {
@@ -154,6 +154,10 @@
   pets.pareDown = function() {
     // $('#show-me-btn').off().on('click', function(){
       console.log('running pareDown');
+      pets.$seniorPet = $('#input-snr-cb').is(':checked');
+      pets.$specialPet = $('#input-spl-cb').is(':checked');
+      pets.$petSize = $('#petLargeness').val();
+      pets.$petSex = $('input.sexRadio:checked').val();
       // if (pets.$seniorPet || pets.$specialPet) {
         pets.filtered = pets.all
         .filter(function(pet) {
@@ -237,9 +241,9 @@
     $('#noMatches').hide();
     pets.animal_wanted_click();
     pets.searchClick();
-    pets.snr_spl();
-    pets.howBig();
-    pets.assignedGender();
+    // pets.snr_spl();
+    // pets.howBig();
+    // pets.assignedGender();
     controller.showResults();
   });
 

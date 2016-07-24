@@ -47,6 +47,11 @@
 .descript {
   width: 80%;
 }
+/*-------Element Class extensions---------*/
+.pet-summary-element > * {
+  margin: 5px;
+}
+
 /*-------Positioning--------*/
 .float-left{
   float: left;

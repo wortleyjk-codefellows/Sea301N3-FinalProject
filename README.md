@@ -1,14 +1,14 @@
 # Sea301N3-FinalProject
 # My Funny Friend and Me
 
-https://myfunnyfriendandme.herokuapp.com/
-https://gently-used-pets-dev.herokuapp.com/
+1. https://myfunnyfriendandme.herokuapp.com/
+2. https://gently-used-pets-dev.herokuapp.com/
 
 ##Team members
-Jonathan Daniel
-Serina Tsang
-James Wortley
-Geoffrey Cox
+1. Jonathan Daniel
+2. Serina Tsang
+3. James Wortley
+4. Geoffrey Cox
 
 ###The Problem
 Today more than ever there is an upwelling in attention to pet adoption from either shelters or rescue organizations. In 2015 - 2016, dog and cat adoption from a shelter or rescue organization rose by over 40% from 2012/2013. This is a wonderful trend that helps reduce the 'mills' that foster a poor environment for the animals.

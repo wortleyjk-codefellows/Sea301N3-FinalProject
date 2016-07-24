@@ -52,12 +52,10 @@
 /*.randomResults {
   display: none;
 }*/
-/*#allPetPics {
-  float: right;
-}*/
 
-#Animal_Detail {
-  text-align: left;
+#allPetPics {
+  /*float: right;*/
+  margin: auto;
 }
 
 #map { height: 100%; }

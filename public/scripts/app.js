@@ -207,35 +207,46 @@
   pets.selectedPet = null;
   pets.savedPets = [];
 
-  pets.seeMoreButton = function(buttonVal) {
-    if(pets.all.length != 0){
-      //search pets.all
-      pets.all.forEach(function(elem){
-        if(buttonVal == elem.id.$t){
-          console.log('found: '+elem.id.$t);
-          pets.displayFullPetDetails(elem);
-        }
-      });
-    }
-    else if(pets.filtered.length !=0){
-      //search pets.filtered
-      pets.filtered.forEach(function(elem){
-        if(buttonVal == elem.id.$t){
-          pets.displayFullPetDetails(elem);
-        }
-      });
-    }
-    else{
-      //use local storage to retrieve data
-      petsArr = JSON.parse(localStorage.getItem('savedPets'));
-      console.log(petsArr);
-      petsArr.forEach(function(elem){
-        if(buttonVal == elem.id.$t){
-          pets.displayFullPetDetails(elem);
-        }
-      });
-    }
-
+  pets.seeMoreButton = function(buttonVal,searchSource) {
+    // if(pets.all.length != 0){
+    //   //search pets.all
+    //   pets.all.forEach(function(elem){
+    //     if(buttonVal == elem.id.$t){
+    //       console.log('found: '+elem.id.$t);
+    //       pets.displayFullPetDetails(elem);
+    //     }
+    //   });
+    // }
+    // else if(pets.filtered.length !=0){
+    //   //search pets.filtered
+    //   pets.filtered.forEach(function(elem){
+    //     if(buttonVal == elem.id.$t){
+    //       pets.displayFullPetDetails(elem);
+    //     }
+    //   });
+    // }
+    // else if(randomPets.all.length!=0){
+    //   randomPets.all.forEach(function(elem){
+    //     if(buttonVal == elem.id.$t){
+    //       pets.displayFullPetDetails(elem);
+    //     }
+    //   });
+    // }
+    // else{
+    //   //use local storage to retrieve data
+    //   petsArr = JSON.parse(localStorage.getItem('savedPets'));
+    //   console.log(petsArr);
+    //   petsArr.forEach(function(elem){
+    //     if(buttonVal == elem.id.$t){
+    //       pets.displayFullPetDetails(elem);
+    //     }
+    //   });
+    // }
+    searchSource.forEach(function(elem){
+      if(buttonVal == elem.id.$t){
+        pets.displayFullPetDetails(elem);
+      }
+    });
     // pets.filtered.forEach(function(pet) {
     //   if (buttonVal === pet.id.$t) {
     //     pets.selectedPet = pet;

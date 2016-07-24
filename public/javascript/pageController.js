@@ -7,6 +7,7 @@
 
   $('body').on('click', '#greeting-page', function() {
     $('#body-wrapper').addClass('blur');
+    $('#body-wrapper').addClass('darken');
     $('#greeting-page').fadeOut(400);
     $('#randomResultsWrapper').hide();
     $('#stage-1').slideDown(400);
@@ -37,6 +38,8 @@
   $('body').on('click', '#aboutLink', function(e) {
     e.preventDefault();
     $('#nav-selection').toggle();
+    $('#body-wrapper').addClass('blur');
+    $('#body-wrapper').addClass('darken');
     $('section').slideUp(400);
     $('#about').slideDown(400);
   });
@@ -61,16 +64,23 @@
     }
 
   });
-
   $('body').on('click', '#search-btn-transition', function(){
     $('section').slideUp(400);
     $('#filterResults').slideDown(400);
   });
 
+  $('body').on('click', '#randomResultsWrapper > div > .interestedButton', function(){
+    $('section').slideUp(400);
+    var buttonVal = $(this).val();
+    pets.seeMoreButton(buttonVal,randomPets.all);
+    $('#Animal_Detail').slideDown(400);
+    $('#back-search-btn').hide();
+  });
+
   $('body').on('click', '#savedPets > .pet-summary-element > .interestedButton', function(){
     $('section').slideUp(400);
     var buttonVal = $(this).val();
-    pets.seeMoreButton(buttonVal);
+    pets.seeMoreButton(buttonVal,JSON.parse(localStorage.getItem('savedPets')));
     $('#Animal_Detail').slideDown(400);
     $('#back-search-btn').hide();
   });
@@ -78,12 +88,9 @@
   $('body').on('click', '#narrowResults > .pet-summary-element > .interestedButton', function() {
     $('section').slideUp(400);
     var buttonVal = $(this).val();
-    pets.seeMoreButton(buttonVal);
+    pets.seeMoreButton(buttonVal,pets.all);
     $('#Animal_Detail').slideDown(400);
   });
-
-
-
   controller.showResults = function(){
     $('#filterGroupForm').on('submit', function(e){
       e.preventDefault();

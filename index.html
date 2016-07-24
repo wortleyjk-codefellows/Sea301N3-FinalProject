@@ -51,12 +51,10 @@
           <button class="petButton" value='cat' id='cat-btn'>CAT</button>
         </div>
         <!-- section where the random pets will go in desktop view -->
-        <!-- <section class='randomResults'> -->
           <h2 id='randomPetMessage' class='maven ivory-text'>Click me for some pets that might interest you.</h2>
           <div id='randomResultsWrapper'>
 
           </div>
-        <!-- </section> -->
       </div>
     </section>
 
@@ -67,8 +65,6 @@
         <form id="zipFindForm">
           <input id="zipFind" type="text" name="zip" placeholder="zipcode" required>
           <input class="find-new-pet-btn" type="button" name="findIt" value="Find me a new friend!">
-          <!-- <button id='find-new-pet-btn'>Find me a new friend!</button> -->
-          <!-- HAD TO CHANGE THIS TO A SUBMIT SO THE ZIPCODE REQUIRED WOULD WORK. -->
         </form>
       </div>
     </section>
@@ -85,21 +81,10 @@
       <div id="filterResultsWrapper">
         <h1 class='maven ivory-text'>I would like a new pet who is...</h1>
         <p class='maven ivory-text'>Please try to limit your criteria to 3 options for best results!</p>
-      <!-- <div class="choice-container"> -->
-        <!-- <div class="left-buffer">
-        </div> -->
-        <!-- <div class="right-buffer"> -->
         <form id="filterGroupForm">
           <input type="checkbox" id='input-snr-cb' value="Senior"><span class='page-text maven ivory-text'>Senior</span></input>
-        <!-- </div> -->
-      <!-- </div> -->
-      <!-- <div class="choice-container"> -->
-        <!-- <div class="left-buffer">
-        </div> -->
-        <!-- <div class="right-buffer"> -->
+
           <input type="checkbox" id='input-spl-cb' value="specialNeeds"><span class='page-text maven ivory-text'>Special Needs</span></input>
-        <!-- </div> -->
-      <!-- </div> -->
         <select id="petLargeness" class="" name="">
           <option value="Size of Pet">Size Of Pet</option>
           <option value="S">Small</option>
@@ -111,7 +96,7 @@
           <input class="sexRadio" type="radio" name="gender" value="M"><span class='page-text maven ivory-text'>Male</span>
           <input class="sexRadio" type="radio" name="gender" value="F"><span class='page-text maven ivory-text'>Female</span>
       <!-- </div> -->
-          <button type="submit" id='show-me-btn' name="showMe" class='maven ivory-text'>Show Me My New Friends!</button>
+          <button type="button" id='show-me-btn' name="showMe" class='maven ivory-text'>Show Me My New Friends!</button>
         </form>
       </div>
     </div>
@@ -119,15 +104,10 @@
 
 
     <section id='narrowResults' class='section-wrapper'>
-      <!-- <div id='narrowResultsWrapper'></div> -->
       <h1 id='noMatches' class='maven ivory-text'>
         Sorry there were no pets matching your criteria. Please choose different options and search again.
       </h1>
     </section>
-
-    <!-- <section id='noResults'> -->
-    <!-- </section> -->
-
     <section id="Animal_Detail" class='section-wrapper'>
       <div id="Animal_Detail_Wrapper"></div>
       <div>
@@ -248,8 +228,6 @@
       <section id="findVet">
         <div id ="map"></div>
       </section>
-  <!-- Adding handlebars for animal detail view  -->
-
       <!-- handlebars template for results after filtering -->
       <script id="search-result" type="text/x-handlebars-template">
         <div class='pet-summary-element'>
@@ -287,7 +265,6 @@
             <li><p class='maven ivory-text'>Mix: {{mix.$t}}</p></li>
             <li><p class='maven ivory-text'>Size: {{size.$t}}</p></li>
             <li><p class='maven ivory-text'>Age: {{age.$t}}</p></li>
-            <li><p class='maven ivory-text'>Sex: {{sex.$t}}</p></li>
           </ul>
         </article>
         <article id="detailBottom" class='detailBottom'>

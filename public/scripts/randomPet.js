@@ -2,20 +2,20 @@
   var randomPets = {};
   randomPets.all = [];
 
-randomPets.getRandom = function() {
-  console.log('running getRandom');
-  $.getJSON('https://api.petfinder.com/pet.getRandom?format=json&key=8dc33d8c70fd213dc0874e9deaa0a2fd&age=Senior&output=full&count=6&callback=?',function(data){
-    return data;
-  }).done(function(data) {
-    console.log(data);
-    randomPets.all = [];
-    randomPets.all = data.petfinder.pet;
-    console.log(randomPets.all);
-    randomPets.displayRandom();
-  }).fail(function(err)
+  randomPets.getRandom = function() {
+    console.log('running getRandom');
+    $.getJSON('https://api.petfinder.com/pet.getRandom?format=json&key=8dc33d8c70fd213dc0874e9deaa0a2fd&age=Senior&output=full&count=6&callback=?',function(data){
+      return data;
+    }).done(function(data) {
+      console.log(data);
+      randomPets.all = [];
+      randomPets.all = data.petfinder.pet;
+      console.log(randomPets.all);
+      randomPets.displayRandom();
+    }).fail(function(err)
     { toastr.error('Data could not be retrieved, error: ' + err);
-  });
-};
+    });
+  };
 
 
 randomPets.displayRandom = function() {

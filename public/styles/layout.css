@@ -149,6 +149,10 @@ input[type='checkbox'] {
   display: none;
 }
 
+.descript {
+  width: 80%;
+}
+
 /*--------Element Classes--------*/
 .section-wrapper{
   position:relative;

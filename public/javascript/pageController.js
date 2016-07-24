@@ -74,6 +74,7 @@
     var buttonVal = $(this).val();
     pets.seeMoreButton(buttonVal,randomPets.all);
     $('#Animal_Detail').slideDown(400);
+    $('section.section-wrapper').addClass('black-background');
     $('#back-search-btn').hide();
   });
 
@@ -81,6 +82,7 @@
     $('section').slideUp(400);
     var buttonVal = $(this).val();
     pets.seeMoreButton(buttonVal,JSON.parse(localStorage.getItem('savedPets')));
+    $('section.section-wrapper').addClass('black-background');
     $('#Animal_Detail').slideDown(400);
     $('#back-search-btn').hide();
   });
@@ -89,6 +91,7 @@
     $('section').slideUp(400);
     var buttonVal = $(this).val();
     pets.seeMoreButton(buttonVal,pets.all);
+    $('section.section-wrapper').addClass('black-background');
     $('#Animal_Detail').slideDown(400);
   });
   controller.showResults = function(){

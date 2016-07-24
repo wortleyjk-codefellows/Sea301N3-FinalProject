@@ -226,6 +226,9 @@ input[type='checkbox'] {
 .darken{
   -webkit-filter: brightness(25%);
 }
+.black-background{
+  background-color: #111111;
+}
 .underline{
   text-decoration: underline;
 }

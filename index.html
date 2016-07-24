@@ -80,22 +80,23 @@
     <section id="filterResults" class='section-wrapper'>
       <div id="filterResultsWrapper">
         <h1 class='maven ivory-text'>I would like a new pet who is...</h1>
-        <p class='maven ivory-text'>Please try to limit your criteria to 3 options for best results!</p>
-        <form id="filterGroupForm">
-          <input type="checkbox" id='input-snr-cb' value="Senior"><span class='page-text maven ivory-text'>Senior</span></input>
+        <p class='maven ivory-text font-large'>Please try to limit your criteria to 3 options for best results!</p>
+        <form id="filterGroupForm" class='filter-params'>
+          <input type="checkbox" id='input-snr-cb' value="Senior"><span class='page-text maven ivory-text font-large'>Senior</span></input>
 
-          <input type="checkbox" id='input-spl-cb' value="specialNeeds"><span class='page-text maven ivory-text'>Special Needs</span></input>
-        <select id="petLargeness" class="" name="">
-          <option value="Size of Pet">Size Of Pet</option>
-          <option value="S">Small</option>
-          <option value="M">Medium</option>
-          <option value="L">Large</option>
+          <input type="checkbox" id='input-spl-cb' value="specialNeeds"><span class='page-text maven ivory-text font-large'>Special Needs</span></input>
+          <br>
+        <select id="petLargeness">
+          <option value="Size of Pet" class='font-large'>Size Of Pet</option>
+          <option value="S" class='font-large'>Small</option>
+          <option value="M" class='font-large'>Medium</option>
+          <option value="L" class='font-large'>Large</option>
         </select>
+        <br>
       <div id="gender">
-      <!-- <div class="choice-container"> -->
-          <input class="sexRadio" type="radio" name="gender" value="M"><span class='page-text maven ivory-text'>Male</span>
-          <input class="sexRadio" type="radio" name="gender" value="F"><span class='page-text maven ivory-text'>Female</span>
-      <!-- </div> -->
+          <input class="sexRadio" type="radio" name="gender" value="M"><span class='page-text maven ivory-text font-large'>Male</span>
+          <input class="sexRadio" type="radio" name="gender" value="F"><span class='page-text maven ivory-text font-large'>Female</span>
+          <br>
           <button type="button" id='show-me-btn' name="showMe" class='maven ivory-text'>Show Me My New Friends!</button>
         </form>
       </div>
@@ -112,36 +113,29 @@
       <div id="Animal_Detail_Wrapper"></div>
       <div>
         <button id='save-pet-btn'>Save For Later</button>
-        <!-- <button id='adopt-pet-btn'>Adopted! Share!</button> -->
         <button id='back-search-btn'>Back to Results</button>
       </div>
     </section>
     <div>
     <section id="resources" class='section-wrapper maven ivory-text'>
       <h1>Pet Resources</h1>
-        <ul>
-          <li>Rehoming a Special-Needs Pet
-            <p><a href="http://bestfriends.org/resources/rehoming-special-needs-pet">bestfriends.org</a></p>
-            <p><a href ="http://www.petswithdisabilities.org">petswithdisabilities.org</a></p>
-            <p><a href="http://vth.vetmed.wsu.edu/good-samaritan">vth.vetmed.wsu/edu</a></p>
-          </li>
-          <li>Pet Supplies for Special-Needs Pets
-            <p><a href="http://www.handicappedpets.com/">handicappedpets.com</a></p>
-            <p><a href="http://hpets.org/">hpets.org</a></p>
-            <p><a href="http://www.k9carts.com/">k9carts.com</a></p>
-            <p><a href="http://useddogwheelchairs.com/">useddogwheelchairs.com</a></p>
-          </li>
-          <li>Pet Insurance
-            <p><a href="http://www.consumersadvocate.org/pet-insurance/best-pet-insurance">consumersadvocate.org</a></p>
-            <p><a href="http://www.healthypawspetinsurance.com/">Healthy Paws Pet Insurance</a></p>
-            <p><a href="http://www.gopetplan.com/">Pet Plan</a></p>
-            <p><a href="http://www.embracepetinsurance.com/">Embrace Pet Insurance</a></p>
-          </li>
-          <li>Financial Assistance
-            <p><a href="http://www.handicappedpets.com/pet-services/financial-aid-for-pets">Handicapped Pets</a></p>
-            <p><a href="http://www.carecredit.com/vetmed">Care Credit</a></p>
-          </li>
-        </ul>
+          <h2>Rehoming a Special-Needs Pet</h2>
+            <p><a href="http://bestfriends.org/resources/rehoming-special-needs-pet" class='maven ivory-text underline'>bestfriends.org</a></p>
+            <p><a href ="http://www.petswithdisabilities.org" class='maven ivory-text underline'>petswithdisabilities.org</a></p>
+            <p><a href="http://vth.vetmed.wsu.edu/good-samaritan" class='maven ivory-text underline'>vth.vetmed.wsu/edu</a></p>
+          <h2>Pet Supplies for Special-Needs Pets</h2>
+            <p><a href="http://www.handicappedpets.com/" class='maven ivory-text underline'>handicappedpets.com</a></p>
+            <p><a href="http://hpets.org/" class='maven ivory-text underline'>hpets.org</a></p>
+            <p><a href="http://www.k9carts.com/" class='maven ivory-text underline'>k9carts.com</a></p>
+            <p><a href="http://useddogwheelchairs.com/" class='maven ivory-text underline'>useddogwheelchairs.com</a></p>
+          <h2>Pet Insurance</h2>
+            <p><a href="http://www.consumersadvocate.org/pet-insurance/best-pet-insurance" class='maven ivory-text underline'>consumersadvocate.org</a></p>
+            <p><a href="http://www.healthypawspetinsurance.com/" class='maven ivory-text underline'>Healthy Paws Pet Insurance</a></p>
+            <p><a href="http://www.gopetplan.com/" class='maven ivory-text underline'>Pet Plan</a></p>
+            <p><a href="http://www.embracepetinsurance.com/" class='maven ivory-text underline'>Embrace Pet Insurance</a></p>
+          <h2>Financial Assistance</h2>
+            <p><a href="http://www.handicappedpets.com/pet-services/financial-aid-for-pets" class='maven ivory-text underline'>Handicapped Pets</a></p>
+            <p><a href="http://www.carecredit.com/vetmed" class='maven ivory-text underline'>Care Credit</a></p>
     </section>
     </div>
 
@@ -257,7 +251,7 @@
         <article id="detailTop" class='detailTop'>
           <h2 class='maven ivory-text'>{{name.$t}}</h2>
           <article id="allPetPics">
-            <img src={{{media.photos.photo.0.$t}}}/>
+            <img src={{{media.photos.photo.2.$t}}}/>
           </article>
           <ul id="basicInfo" class='basicInfo'>
             <li><p class='maven ivory-text'>Animal: {{animal.$t}}</p></li>
@@ -284,10 +278,8 @@
         </article>
       </section>
     </script>
-  <script type="text/javascript" src="scripts/vetControl.js"></script>
   <script src="scripts/randomPet.js"></script>
   <script src="javascript/pageController.js"></script>
   <script src="scripts/app.js"></script>
-  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCU2VMSBA-zG2suPG-LwpUJcMbjLPsNqBw&libraries=places&callback=vets.initMap"></script>
   </body>
 </html>

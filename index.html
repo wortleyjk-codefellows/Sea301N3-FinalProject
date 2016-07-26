@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>My Funny Friend and Me</title>
+    <script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js"></script>
+    <script type="text/javascript" src='//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js'></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Poiret+One|Maven+Pro|Montserrat' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Cedarville+Cursive' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+    <link rel="stylesheet" href="vendors/normalize.css">
+    <link rel="stylesheet" href="styles/ionicons.css">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/module.css">
+    <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/state.css">
+  </head>
+  <body>
+  <div id='body-wrapper'></div>
+  <div id='nav-title-wrapper'>
+    <nav>
+    <div id='nav-details'>
+      <div id="mobile-menu" class='float-left'>
+        <span class="ion-navicon-round float-left"></span>
+      </div>
+      <div id='nav-title'>My Funny Friend and Me</div>
+    </div>
+    <div id='nav-selection'>
+      <ul>
+        <li class="tab"><a href="/" id="homeLink" class="ion-happy maven ivory-text">HOME</a></li>
+        <li class="tab"><a href="#" id="favoritesLink" class="ion-ios-paw maven ivory-text">FAVORITE PETS</a></li>
+        <li class="tab"><a href="#" id="aboutLink" class="ion-person maven ivory-text">ABOUT US</a></li>
+        <li class="tab"><a href="#" id="resourcesLink" class="ion-link maven ivory-text">RESOURCES</a></li>
+      </ul>
+    </div>
+    </nav>
+  </div>
+    <div id='main-wrapper'>
+    <section id='greeting-page' class='section-wrapper'>
+      <div>
+        <h1 id='greeting-text' class='maven ivory-text'>...Your new pet is just a few clicks away! Click here to start...</h1>
+      </div>
+    </section>
+    <section id="stage-1" class='section-wrapper'>
+        <div id='stage-1-wrapper'>
+          <h1 class='maven ivory-text'>I would like to adopt a...</h1>
+        <div class='choice-container'>
+          <button class="petButton" value='dog' id='dog-btn'>DOG</button>
+          <button class="petButton" value='cat' id='cat-btn'>CAT</button>
+        </div>
+        <!-- section where the random pets will go in desktop view -->
+          <h2 id='randomPetMessage' class='maven ivory-text'>Click me for some pets that might interest you.</h2>
+          <div id='randomResultsWrapper'>
+
+          </div>
+      </div>
+    </section>
+
+
+    <section id="searchSection" class='section-wrapper'>
+      <div id="searchSectionWrapper">
+        <h1 class='maven ivory-text'>and I live in...</h1>
+        <form id="zipFindForm">
+          <input id="zipFind" type="text" name="zip" placeholder="zipcode" required>
+          <input class="find-new-pet-btn" type="button" name="findIt" value="Find me a new friend!">
+        </form>
+      </div>
+    </section>
+    <section id="totalMatches" class='section-wrapper'>
+      <div id="newFriends">
+        <h1 class='maven ivory-text'>We found</h1>
+        <h1 id="numMatches" class='maven ivory-text'></h1>
+        <h1 class='maven ivory-text'>potential new friends for you!</h1>
+        <h1 class='maven ivory-text'>We will need more information now to find you that special pet that you would love!</h1>
+        <button id='search-btn-transition' class='maven ivory-text'>OK</button>
+    </div>
+    </section>
+    <section id="filterResults" class='section-wrapper'>
+      <div id="filterResultsWrapper">
+        <h1 class='maven ivory-text'>I would like a new pet who is...</h1>
+        <p class='maven ivory-text font-large'>Please try to limit your criteria to 3 options for best results!</p>
+        <form id="filterGroupForm" class='filter-params'>
+          <input type="checkbox" id='input-snr-cb' value="Senior"><span class='page-text maven ivory-text font-large'>Senior</span></input>
+
+          <input type="checkbox" id='input-spl-cb' value="specialNeeds"><span class='page-text maven ivory-text font-large'>Special Needs</span></input>
+          <br>
+        <select id="petLargeness">
+          <option value="Size of Pet" class='font-large'>Size Of Pet</option>
+          <option value="S" class='font-large'>Small</option>
+          <option value="M" class='font-large'>Medium</option>
+          <option value="L" class='font-large'>Large</option>
+        </select>
+        <br>
+      <div id="gender">
+          <input class="sexRadio" type="radio" name="gender" value="M"><span class='page-text maven ivory-text font-large'>Male</span>
+          <input class="sexRadio" type="radio" name="gender" value="F"><span class='page-text maven ivory-text font-large'>Female</span>
+          <br>
+          <button type="button" id='show-me-btn' name="showMe" class='maven ivory-text'>Show Me My New Friends!</button>
+        </form>
+      </div>
+    </div>
+    </section>
+
+
+    <section id='narrowResults' class='section-wrapper'>
+      <h1 id='noMatches' class='maven ivory-text'>
+        Sorry there were no pets matching your criteria. Please choose different options and search again.
+      </h1>
+    </section>
+    <section id="Animal_Detail" class='section-wrapper'>
+      <div id="Animal_Detail_Wrapper"></div>
+      <div>
+        <button id='save-pet-btn'>Save For Later</button>
+        <button id='back-search-btn'>Back to Results</button>
+      </div>
+    </section>
+    <div>
+    <section id="resources" class='section-wrapper maven ivory-text'>
+      <h1>Pet Resources</h1>
+          <h2>Rehoming a Special-Needs Pet</h2>
+            <p><a href="http://bestfriends.org/resources/rehoming-special-needs-pet" class='maven ivory-text underline'>bestfriends.org</a></p>
+            <p><a href ="http://www.petswithdisabilities.org" class='maven ivory-text underline'>petswithdisabilities.org</a></p>
+            <p><a href="http://vth.vetmed.wsu.edu/good-samaritan" class='maven ivory-text underline'>vth.vetmed.wsu/edu</a></p>
+          <h2>Pet Supplies for Special-Needs Pets</h2>
+            <p><a href="http://www.handicappedpets.com/" class='maven ivory-text underline'>handicappedpets.com</a></p>
+            <p><a href="http://hpets.org/" class='maven ivory-text underline'>hpets.org</a></p>
+            <p><a href="http://www.k9carts.com/" class='maven ivory-text underline'>k9carts.com</a></p>
+            <p><a href="http://useddogwheelchairs.com/" class='maven ivory-text underline'>useddogwheelchairs.com</a></p>
+          <h2>Pet Insurance</h2>
+            <p><a href="http://www.consumersadvocate.org/pet-insurance/best-pet-insurance" class='maven ivory-text underline'>consumersadvocate.org</a></p>
+            <p><a href="http://www.healthypawspetinsurance.com/" class='maven ivory-text underline'>Healthy Paws Pet Insurance</a></p>
+            <p><a href="http://www.gopetplan.com/" class='maven ivory-text underline'>Pet Plan</a></p>
+            <p><a href="http://www.embracepetinsurance.com/" class='maven ivory-text underline'>Embrace Pet Insurance</a></p>
+          <h2>Financial Assistance</h2>
+            <p><a href="http://www.handicappedpets.com/pet-services/financial-aid-for-pets" class='maven ivory-text underline'>Handicapped Pets</a></p>
+            <p><a href="http://www.carecredit.com/vetmed" class='maven ivory-text underline'>Care Credit</a></p>
+    </section>
+    </div>
+
+    <section id="favoritesSection" class='section-wrapper'>
+      <h1 class='maven ivory-text'>Favorite Pets</h1>
+      <div id="savedPets"></div>
+    </section>
+
+    <section id="about" class='section-wrapper'>
+      <div class="profile-container">
+        <div class='profile-element'>
+          <div class='float-left photo-container table-cell'>
+            <img class="img img-round" src="images/james.jpg"/>
+            <div class='profile-icons'>
+              <a class='ion-social-linkedin ivory-text' href="https://www.linkedin.com/in/james-wortley-42077814"></a>
+              <a class='ion-social-github ivory-text' href="https://github.com/wortleyjk-codefellows"></a>
+            </div>
+          </div>
+          <div class='table-cell vertical-align'>
+            <h2 class='maven ivory-text underline'>James</h2>
+            <p class='maven ivory-text justify-text'>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+          </div>
+        </div>
+      </div>
+      <hr/>
+      <div id="profile-container">
+        <div class='profile-element'>
+          <div class='float-left photo-container table-cell'>
+            <img class="img img-round" src="images/jonathan.jpg"/>
+            <div class='profile-icons'>
+              <a class='ion-social-linkedin ivory-text' href="https://www.linkedin.com/in/jonathan-daniel-48616913"></a>
+              <a class='ion-social-github ivory-text' href="https://github.com/spamalope01"></a>
+            </div>
+          </div>
+          <div class='table-cell vertical-align'>
+            <h2 class='maven ivory-text underline'>Jonathan</h2>
+            <p class='maven ivory-text justify-text'>
+              Jonathan is a recent transplant to Seattle from Alabama.  He’s worked as a software Business Analyst for the past 10 years.  He’s a published author with several short pieces and two novels under his belt.  He spends his days working on the next book, playing with his Boston Terriers and chatting with the voices in his head.
+            </p>
+          </div>
+        </div>
+      </div>
+      <hr/>
+      <div id="profile-container">
+        <div class='profile-element'>
+          <div class='float-left photo-container table-cell'>
+            <img class="img img-round" src="images/serina.jpg"/>
+            <div class='profile-icons'>
+              <a class='ion-social-linkedin ivory-text' href="https://www.linkedin.com/in/serina-tsang-91b810105"></a>
+              <a class='ion-social-github ivory-text' href="https://github.com/serinat"></a>
+            </div>
+          </div>
+          <div class='table-cell vertical-align'>
+            <h2 class='maven ivory-text underline'>Serina</h2>
+            <p class='maven ivory-text justify-text'>
+              Serina is a research scientist at the UW and has lived in Seattle for most of her life. She enjoys spending time with family which includes her personal hubby chef, 4 going on 14 beloved daughter, loner doxiepoo and crazy french bulldog.
+            </p>
+          </div>
+        </div>
+      </div>
+      <hr/>
+      <div id="profile-container">
+        <div class='profile-element'>
+          <div class='float-left photo-container table-cell'>
+            <img class="img img-round" src="images/geoff.jpg"/>
+            <div class='profile-icons'>
+              <a href="#" class='ion-social-linkedin ivory-text'></a>
+              <a class='ion-social-github ivory-text' href="https://github.com/geoffreycc"></a>
+            </div>
+          </div>
+          <div class='table-cell vertical-align'>
+            <h2 class='maven ivory-text underline'>Geoffrey</h2>
+            <p class='maven ivory-text justify-text'>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+          </div>
+        </div>
+      </div>
+      <hr/>
+      </section>
+
+      <section id="findVet">
+        <div id ="map"></div>
+      </section>
+      <!-- handlebars template for results after filtering -->
+      <script id="search-result" type="text/x-handlebars-template">
+        <div class='pet-summary-element'>
+          <img src={{{media.photos.photo.0.$t}}} />
+          <h1 class='maven ivory-text'>{{name.$t}}</h1>
+          <h3 class='maven ivory-text'>Breed: {{breeds.breed.$t}}</h3>
+          <h3 class='maven ivory-text'>Gender: {{sex.$t}}</h3>
+          <h4 class='maven ivory-text'>Pet ID: {{id.$t}}</h3>
+          <button id="interested" value={{id.$t}} class='interestedButton'>Interested!</button>
+        </div>
+      </script>
+
+      <!-- handlebars template for random pets when landing is in desktop -->
+      <script id="landingRandom" type="text/x-handlebars-template">
+        <div class='pet-summary-element'>
+          <img src={{{media.photos.photo.0.$t}}} />
+          <h1 class='maven ivory-text'>{{name.$t}}</h1>
+          <h4 class='maven ivory-text'>Breed: {{breeds.breed.$t}}</h3>
+          <h4 class='maven ivory-text'>Gender: {{sex.$t}}</h3>
+          <h4 class='maven ivory-text'>Pet ID: {{id.$t}}</h3>
+          <button id="interested" value={{id.$t}}  class='interestedButton'>Interested!</button>
+        </div>
+      </script>
+      <!-- Adding handlebars for animal detail view  -->
+    <script id="petDetails" type="text/x-handlebars-template">
+      <section id={{id.$t}}>
+        <article id="detailTop" class='detailTop'>
+          <h2 class='maven ivory-text'>{{name.$t}}</h2>
+          <article id="allPetPics">
+            <img src={{{media.photos.photo.2.$t}}}/>
+          </article>
+          <ul id="basicInfo" class='basicInfo'>
+            <li><p class='maven ivory-text'>Animal: {{animal.$t}}</p></li>
+            <li><p class='maven ivory-text'>Breed: {{breeds.breed.$t}}</p></li>
+            <li><p class='maven ivory-text'>Mix: {{mix.$t}}</p></li>
+            <li><p class='maven ivory-text'>Size: {{size.$t}}</p></li>
+            <li><p class='maven ivory-text'>Age: {{age.$t}}</p></li>
+          </ul>
+        </article>
+        <article id="detailBottom" class='detailBottom'>
+          <p class='descript maven ivory-text'>{{description.$t}}</p>
+          <ul id="detailContact">
+            <li class='maven ivory-text'>Shelter Id: {{shelterId.$t}}</li>
+            <li class='maven ivory-text'>Pet Id: {{id.$t}}</li>
+            <li class='maven ivory-text'>Last Updated: {{lastUpdate.$t}}</li>
+            <li class='maven ivory-text'>{{contact.address1.$t}}</li>
+            <li class='maven ivory-text'>{{contact.address2.$t}}</li>
+            <li class='maven ivory-text'>City: {{contact.city.$t}}</li>
+            <a href="mailto:{{contact.email.$t}}" class='maven ivory-text '>Email Contact: <span class='underline'>{{contact.email.$t}} </span></a>
+            <li class='maven ivory-text'>Contact #: {{contact.phone.$t}}</li>
+            <li class='maven ivory-text'>State: {{contact.state.$t}}</li>
+            <li class='maven ivory-text'>Zip: {{contact.zip.$t}}</li>
+          </ul>
+        </article>
+      </section>
+    </script>
+  <script src="scripts/randomPet.js"></script>
+  <script src="javascript/pageController.js"></script>
+  <script src="scripts/app.js"></script>
+  </body>
+</html>

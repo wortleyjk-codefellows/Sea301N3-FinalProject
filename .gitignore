@@ -1,0 +1,4 @@
+.DS_Store
+node_modules/
+apiToken.json
+key.json
